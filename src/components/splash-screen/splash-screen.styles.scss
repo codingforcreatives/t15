@@ -1,13 +1,37 @@
 .splash-screen {
 	height: 100vh;
-	// border-style: solid;
-	// border-width: 4px;
-	// border-color: black;
 }
+#counter {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	opacity: 30%;
+}
+
 .myVideo {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	min-width: 100%;
 	min-height: 100%;
+}
+
+.video-overlay {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+
+	align-items: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+
+	overflow: hidden;
+}
+#movie {
+	width: 100vmin;
+	height: 100vmin;
+	position: absolute;
 }

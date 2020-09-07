@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './splash-screen.styles.scss';
-import { gsap } from 'gsap';
+import { gsap, TimelineMax, drawSVG } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const SplashScreen = () => {
-	console.log('SPLASH');
+	let count = 3;
+	let counter = useRef(null);
+	//call back functions
+	const countDown = () => {
+		count--;
+		console.log(count);
+	};
+	//hooking onto elements
+	let rotator = useRef(null);
+	let splashContainer = useRef(null);
+
+	let tl = new TimelineMax({
+		repeat: 3,
+		onRepeat: countDown,
+		repeatDelay: 0,
+	});
+
+	useEffect(() => {
+		tl.to(rotator, {
+			rotation: 360,
+			svgOrigin: '600 450',
+		});
+
+		tl.duration(2).play();
+	});
+
 	return (
-		<div className="splash-screen">
-			<video autoPlay="autoPlay" muted loop="loop" class="myVideo">
+		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
+			<video autoPlay="autoPlay" muted loop="loop" className="myVideo">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
@@ -16,6 +41,43 @@ const SplashScreen = () => {
 					type="video/mp4"
 				/>
 			</video>
+
+			<div className="video-overlay">
+				<svg
+					id="movie"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 1200 1200"
+					width="1200"
+					height="1200">
+					<g id="film">
+						<text
+							id="counter"
+							ref={(el) => (counter = el)}
+							textAnchor="middle"
+							x="600"
+							y="535"
+							fill="white"
+							fontSize="300">
+							03
+						</text>
+
+						<g strokeWidth="2">
+							<circle cx="600" cy="450" r="350" stroke="#444444" fill="none" />
+						</g>
+
+						<line
+							ref={(el) => (rotator = el)}
+							id="rotator"
+							x1="600"
+							y1="275"
+							x2="600"
+							y2="450"
+							stroke="#444444"
+							strokeWidth="2"
+						/>
+					</g>
+				</svg>
+			</div>
 		</div>
 	);
 };
