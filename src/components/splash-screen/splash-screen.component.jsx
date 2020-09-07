@@ -5,15 +5,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const SplashScreen = () => {
-	const countString = useRef('01');
+	//states
 	const [count, setCount] = useState(3);
 
-	//hooking onto elements
+	//Accessing elements
 	let rotator = useRef(null);
 	let splashContainer = useRef(null);
 
-	let countDown = () => {
-		console.log('hello');
+	let countDownTimer = () => {
+		setInterval(() => {
+			if (count != 0) {
+				setCount(count - 1);
+			} else {
+				//do nothing
+			}
+			console.log(count);
+		}, 1500);
 	};
 
 	let tl = new TimelineMax({
@@ -25,15 +32,8 @@ const SplashScreen = () => {
 			rotation: 360,
 			svgOrigin: '600 600',
 		});
-		setInterval(() => {
-			if (count != 0) {
-				setCount(count - 1);
-			} else {
-				//do nothing
-			}
-			console.log(count);
-		}, 2000);
-		tl.duration(2).play();
+		countDownTimer();
+		tl.duration(1.5).play();
 	});
 
 	return (
