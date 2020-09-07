@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SplashScreen = () => {
 	const countString = useRef('01');
-	const [count, setCount] = useState('01');
+	const [count, setCount] = useState(3);
 
 	//hooking onto elements
 	let rotator = useRef(null);
@@ -18,17 +18,19 @@ const SplashScreen = () => {
 
 	let tl = new TimelineMax({
 		repeat: 3,
-		onRepeat: countDown,
-		repeatDelay: 0,
 	});
 
 	useEffect(() => {
 		tl.to(rotator, {
 			rotation: 360,
-			svgOrigin: '600 450',
+			svgOrigin: '600 600',
 		});
 		setInterval(() => {
-			setCount('02');
+			if (count != 0) {
+				setCount(count - 1);
+			} else {
+				//do nothing
+			}
 			console.log(count);
 		}, 2000);
 		tl.duration(2).play();
@@ -49,34 +51,42 @@ const SplashScreen = () => {
 				<svg
 					id="movie"
 					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 1200 1200"
-					width="1200"
-					height="1200">
+					viewBox="0 0 1200 1200">
 					<g id="film">
-						<text
-							id="counter"
-							textAnchor="middle"
-							x="600"
-							y="535"
-							fill="white"
-							fontSize="300">
-							{countString.current}
-						</text>
-
 						<g strokeWidth="2">
-							<circle cx="600" cy="450" r="350" stroke="#444444" fill="none" />
+							<circle cx="600" cy="600" r="320" stroke="#444444" fill="none" />
 						</g>
 
 						<line
 							ref={(el) => (rotator = el)}
 							id="rotator"
 							x1="600"
-							y1="275"
+							y1="280"
 							x2="600"
-							y2="450"
+							y2="600"
 							stroke="#444444"
 							strokeWidth="2"
 						/>
+						<text
+							id="counter"
+							textAnchor="middle"
+							x="600"
+							y="720"
+							fill="white"
+							fontSize="340">
+							{'0'}
+							{count}
+						</text>
+
+						<text
+							id="slogan"
+							textAnchor="middle"
+							x="600"
+							y="620"
+							fill="white"
+							fontSize="40">
+							Level up your digital presence
+						</text>
 					</g>
 				</svg>
 			</div>
