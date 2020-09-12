@@ -6,6 +6,7 @@ import ExtendableVideo from '../../components/extendable-video/extendable-video.
 const HomePage = () => (
 	<div className="homepage">
 		<ExtendableVideo />
+		<ExtendableVideo />
 	</div>
 );
 
