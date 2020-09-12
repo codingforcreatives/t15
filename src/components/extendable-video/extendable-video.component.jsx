@@ -5,19 +5,15 @@ import cx from 'classnames';
 import { Transition } from 'react-transition-group';
 
 const ExtendableVideo = () => {
-	const [width, setWidth] = useState('10%');
+	// const [width, setWidth] = useState('10%');
+	const [expandedClass, setExpandedClass] = useState('initial');
 	return (
 		<div className="extendable-video-container">
-			<Transition
-				in={width}
-				timeout={350}
-				classNames="extendable-box"
-				unmountOnExit>
+			<Transition in={true} timeout={3000} appear>
 				<div
-					id="extendable-box"
-					style={{ width: width }}
-					onMouseEnter={() => setWidth('50%')}
-					onMouseLeave={() => setWidth('10%')}>
+					id={`extendable-box-${expandedClass}`}
+					onMouseEnter={() => setExpandedClass('expanded')}
+					onMouseLeave={() => setExpandedClass('initial')}>
 					<video
 						autoPlay="autoPlay"
 						muted

@@ -6,7 +6,20 @@ svg rect {
 .extendable-video-background {
 }
 
-#extendable-box {
+#extendable-box-initial {
+	max-width: 20%;
+	border-style: solid;
+	border-color: red;
+	border-width: 20px;
+	position: relative;
+	overflow: hidden;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#extendable-box-expanded {
 	max-width: 50%;
 	border-style: solid;
 	border-color: red;
