@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './splash-screen.styles.scss';
-import { gsap, TimelineMax, drawSVG } from 'gsap';
+import { gsap, TimelineMax, drawSVG, Linear } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +11,8 @@ const SplashScreen = () => {
 	//Accessing elements
 	let rotator = useRef(null);
 	let splashContainer = useRef(null);
+	let number = useRef(null);
+	let slogan = useRef(null);
 
 	let countDownTimer = () => {
 		setInterval(() => {
@@ -26,14 +28,21 @@ const SplashScreen = () => {
 	let tl = new TimelineMax({
 		repeat: 3,
 	});
+	let tl2 = new TimelineMax();
 
 	useEffect(() => {
 		tl.to(rotator, {
 			rotation: 360,
 			svgOrigin: '600 600',
 		});
+		if (count == 3) {
+			tl2.from(splashContainer, { opacity: 0 });
+			tl2.to(splashContainer, { opacity: 1 });
+		}
+
 		countDownTimer();
 		tl.duration(1.5).play();
+		tl2.duration(1).play();
 	});
 
 	return (
@@ -70,6 +79,7 @@ const SplashScreen = () => {
 						<text
 							id="counter"
 							textAnchor="middle"
+							ref={(el) => (number = el)}
 							x="600"
 							y="720"
 							fill="white"
@@ -80,6 +90,7 @@ const SplashScreen = () => {
 
 						<text
 							id="slogan"
+							ref={(el) => (slogan = el)}
 							textAnchor="middle"
 							x="600"
 							y="620"

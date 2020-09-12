@@ -1,0 +1,20 @@
+svg rect {
+	fill: white;
+	mask: url(#mask);
+}
+
+.extendable-video-background {
+}
+
+#extendable-box {
+	max-width: 50%;
+	border-style: solid;
+	border-color: red;
+	border-width: 20px;
+	position: relative;
+	overflow: hidden;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
