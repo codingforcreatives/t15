@@ -1,33 +1,27 @@
-svg rect {
-	fill: white;
-	mask: url(#mask);
-}
-
-.extendable-video-background {
-}
-
 #extendable-box-initial {
-	max-width: 20%;
-	border-style: solid;
-	border-color: red;
-	border-width: 20px;
 	position: relative;
 	overflow: hidden;
-	height: 500px;
+	height: 493px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: width 1.5s;
 }
 
-#extendable-box-expanded {
-	max-width: 50%;
-	border-style: solid;
-	border-color: red;
-	border-width: 20px;
-	position: relative;
-	overflow: hidden;
-	height: 500px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+#right-triangle {
+	height: 493px;
+	width: 201px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+#left-triangle {
+	height: 493px;
+	width: 201px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
 }
