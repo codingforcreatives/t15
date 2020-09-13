@@ -10,21 +10,25 @@ const ExtendableVideo = ({
 	title,
 	overlayImageName,
 	videoName,
+	position,
 }) => {
-	const [width, setWidth] = useState('395.62px');
+	const [width, setWidth] = useState('260px');
 	const [expanded, setExpanded] = useState(false);
 	const logo = 'tepari.png';
-
+	var marginTop = 0;
+	var marginBottom = 0;
+	position === 'up' ? (marginTop = 30) : (marginTop = 0);
+	position === 'down' ? (marginBottom = 30) : (marginBottom = 0);
 	return (
 		<div
 			id="extendable-box"
-			style={{ width: width }}
+			style={{ width: width, marginTop: marginTop, marginBottom: marginBottom }}
 			onMouseEnter={() => {
 				setWidth('40%');
 				setExpanded(true);
 			}}
 			onMouseLeave={() => {
-				setWidth('395.62px');
+				setWidth('260px');
 				setExpanded(false);
 			}}>
 			{
