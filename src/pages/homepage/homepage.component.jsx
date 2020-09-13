@@ -49,20 +49,23 @@ Object.keys(serviceCategories).forEach(function (key) {
 
 const HomePage = () => {
 	return (
-		<div className="homepage">
-			{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
+		<div class="homepage-container">
+			<div className="homepage">
+				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
 
-			{arr.map((item) => (
-				<ExtendableVideo
-					key={item.label}
-					panelType={item.panelType}
-					title={item.title}
-					logoName={item.logoName}
-					overlayImageName={item.overlayImageName}
-					videoName={item.videoName}
-					position={item.position}
-				/>
-			))}
+				{arr.map((item) => (
+					<ExtendableVideo
+						key={item.label}
+						panelType={item.panelType}
+						title={item.title}
+						logoName={item.logoName}
+						overlayImageName={item.overlayImageName}
+						videoName={item.videoName}
+						position={item.position}
+					/>
+				))}
+			</div>
+			<h1 class="homepage-title">Level up your digital presence</h1>
 		</div>
 	);
 };

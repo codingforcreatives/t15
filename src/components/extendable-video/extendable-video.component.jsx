@@ -17,8 +17,8 @@ const ExtendableVideo = ({
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
-	position === 'up' ? (marginTop = 30) : (marginTop = 0);
-	position === 'down' ? (marginBottom = 30) : (marginBottom = 0);
+	position === 'up' ? (marginTop = 50) : (marginTop = 0);
+	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
 	return (
 		<div
 			id="extendable-box"
@@ -52,13 +52,16 @@ const ExtendableVideo = ({
 				)
 			}
 
-			{panelType === 'home' ? (
-				<h2 className="panel-title">{title}</h2>
-			) : (
-				<img
-					className="logoImage"
-					src={require(`../../assets/${logoName}`)}></img>
-			)}
+			{
+				//show title or logo depending on page
+				panelType === 'home' ? (
+					<h2 className="panel-title">{title}</h2>
+				) : (
+					<img
+						className="logoImage"
+						src={require(`../../assets/${logoName}`)}></img>
+				)
+			}
 		</div>
 	);
 };
