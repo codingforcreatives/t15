@@ -4,9 +4,17 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { Transition } from 'react-transition-group';
 
-const ExtendableVideo = () => {
+const ExtendableVideo = ({
+	panelType,
+	logoName,
+	title,
+	overlayImageName,
+	videoName,
+}) => {
 	const [width, setWidth] = useState('395.62px');
 	const [expanded, setExpanded] = useState(false);
+	const logo = 'tepari.png';
+
 	return (
 		<div
 			id="extendable-box"
@@ -19,44 +27,34 @@ const ExtendableVideo = () => {
 				setWidth('395.62px');
 				setExpanded(false);
 			}}>
-			{/* <div id="left-triangle">
-				<svg id="left-triangle" viewBox="0 0 201 493">
-					<path
-						id="Path_36"
-						class="st0"
-						fill="#000"
-						d="M-0.3,493.2L-0.3,493.2V0.2h201L-0.3,493.2z"
-					/>
-				</svg>
-			</div> */}
-			{expanded == true ? (
-				<video
-					autoPlay="autoPlay"
-					muted
-					loop="loop"
-					className="extendable-video-background"
-					mask="url(#clipPath)">
-					<source
-						src={require('../../assets/Website-Hero-Compressed-v2.mp4')}
-						type="video/mp4"
-					/>
-				</video>
+			{
+				//Transitioning from image to video
+				expanded == true ? (
+					<video
+						autoPlay="autoPlay"
+						muted
+						loop="loop"
+						className="extendable-video-background"
+						mask="url(#clipPath)">
+						<source
+							src={require(`../../assets/${videoName}`)}
+							type="video/mp4"
+						/>
+					</video>
+				) : (
+					<img
+						className="still-image"
+						src={require(`../../assets/${overlayImageName}`)}></img>
+				)
+			}
+
+			{panelType === 'home' ? (
+				<h2 className="panel-title">{title}</h2>
 			) : (
 				<img
-					className="still-image"
-					src={require('../../assets/temporary-screenshot.png')}></img>
+					className="logoImage"
+					src={require(`../../assets/${logoName}`)}></img>
 			)}
-			{/* 
-			<div id="right-triangle">
-				<svg id="right-triangle" viewBox="0 0 201 493">
-					<path
-						id="Path_36"
-						class="st0"
-						fill="#000"
-						d="M200.7,0.2L200.7,0.2v493h-201L200.7,0.2z"
-					/>
-				</svg>
-			</div> */}
 		</div>
 	);
 };
