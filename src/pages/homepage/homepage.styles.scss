@@ -3,8 +3,27 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	display: flex;
-	padding-left: 10%;
-	padding-right: 10%;
 	background-color: #1a1a1a;
+	width: 80vw;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.homepage-container {
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100vw;
+	background-color: green;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+	.homepage {
+		flex-wrap: wrap;
+		padding-left: 20px;
+		padding-right: 20px;
+		height: 100%;
+	}
 }
