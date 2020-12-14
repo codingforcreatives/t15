@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import './homepage.styles.scss';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
-import { TweenMax, Power3, Power2, TimelineLite } from 'gsap';
+import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
 import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
 const serviceCategories = {
@@ -127,16 +127,14 @@ const HomePage = () => {
 	let wordWhat = useRef(null);
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
-	let wordHere2 = useRef(null);
-	let wordWhat2 = useRef(null);
-	let wordWe2 = useRef(null);
-	let wordDo2 = useRef(null);
+	let glitchContainers = useRef(null);
 
 	const tl = new TimelineLite();
 	const tl1 = new TimelineLite();
 	const tl2 = new TimelineLite();
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
+	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -163,6 +161,24 @@ const HomePage = () => {
 			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
+
+		tlGlitch
+			.to('.words', 0.1, {
+				skewX: 70,
+				ease: Power4.easeInOut,
+				delay: 4,
+			})
+			.to('.words', 0.04, { skewX: 0, ease: Power4.easeInOut })
+			.to('.words', 0.04, { opacity: 0 })
+			.to('.words', 0.04, { opacity: 1 })
+			.to('.words', 0.04, { x: -20 })
+			.to('.words', 0.04, { x: 0 })
+			.add('split', 0)
+
+			.to('#txt', 0, { scale: 1.1 }, 'split')
+			.to('#txt', 0, { scale: 1 }, '+=0.02')
+
+			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 });
 	});
 
 	return (
@@ -180,7 +196,10 @@ const HomePage = () => {
 					type="video/mp4"
 				/>
 			</video>
-			<div className="welcome-container glitch bottom">
+
+			<div
+				ref={(el) => (glitchContainers = el)}
+				className="welcome-container glitch top">
 				<h2 ref={(el) => (wordHere = el)} class="words" id="heres">
 					Here's
 				</h2>
@@ -191,21 +210,6 @@ const HomePage = () => {
 					We
 				</h2>
 				<h2 ref={(el) => (wordDo = el)} class="words" id="do">
-					Do
-				</h2>
-			</div>
-
-			<div className="welcome-container-2 glitch top">
-				<h2 ref={(el) => (wordHere2 = el)} class="words" id="heres">
-					Here's
-				</h2>
-				<h2 ref={(el) => (wordWhat2 = el)} class="words" id="what">
-					What
-				</h2>
-				<h2 ref={(el) => (wordWe2 = el)} class="words" id="we">
-					We
-				</h2>
-				<h2 ref={(el) => (wordDo2 = el)} class="words" id="do">
 					Do
 				</h2>
 			</div>
