@@ -129,26 +129,37 @@ const HomePage = () => {
 	let wordDo = useRef(null);
 
 	const tl = new TimelineLite();
+	const tl2 = new TimelineLite();
+	const tl3 = new TimelineLite();
+	const tl4 = new TimelineLite();
 
 	useEffect(() => {
-		console.log(wordHere, wordWhat, wordWe, wordDo);
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
 		})
 			.to(backgroundVideo, 0.2, { css: { opacity: '100%' } })
 			.from(wordHere, 0.8, {
 				x: -40,
-				y: -40,
-				scale: 1.2,
+				y: -60,
+				scale: 2,
 				opacity: 0,
+				delay: 1,
 			})
-			.to(wordHere, 0.8, { opacity: 0.2, delay: 0.2 })
-			.from(wordWhat, 0.3, { opacity: 0 })
-			.to(wordWhat, 0.5, { opacity: 0.2, delay: 0.2 })
-			.from(wordWe, 0.3, { opacity: 0 })
-			.to(wordWe, 0.5, { opacity: 0.2, delay: 0.2 })
-			.from(wordDo, 0.3, { opacity: 0 })
-			.to(wordDo, 0.5, { opacity: 0.2, delay: 0.2 });
+			.to(wordHere, 0.8, { opacity: 0.2, delay: 0.2 });
+
+		// 2.2s
+
+		tl2
+			.from(wordWhat, 0.6, { opacity: 0, delay: 2 })
+			.to(wordWhat, 0.4, { opacity: 0.2, delay: 0.2 });
+
+		//4.4s
+
+		tl3
+			.from(wordWe, 0.45, { opacity: 0, delay: 2.6 })
+			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
+
+		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
 	});
 
 	return (
