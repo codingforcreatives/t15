@@ -3,6 +3,7 @@ import './extendable-video.styles.scss';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { Transition } from 'react-transition-group';
+import { TweenMax, Power3 } from 'gsap';
 
 const ExtendableVideo = ({
 	panelType,
@@ -21,6 +22,7 @@ const ExtendableVideo = ({
 	var marginBottom = 0;
 	position === 'up' ? (marginTop = 50) : (marginTop = 0);
 	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
+
 	return (
 		<div
 			id="extendable-box"

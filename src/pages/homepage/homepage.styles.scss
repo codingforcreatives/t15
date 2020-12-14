@@ -1,3 +1,15 @@
+.homepage-container {
+	padding-left: 20px;
+	padding-right: 20px;
+	// width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #100f10;
+	visibility: hidden;
+}
+
 .homepage {
 	display: flex;
 	justify-content: center;
@@ -8,14 +20,22 @@
 	padding-left: 40px;
 	padding-right: 40px;
 }
-.homepage-container {
-	padding-left: 20px;
-	padding-right: 20px;
-	width: 100vw;
-	background-color: green;
+
+.welcome-container {
 	display: flex;
+	z-index: 100;
 	justify-content: center;
 	align-items: center;
+}
+
+.welcome-container h2 {
+	margin-right: 20px;
+	color: white;
+	font-size: 36px;
+	font-family: 'Montserrat-black', sans-serif;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 8px;
 }
 
 /* Small Devices, Tablets */
@@ -26,4 +46,13 @@
 		padding-right: 20px;
 		height: 100%;
 	}
+}
+
+.myVideo {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0%;
 }
