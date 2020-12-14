@@ -127,8 +127,13 @@ const HomePage = () => {
 	let wordWhat = useRef(null);
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
+	let wordHere2 = useRef(null);
+	let wordWhat2 = useRef(null);
+	let wordWe2 = useRef(null);
+	let wordDo2 = useRef(null);
 
 	const tl = new TimelineLite();
+	const tl1 = new TimelineLite();
 	const tl2 = new TimelineLite();
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
@@ -136,8 +141,9 @@ const HomePage = () => {
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		})
-			.to(backgroundVideo, 0.2, { css: { opacity: '100%' } })
+		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+
+		tl1
 			.from(wordHere, 0.8, {
 				x: -40,
 				y: -60,
@@ -146,9 +152,6 @@ const HomePage = () => {
 				delay: 1,
 			})
 			.to(wordHere, 0.8, { opacity: 0.2, delay: 0.2 });
-
-		// 2.2s
-
 		tl2
 			.from(wordWhat, 0.6, { opacity: 0, delay: 2 })
 			.to(wordWhat, 0.4, { opacity: 0.2, delay: 0.2 });
@@ -177,8 +180,7 @@ const HomePage = () => {
 					type="video/mp4"
 				/>
 			</video>
-
-			<div className="welcome-container">
+			<div className="welcome-container glitch bottom">
 				<h2 ref={(el) => (wordHere = el)} class="words" id="heres">
 					Here's
 				</h2>
@@ -189,6 +191,21 @@ const HomePage = () => {
 					We
 				</h2>
 				<h2 ref={(el) => (wordDo = el)} class="words" id="do">
+					Do
+				</h2>
+			</div>
+
+			<div className="welcome-container-2 glitch top">
+				<h2 ref={(el) => (wordHere2 = el)} class="words" id="heres">
+					Here's
+				</h2>
+				<h2 ref={(el) => (wordWhat2 = el)} class="words" id="what">
+					What
+				</h2>
+				<h2 ref={(el) => (wordWe2 = el)} class="words" id="we">
+					We
+				</h2>
+				<h2 ref={(el) => (wordDo2 = el)} class="words" id="do">
 					Do
 				</h2>
 			</div>

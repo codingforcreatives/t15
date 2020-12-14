@@ -4,6 +4,7 @@
 	// width: 100vw;
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: #100f10;
@@ -21,14 +22,20 @@
 	padding-right: 40px;
 }
 
-.welcome-container {
+.glitch-container {
+	visibility: hidden;
+}
+
+.welcome-container,
+.welcome-container-2 {
 	display: flex;
 	z-index: 100;
 	justify-content: center;
 	align-items: center;
 }
 
-.welcome-container h2 {
+.welcome-container h2,
+.welcome-container-2 h2 {
 	margin-right: 20px;
 	color: white;
 	font-size: 36px;
@@ -36,6 +43,19 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
+}
+
+.welcome-container-2 {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.welcome-container-2 h2 {
+	opacity: 0;
 }
 
 /* Small Devices, Tablets */
