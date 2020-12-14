@@ -11,8 +11,7 @@
 	visibility: hidden;
 }
 
-.homepage {
-	display: flex;
+.panel-container {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
@@ -20,6 +19,7 @@
 	width: 80vw;
 	padding-left: 40px;
 	padding-right: 40px;
+	display: none;
 }
 
 .welcome-container {

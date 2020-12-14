@@ -128,6 +128,7 @@ const HomePage = () => {
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
+	let panelContainer = useRef(null);
 
 	const tl = new TimelineLite();
 	const tl1 = new TimelineLite();
@@ -178,7 +179,8 @@ const HomePage = () => {
 			.to('#txt', 0, { scale: 1.1 }, 'split')
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
-			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 });
+			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
+			.to(panelContainer, 0.5, { display: 'flex' });
 	});
 
 	return (
@@ -212,6 +214,26 @@ const HomePage = () => {
 				<h2 ref={(el) => (wordDo = el)} class="words" id="do">
 					Do
 				</h2>
+			</div>
+
+			<div
+				className="panel-container"
+				ref={(el) => (panelContainer = el)}
+				style={{
+					width: window.innerWidth * 0.8,
+				}}>
+				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
+				{arr.map((item) => (
+					<ExtendableVideo
+						key={item.label}
+						panelType={item.panelType}
+						title={item.title}
+						logoName={item.logoName}
+						overlayImageName={item.overlayImageName}
+						videoName={item.videoName}
+						position={item.position}
+					/>
+				))}
 			</div>
 		</div>
 	);
