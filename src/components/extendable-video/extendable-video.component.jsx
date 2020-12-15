@@ -1,11 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
-import ReactDOM from 'react-dom';
-import cx from 'classnames';
-import { Transition } from 'react-transition-group';
-import { TweenMax, Power3 } from 'gsap';
+import { TimelineLite } from 'gsap';
 
 const ExtendableVideo = ({
+	key,
 	panelType,
 	logoName,
 	title,
@@ -14,6 +12,10 @@ const ExtendableVideo = ({
 	position,
 	minPanelWidth,
 	maxPanelWidth,
+	from_X,
+	from_Y,
+	delay,
+	prevTimelineDelay,
 }) => {
 	const [width, setWidth] = useState(minPanelWidth);
 	const [expanded, setExpanded] = useState(false);
@@ -23,8 +25,30 @@ const ExtendableVideo = ({
 	position === 'up' ? (marginTop = 50) : (marginTop = 0);
 	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
 
+	let extendableBox = useRef(null);
+	let tl = new TimelineLite();
+	var cssProps = new Object();
+	let total = delay + 4;
+
+	const myObj = {
+		X: from_X,
+		Y: from_Y,
+		delay: total,
+	};
+	console.log(myObj);
+	useEffect(() => {
+		tl.from(extendableBox, 1, {
+			x: myObj['X'],
+			y: myObj['Y'],
+			scale: 10,
+			opacity: 0,
+			delay: myObj['delay'],
+		});
+	});
+
 	return (
 		<div
+			ref={(el) => (extendableBox = el)}
 			id="extendable-box"
 			style={{
 				minWidth: width,
