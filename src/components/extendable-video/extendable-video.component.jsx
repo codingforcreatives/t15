@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
-import { TimelineLite } from 'gsap';
+import { TimelineLite, TweenMax } from 'gsap';
+import { Timeline } from 'gsap/gsap-core';
 
 const ExtendableVideo = ({
 	key,
@@ -17,25 +18,28 @@ const ExtendableVideo = ({
 	delay,
 	prevTimelineDelay,
 }) => {
-	const [width, setWidth] = useState(minPanelWidth);
 	const [expanded, setExpanded] = useState(false);
+
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
+
 	position === 'up' ? (marginTop = 50) : (marginTop = 0);
 	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
 
+	//entrance animations
 	let extendableBox = useRef(null);
 	let tl = new TimelineLite();
-	var cssProps = new Object();
 	let total = delay + 4;
 
 	const myObj = {
 		X: from_X,
 		Y: from_Y,
 		delay: total,
+		maxPanelWidth: maxPanelWidth,
+		minPanelWidth: minPanelWidth,
 	};
-	console.log(myObj);
+
 	useEffect(() => {
 		tl.from(extendableBox, 1, {
 			x: myObj['X'],
@@ -43,25 +47,33 @@ const ExtendableVideo = ({
 			scale: 10,
 			opacity: 0,
 			delay: myObj['delay'],
-		});
+		}).add(addMouseEvents);
 	});
+
+	//expansion
+
+	const addMouseEvents = () => {
+		extendableBox.addEventListener('mouseenter', handleExpand);
+		extendableBox.addEventListener('mouseleave', handleShrink);
+	};
+
+	const handleExpand = () => {
+		TweenMax.to(extendableBox, 0.5, { minWidth: 260 });
+	};
+
+	//shrink
+	const handleShrink = () => {
+		TweenMax.to(extendableBox, 0.5, { minWidth: 130 });
+	};
 
 	return (
 		<div
 			ref={(el) => (extendableBox = el)}
 			id="extendable-box"
 			style={{
-				minWidth: width,
+				minWidth: 130,
 				marginTop: marginTop,
 				marginBottom: marginBottom,
-			}}
-			onMouseEnter={() => {
-				setWidth(maxPanelWidth);
-				setExpanded(true);
-			}}
-			onMouseLeave={() => {
-				setWidth(minPanelWidth);
-				setExpanded(false);
 			}}>
 			{
 				//Transitioning from image to video

@@ -234,16 +234,16 @@ const HomePage = () => {
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
-				<h2 ref={(el) => (wordHere = el)} class="words" id="heres">
+				<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
 					Here's
 				</h2>
-				<h2 ref={(el) => (wordWhat = el)} class="words" id="what">
+				<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
 					What
 				</h2>
-				<h2 ref={(el) => (wordWe = el)} class="words" id="we">
+				<h2 ref={(el) => (wordWe = el)} className="words" id="we">
 					We
 				</h2>
-				<h2 ref={(el) => (wordDo = el)} class="words" id="do">
+				<h2 ref={(el) => (wordDo = el)} className="words" id="do">
 					Do
 				</h2>
 			</div>
@@ -268,6 +268,8 @@ const HomePage = () => {
 						from_Y={calculateY(item.key)}
 						delay={calculateDelay(item.key)}
 						prevTimlineDelay={prevTimelineDelay}
+						minPanelWidth={panelMinWidth}
+						maxPanelWidth={panelMaxWidth}
 					/>
 				))}
 			</div>
