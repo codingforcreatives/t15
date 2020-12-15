@@ -19,7 +19,6 @@ const ExtendableVideo = ({
 	prevTimelineDelay,
 }) => {
 	const [expanded, setExpanded] = useState(false);
-
 	const [content, setContent] = useState(() => {
 		return (
 			<img
@@ -53,39 +52,32 @@ const ExtendableVideo = ({
 		extendableBox.addEventListener('mouseenter', handleExpand);
 		extendableBox.addEventListener('mouseleave', handleShrink);
 	};
+
 	//expansion
 	const handleExpand = () => {
 		console.log('HANDLE EXPAND');
-		TweenMax.to(extendableBox, 0.5, { minWidth: 260 });
-		// setExpanded(true);
+		setExpanded(true);
+		setContent(
+			<video
+				autoPlay="autoPlay"
+				muted
+				loop="loop"
+				className="extendable-video-background"
+				mask="url(#clipPath)">
+				<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
+			</video>
+		);
 	};
 
 	//shrink
 	const handleShrink = () => {
 		console.log('HANDLE SHRINK');
-		TweenMax.to(extendableBox, 0.5, { minWidth: 130 });
 		setExpanded(false);
-	};
-
-	let getContent = () => {
-		if (expanded === false) {
-			setContent(
-				<img
-					className="still-image"
-					src={require(`../../assets/${overlayImageName}`)}></img>
-			);
-		} else {
-			setContent(
-				<video
-					autoPlay="autoPlay"
-					muted
-					loop="loop"
-					className="extendable-video-background"
-					mask="url(#clipPath)">
-					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
-				</video>
-			);
-		}
+		setContent(
+			<img
+				className="still-image"
+				src={require(`../../assets/${overlayImageName}`)}></img>
+		);
 	};
 
 	useEffect(() => {
@@ -99,10 +91,13 @@ const ExtendableVideo = ({
 			}).add(addMouseEvents);
 			isInitialMount.current = false;
 		} else {
-			console.log('change detected');
-			getContent();
+			if (expanded === true) {
+				TweenMax.to(extendableBox, 0.5, { minWidth: 260 });
+			} else {
+				TweenMax.to(extendableBox, 0.5, { minWidth: 130 });
+			}
 		}
-	}, [expanded]);
+	}, [content, expanded]);
 
 	return (
 		<div
