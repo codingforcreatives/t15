@@ -180,7 +180,7 @@ const HomePage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 0.5, { display: 'flex' });
+			.to(panelContainer, 1, { display: 'flex', delay: 1 });
 	});
 
 	return (
