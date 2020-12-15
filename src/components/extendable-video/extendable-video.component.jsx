@@ -20,6 +20,15 @@ const ExtendableVideo = ({
 }) => {
 	const [expanded, setExpanded] = useState(false);
 
+	const [content, setContent] = useState(() => {
+		return (
+			<img
+				className="still-image"
+				src={require(`../../assets/${overlayImageName}`)}></img>
+		);
+	});
+
+	const isInitialMount = useRef(true);
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
@@ -40,31 +49,60 @@ const ExtendableVideo = ({
 		minPanelWidth: minPanelWidth,
 	};
 
-	useEffect(() => {
-		tl.from(extendableBox, 1, {
-			x: myObj['X'],
-			y: myObj['Y'],
-			scale: 10,
-			opacity: 0,
-			delay: myObj['delay'],
-		}).add(addMouseEvents);
-	});
-
-	//expansion
-
 	const addMouseEvents = () => {
 		extendableBox.addEventListener('mouseenter', handleExpand);
 		extendableBox.addEventListener('mouseleave', handleShrink);
 	};
-
+	//expansion
 	const handleExpand = () => {
+		console.log('HANDLE EXPAND');
 		TweenMax.to(extendableBox, 0.5, { minWidth: 260 });
+		// setExpanded(true);
 	};
 
 	//shrink
 	const handleShrink = () => {
+		console.log('HANDLE SHRINK');
 		TweenMax.to(extendableBox, 0.5, { minWidth: 130 });
+		setExpanded(false);
 	};
+
+	let getContent = () => {
+		if (expanded === false) {
+			setContent(
+				<img
+					className="still-image"
+					src={require(`../../assets/${overlayImageName}`)}></img>
+			);
+		} else {
+			setContent(
+				<video
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="extendable-video-background"
+					mask="url(#clipPath)">
+					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
+				</video>
+			);
+		}
+	};
+
+	useEffect(() => {
+		if (isInitialMount.current) {
+			tl.from(extendableBox, 1, {
+				x: myObj['X'],
+				y: myObj['Y'],
+				scale: 10,
+				opacity: 0,
+				delay: myObj['delay'],
+			}).add(addMouseEvents);
+			isInitialMount.current = false;
+		} else {
+			console.log('change detected');
+			getContent();
+		}
+	}, [expanded]);
 
 	return (
 		<div
@@ -75,26 +113,7 @@ const ExtendableVideo = ({
 				marginTop: marginTop,
 				marginBottom: marginBottom,
 			}}>
-			{
-				//Transitioning from image to video
-				expanded == true ? (
-					<video
-						autoPlay="autoPlay"
-						muted
-						loop="loop"
-						className="extendable-video-background"
-						mask="url(#clipPath)">
-						<source
-							src={require(`../../assets/${videoName}`)}
-							type="video/mp4"
-						/>
-					</video>
-				) : (
-					<img
-						className="still-image"
-						src={require(`../../assets/${overlayImageName}`)}></img>
-				)
-			}
+			{content}
 
 			{
 				//show title or logo depending on page
