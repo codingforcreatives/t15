@@ -1,7 +1,5 @@
 .homepage-container {
-	padding-left: 20px;
-	padding-right: 20px;
-	// width: 100vw;
+	width: 100vw;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -9,24 +7,35 @@
 	align-items: center;
 	background-color: #100f10;
 	visibility: hidden;
+
+	// border-style: solid;
+	// border-color: green;
+	// border-width: 10px;
+	// overflow: hidden;
 }
 
 .panel-container {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: #1a1a1a;
-	width: 80vw;
-	padding-left: 40px;
-	padding-right: 40px;
+	width: 100vw;
 	display: none;
+	border-style: solid;
+	border-color: pink;
+	border-width: 5px;
+	overflow: hidden;
 }
 
 .welcome-container {
+	height: 100vh;
 	display: flex;
 	z-index: 100;
 	justify-content: center;
 	align-items: center;
+	border-style: solid;
+	border-color: orange;
+	border-width: 2px;
+	overflow: hidden;
 }
 
 .welcome-container h2 {
@@ -37,23 +46,49 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
+	border-style: solid;
+	border-color: orange;
+	border-width: 2px;
+	overflow: hidden;
 }
 
 .myVideo {
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
+	width: 100vw;
+	height: 100vh;
 	opacity: 0%;
+	overflow: hidden;
+	border-style: solid;
+	border-color: red;
+	border-width: 4px;
 }
 
-/* Small Devices, Tablets */
+// /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
-	.panel-container {
-		flex-wrap: wrap;
-		padding-left: 20px;
-		padding-right: 20px;
-		height: 100%;
+	//can do this for when more than 4 panels
+	// .panel-container {
+	// 	flex-direction: column;
+	// }
+	.welcome-container {
+		border-color: blue;
+		width: 100vw;
+	}
+	.homepage-container {
+		// border-color: red;
+		width: 100vw;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.welcome-container {
+		flex-direction: column;
+	}
+
+	.welcome-container h2 {
+		margin: 14px 0px 0px 0px;
 	}
 }

@@ -17,6 +17,7 @@ const ExtendableVideo = ({
 	from_Y,
 	delay,
 	prevTimelineDelay,
+	expandDuration,
 }) => {
 	const [expanded, setExpanded] = useState(false);
 	const [content, setContent] = useState(() => {
@@ -92,9 +93,13 @@ const ExtendableVideo = ({
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
-				TweenMax.to(extendableBox, 0.5, { minWidth: 260 });
+				TweenMax.to(extendableBox, expandDuration, {
+					width: myObj['maxPanelWidth'],
+				});
 			} else {
-				TweenMax.to(extendableBox, 0.5, { minWidth: 130 });
+				TweenMax.to(extendableBox, expandDuration, {
+					width: myObj['minPanelWidth'],
+				});
 			}
 		}
 	}, [content, expanded]);
@@ -104,7 +109,7 @@ const ExtendableVideo = ({
 			ref={(el) => (extendableBox = el)}
 			id="extendable-box"
 			style={{
-				minWidth: 130,
+				width: minPanelWidth,
 				marginTop: marginTop,
 				marginBottom: marginBottom,
 			}}>
