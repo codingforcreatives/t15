@@ -20,9 +20,9 @@
 	height: 100vh;
 	width: 100vw;
 	display: none;
-	border-style: solid;
-	border-color: pink;
-	border-width: 5px;
+	// border-style: solid;
+	// border-color: pink;
+	// border-width: 5px;
 	overflow: hidden;
 }
 
@@ -32,9 +32,9 @@
 	z-index: 100;
 	justify-content: center;
 	align-items: center;
-	border-style: solid;
-	border-color: orange;
-	border-width: 2px;
+	// border-style: solid;
+	// border-color: orange;
+	// border-width: 2px;
 	overflow: hidden;
 }
 
@@ -46,9 +46,9 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
-	border-style: solid;
-	border-color: orange;
-	border-width: 2px;
+	// border-style: solid;
+	// border-color: orange;
+	// border-width: 2px;
 	overflow: hidden;
 }
 
@@ -56,13 +56,10 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	width: 100vw;
 	height: 100vh;
+	width: 100vw;
 	opacity: 0%;
 	overflow: hidden;
-	border-style: solid;
-	border-color: red;
-	border-width: 4px;
 }
 
 // /* Small Devices, Tablets */
@@ -72,7 +69,7 @@
 	// 	flex-direction: column;
 	// }
 	.welcome-container {
-		border-color: blue;
+		// border-color: blue;
 		width: 100vw;
 	}
 	.homepage-container {
@@ -80,6 +77,16 @@
 		width: 100vw;
 		padding-top: 20px;
 		padding-bottom: 20px;
+	}
+
+	.myVideo {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		height: 100vh;
+		width: auto;
+		opacity: 0%;
+		overflow: hidden;
 	}
 }
 

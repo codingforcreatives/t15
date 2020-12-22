@@ -42,60 +42,60 @@ const serviceCategories = {
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 	},
-	// branding2: {
-	// 	key: '5',
-	// 	panelType: 'home',
-	// 	title: 'branding',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'up',
-	// },
-	// broadcastTV2: {
-	// 	key: '6',
-	// 	panelType: 'home',
-	// 	title: 'broadcast TV',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'down',
-	// },
-	// contentAdvertising2: {
-	// 	key: '7',
-	// 	panelType: 'home',
-	// 	title: 'video content',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'up',
-	// },
-	// webDevelopment2: {
-	// 	key: '8',
-	// 	panelType: 'home',
-	// 	title: 'web design',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'down',
-	// },
-	// contentAdvertising3: {
-	// 	key: '9',
-	// 	panelType: 'home',
-	// 	title: 'video content',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'up',
-	// },
-	// webDevelopment3: {
-	// 	key: '10',
-	// 	panelType: 'home',
-	// 	title: 'web design',
-	// 	logoName: '',
-	// 	overlayImageName: 'temporary-screenshot.png',
-	// 	videoName: 'Website-Hero-Compressed-v2.mp4',
-	// 	position: 'down',
-	// },
+	branding2: {
+		key: '5',
+		panelType: 'home',
+		title: 'branding',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'up',
+	},
+	broadcastTV2: {
+		key: '6',
+		panelType: 'home',
+		title: 'broadcast TV',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'down',
+	},
+	contentAdvertising2: {
+		key: '7',
+		panelType: 'home',
+		title: 'video content',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'up',
+	},
+	webDevelopment2: {
+		key: '8',
+		panelType: 'home',
+		title: 'web design',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'down',
+	},
+	contentAdvertising3: {
+		key: '9',
+		panelType: 'home',
+		title: 'video content',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'up',
+	},
+	webDevelopment3: {
+		key: '10',
+		panelType: 'home',
+		title: 'web design',
+		logoName: '',
+		overlayImageName: 'temporary-screenshot.png',
+		videoName: 'Website-Hero-Compressed-v2.mp4',
+		position: 'down',
+	},
 };
 
 // Formula for finding the minWidth and maxWidth of each panel
@@ -171,10 +171,9 @@ const HomePage = () => {
 	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
-		// .to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		});
+		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -219,7 +218,7 @@ const HomePage = () => {
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
-			{/* <video
+			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"
 				muted
@@ -231,7 +230,7 @@ const HomePage = () => {
 					src={require('../../assets/T15-Film-Overlay.mp4')}
 					type="video/mp4"
 				/>
-			</video> */}
+			</video>
 
 			<div
 				ref={(el) => (glitchContainers = el)}
