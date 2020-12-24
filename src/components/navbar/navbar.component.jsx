@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import './navbar.styles.scss';
@@ -7,6 +7,7 @@ import MenuContents from '../menu-contents/menu-contents.component';
 
 function Navbar() {
 	const [sidebar, setSidebar] = useState(false);
+
 	const showSidebar = () => setSidebar(!sidebar);
 	return (
 		<div className="navbar-component-container">

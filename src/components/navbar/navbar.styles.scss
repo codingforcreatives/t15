@@ -9,5 +9,16 @@
 
 .navbar,
 .hamburger {
-	z-index: 100;
+	border-style: solid;
+	border-width: 10;
+	border-color: green;
+}
+.menu-background-video {
+	height: auto;
+	width: 100vw;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	opacity: 100%;
+	overflow: hidden;
 }

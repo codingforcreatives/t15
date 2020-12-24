@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import './menu-item.styles.scss';
 
-const MenuItem = ({ id, title, videoName }) => {
-	const [sidebar, setSidebar] = useState(false);
-	const showSidebar = () => setSidebar(!sidebar);
-	return <div className="menu-text"> {title} </div>;
+const MenuItem = ({ key, title, videoName, onChange }) => {
+	console.log(onChange);
+	const handleMouseEnter = () => {
+		console.log('MOUSE ENTER DETECTED');
+		onChange(videoName);
+	};
+	return (
+		<div className="menu-text" onMouseEnter={handleMouseEnter}>
+			{title}
+		</div>
+	);
 };
 
 export default MenuItem;

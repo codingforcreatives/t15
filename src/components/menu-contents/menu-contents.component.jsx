@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './menu-contents.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
 
@@ -7,7 +7,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		{
 			title: 'About',
 			path: '/',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
+			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 1,
 		},
@@ -21,7 +21,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		{
 			title: 'Broadcast TV',
 			path: '/',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
+			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 3,
 		},
@@ -35,7 +35,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		{
 			title: 'Branding',
 			path: '/',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
+			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 5,
 		},
@@ -51,26 +51,38 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 	// switchBackgroundVideo = (videoName) => {};
 
 	const onMenuTextHover = () => {};
+	let menuBackgroundVideo = useRef(null);
+	const [currentVideo, setVideo] = useState('Website-Hero-Compressed-v2.mp4');
+
+	useEffect(() => {
+		console.log(currentVideo);
+		menuBackgroundVideo.src = require(`../../assets/${currentVideo}`);
+	}, [currentVideo]);
 
 	return (
 		<div className="menu-items-container">
 			<video
-				// ref={(el) => (backgroundVideo = el)}
+				ref={(el) => (menuBackgroundVideo = el)}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
 				className="menu-background-video">
-				Your browser does not support the video tag. I suggest you upgrade your
-				browser
 				<source
-					src={require('../../assets/Website-Hero-Compressed-v2.mp4')}
+					ref={(el) => (menuBackgroundVideo = el)}
+					src={require(`../../assets/${currentVideo}`)}
 					type="video/mp4"
 				/>
 			</video>
 			<div className="menu-text-container">
 				{menuData.map((item) => (
-					<div className="menu-text"> {item.title} </div>
+					<MenuItem
+						key={item.id}
+						title={item.title}
+						videoName={item.videoName}
+						onChange={(value) => setVideo(value)}
+					/>
 				))}
+				<div className="test">{currentVideo} </div>
 			</div>
 		</div>
 	);
