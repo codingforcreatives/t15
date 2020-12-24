@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './menu-contents.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
+import { TimelineLite, TweenMax } from 'gsap';
 
 const MenuContents = ({ id, title, imageUrl, size }) => {
 	const menuData = [
@@ -52,10 +53,22 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 
 	const onMenuTextHover = () => {};
 	let menuBackgroundVideo = useRef(null);
+	let menuBackgroundVideoTag = useRef(null);
 	const [currentVideo, setVideo] = useState('Website-Hero-Compressed-v2.mp4');
+	let tl = new TimelineLite();
 
 	useEffect(() => {
 		console.log(currentVideo);
+
+		tl.to(menuBackgroundVideo, 0, {
+			opacity: 0,
+		})
+			.set(menuBackgroundVideo, {
+				attr: { src: require(`../../assets/${currentVideo}`) },
+			})
+			.to(menuBackgroundVideo, 2, {
+				opacity: 1,
+			});
 		menuBackgroundVideo.src = require(`../../assets/${currentVideo}`);
 	}, [currentVideo]);
 
@@ -68,7 +81,6 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 				loop="loop"
 				className="menu-background-video">
 				<source
-					ref={(el) => (menuBackgroundVideo = el)}
 					src={require(`../../assets/${currentVideo}`)}
 					type="video/mp4"
 				/>

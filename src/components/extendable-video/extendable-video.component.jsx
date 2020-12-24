@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
 import { TimelineLite, TweenMax } from 'gsap';
-import { Timeline } from 'gsap/gsap-core';
 
 const ExtendableVideo = ({
 	key,
