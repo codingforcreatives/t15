@@ -11,6 +11,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 1,
+			delay: 0.5,
 		},
 		{
 			title: 'All Services',
@@ -18,6 +19,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'Website-Hero-Compressed-v2.mp4',
 			cName: 'nav-text',
 			key: 2,
+			delay: 1,
 		},
 		{
 			title: 'Broadcast TV',
@@ -25,6 +27,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 3,
+			delay: 1.5,
 		},
 		{
 			title: 'Content Creation',
@@ -32,6 +35,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'Website-Hero-Compressed-v2.mp4',
 			cName: 'nav-text',
 			key: 4,
+			delay: 2,
 		},
 		{
 			title: 'Branding',
@@ -39,6 +43,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 5,
+			delay: 2.5,
 		},
 		{
 			title: 'Websites',
@@ -46,6 +51,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 			videoName: 'Website-Hero-Compressed-v2.mp4',
 			cName: 'nav-text',
 			key: 6,
+			delay: 3,
 		},
 	];
 
@@ -53,13 +59,13 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 
 	const onMenuTextHover = () => {};
 	let menuBackgroundVideo = useRef(null);
-	let menuBackgroundVideoTag = useRef(null);
+	let singleElement = useRef(null);
+
 	const [currentVideo, setVideo] = useState('Website-Hero-Compressed-v2.mp4');
 	let tl = new TimelineLite();
+	let tlEntrance = new TimelineLite();
 
 	useEffect(() => {
-		console.log(currentVideo);
-
 		tl.to(menuBackgroundVideo, 0, {
 			opacity: 0,
 		})
@@ -67,7 +73,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 				attr: { src: require(`../../assets/${currentVideo}`) },
 			})
 			.to(menuBackgroundVideo, 2, {
-				opacity: 1,
+				opacity: 0.4,
 			});
 		menuBackgroundVideo.src = require(`../../assets/${currentVideo}`);
 	}, [currentVideo]);
@@ -85,12 +91,14 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 					type="video/mp4"
 				/>
 			</video>
-			<div className="menu-text-container">
+			<div className="menu-text-container" ref={(el) => (singleElement = el)}>
 				{menuData.map((item) => (
 					<MenuItem
 						key={item.id}
 						title={item.title}
 						videoName={item.videoName}
+						path={item.path}
+						delay={item.delay}
 						onChange={(value) => setVideo(value)}
 					/>
 				))}
