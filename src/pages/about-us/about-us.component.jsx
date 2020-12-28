@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './homepage.styles.scss';
+import './about-us.styles.scss';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -112,54 +112,15 @@ Object.keys(serviceCategories).forEach(function (key) {
 });
 
 const AboutUsPage = () => {
-	//comment this out later
-	const { innerWidth: width, innerHeight: height } = window;
-	var totalWindowWidth = window.innerWidth * 0.8;
-	var numPanels = arr.length;
-
-	var panelMinWidth = totalWindowWidth / (numPanels + 1);
-
-	var panelMaxWidth = panelMinWidth * 2;
-
-	//Panel Animation Coordinates
-	let totalPanelsOnEachSide = arr.length / 2;
-	let leftHand_Y = -60;
-	let leftHand_X = -40;
-	let rightHand_Y = 60;
-	let rightHand_X = 40;
-	let delay = 0.5;
-	let increment_Y = rightHand_Y / totalPanelsOnEachSide;
-	let increment_X = rightHand_X / totalPanelsOnEachSide;
-	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
-
-	const calculateX = (key) => {
-		//left hand side
-
-		return increment_X * key + leftHand_X;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
-	};
-
-	const calculateDelay = (key) => {
-		return delay * key;
-	};
-
 	//Gsap Animations
-	let backgroundVideo = useRef(null);
+	let featureVideo = useRef(null);
 	let homepageContainer = useRef(null);
 	let wordHere = useRef(null);
 	let wordWhat = useRef(null);
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
-	let panelContainer = useRef(null);
+	let featureVideoContainer = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -173,7 +134,7 @@ const AboutUsPage = () => {
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+		}).to(featureVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -213,25 +174,11 @@ const AboutUsPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(featureVideoContainer, 1, { display: 'flex', delay: -0.08 });
 	});
 
 	return (
-		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
-			<video
-				ref={(el) => (backgroundVideo = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="myVideo">
-				Your browser does not support the video tag. I suggest you upgrade your
-				browser
-				<source
-					src={require('../../assets/T15-Film-Overlay.mp4')}
-					type="video/mp4"
-				/>
-			</video>
-
+		<div ref={(el) => (homepageContainer = el)} className="about-container">
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
@@ -250,32 +197,24 @@ const AboutUsPage = () => {
 			</div>
 
 			<div
-				className="panel-container"
-				ref={(el) => (panelContainer = el)}
-				style={
-					{
-						// width: window.innerWidth * 0.8,
-					}
-				}>
-				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
-				{arr.map((item) => (
-					<ExtendableVideo
-						key={item.key}
-						panelType={item.panelType}
-						title={item.title}
-						logoName={item.logoName}
-						overlayImageName={item.overlayImageName}
-						videoName={item.videoName}
-						position={item.position}
-						from_X={calculateX(item.key)}
-						from_Y={calculateY(item.key)}
-						delay={calculateDelay(item.key)}
-						prevTimlineDelay={prevTimelineDelay}
-						minPanelWidth={panelMinWidth}
-						maxPanelWidth={panelMaxWidth}
-						expandDuration={2}
+				className="featureVideoContainer"
+				ref={(el) => (featureVideoContainer = el)}>
+				<img
+					className="video-mask"
+					src={require(`../../assets/feature-overlay.png`)}></img>
+				<video
+					ref={(el) => (featureVideo = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="feature-video">
+					Your browser does not support the video tag. I suggest you upgrade
+					your browser
+					<source
+						src={require('../../assets/Ontheball.mp4')}
+						type="video/mp4"
 					/>
-				))}
+				</video>
 			</div>
 		</div>
 	);

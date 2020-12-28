@@ -17,18 +17,21 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
 	return (
 		<div className="App">
-			<HomePage />
+			{/* <HomePage /> */}
 			<div className="router-container">
 				{/* <Navbar /> */}
 				<Switch>
 					<Route exact path="/" component={HomePage}></Route>
-					<Route path="/about-us-page" component={AboutUsPage}></Route>
-					<Route path="/branding" component={BrandingPage}></Route>
-					<Route path="/broadcast-tv" component={BroadcastTVPage}></Route>
-					<Route path="/video-content" component={VideoContentPage}></Route>
-					<Route path="/website-page" component={WebsitePage}></Route>
-					<Route path="/contact-page" component={ContactPage}></Route>
-					<Route path="/splash-page" component={SplashPage}></Route>
+					<Route exact path="/about" component={AboutUsPage}></Route>
+					<Route exact path="/branding" component={BrandingPage}></Route>
+					<Route exact path="/broadcast-tv" component={BroadcastTVPage}></Route>
+					<Route
+						exact
+						path="/video-content"
+						component={VideoContentPage}></Route>
+					<Route exact path="/website-page" component={WebsitePage}></Route>
+					<Route exact path="/contact-page" component={ContactPage}></Route>
+					<Route exact path="/splash-page" component={SplashPage}></Route>
 				</Switch>
 			</div>
 		</div>
