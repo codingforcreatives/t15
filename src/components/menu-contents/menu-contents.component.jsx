@@ -102,7 +102,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 						onChange={(value) => setVideo(value)}
 					/>
 				))}
-				<div className="test">{currentVideo} </div>
+				{/* <div className="test">{currentVideo} </div> */}
 			</div>
 		</div>
 	);

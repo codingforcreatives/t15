@@ -14,7 +14,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: 'branding',
 	},
 	broadcastTV: {
 		key: '2',
@@ -24,7 +23,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: 'broadcast-tv',
 	},
 	contentAdvertising: {
 		key: '3',
@@ -34,7 +32,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: 'video-content',
 	},
 	webDevelopment: {
 		key: '4',
@@ -44,7 +41,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: 'web-development',
 	},
 	branding2: {
 		key: '5',
@@ -54,7 +50,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: '',
 	},
 	broadcastTV2: {
 		key: '6',
@@ -64,7 +59,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: '',
 	},
 	contentAdvertising2: {
 		key: '7',
@@ -74,7 +68,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: '',
 	},
 	webDevelopment2: {
 		key: '8',
@@ -84,7 +77,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: '',
 	},
 	contentAdvertising3: {
 		key: '9',
@@ -94,7 +86,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: '',
 	},
 	webDevelopment3: {
 		key: '10',
@@ -104,7 +95,6 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: '',
 	},
 };
 
@@ -121,7 +111,7 @@ Object.keys(serviceCategories).forEach(function (key) {
 	arr.push(serviceCategories[key]);
 });
 
-const HomePage = () => {
+const VideoContentPage = () => {
 	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
@@ -181,7 +171,6 @@ const HomePage = () => {
 	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
-		console.log('On HOME PAGE=========');
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
 		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
@@ -247,20 +236,27 @@ const HomePage = () => {
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
 				<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
-					Here's
+					videos
 				</h2>
 				<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
-					What
+					for
 				</h2>
 				<h2 ref={(el) => (wordWe = el)} className="words" id="we">
-					We
+					your
 				</h2>
 				<h2 ref={(el) => (wordDo = el)} className="words" id="do">
-					Do
+					socials
 				</h2>
 			</div>
 
-			<div className="panel-container" ref={(el) => (panelContainer = el)}>
+			<div
+				className="panel-container"
+				ref={(el) => (panelContainer = el)}
+				style={
+					{
+						// width: window.innerWidth * 0.8,
+					}
+				}>
 				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
 				{arr.map((item) => (
 					<ExtendableVideo
@@ -271,7 +267,6 @@ const HomePage = () => {
 						overlayImageName={item.overlayImageName}
 						videoName={item.videoName}
 						position={item.position}
-						linkURL={item.linkURL}
 						from_X={calculateX(item.key)}
 						from_Y={calculateY(item.key)}
 						delay={calculateDelay(item.key)}
@@ -286,4 +281,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default VideoContentPage;

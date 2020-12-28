@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import './navbar.styles.scss';
 import { Link } from 'react-router-dom';
 import MenuContents from '../menu-contents/menu-contents.component';
-import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
+import { TimelineLite } from 'gsap';
 
 function Navbar() {
 	const [sidebar, setSidebar] = useState(false);

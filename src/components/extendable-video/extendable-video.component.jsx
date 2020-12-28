@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
 import { TimelineLite, TweenMax } from 'gsap';
+import { withRouter } from 'react-router-dom';
+import { Tween } from 'gsap/gsap-core';
 
 const ExtendableVideo = ({
 	key,
@@ -17,6 +19,9 @@ const ExtendableVideo = ({
 	delay,
 	prevTimelineDelay,
 	expandDuration,
+	linkURL,
+	history,
+	match,
 }) => {
 	const [expanded, setExpanded] = useState(false);
 	const [content, setContent] = useState(() => {
@@ -80,6 +85,19 @@ const ExtendableVideo = ({
 		);
 	};
 
+	//panel clicked
+
+	const handlePanelClick = () => {
+		TweenMax.to(extendableBox, 1, {
+			css: { scale: 8, opacity: 0 },
+			onComplete: goToNextPage,
+		});
+	};
+
+	const goToNextPage = () => {
+		history.push(linkURL);
+	};
+
 	useEffect(() => {
 		if (isInitialMount.current) {
 			tl.from(extendableBox, 1, {
@@ -107,6 +125,7 @@ const ExtendableVideo = ({
 		<div
 			ref={(el) => (extendableBox = el)}
 			id="extendable-box"
+			onClick={handlePanelClick}
 			style={{
 				width: minPanelWidth,
 				marginTop: marginTop,
@@ -128,4 +147,4 @@ const ExtendableVideo = ({
 	);
 };
 
-export default ExtendableVideo;
+export default withRouter(ExtendableVideo);
