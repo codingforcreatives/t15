@@ -1,115 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import './about-us.styles.scss';
-// import SplashScreen from '../../components/splash-screen/splash-screen.component';
+import PanelVideo from '../../components/panel-video/panel-video.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
-
-import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
-const serviceCategories = {
-	branding: {
-		key: '1',
-		panelType: 'home',
-		title: 'branding',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-	},
-	broadcastTV: {
-		key: '2',
-		panelType: 'home',
-		title: 'broadcast TV',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-	},
-	contentAdvertising: {
-		key: '3',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-	},
-	webDevelopment: {
-		key: '4',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-	},
-	branding2: {
-		key: '5',
-		panelType: 'home',
-		title: 'branding',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-	},
-	broadcastTV2: {
-		key: '6',
-		panelType: 'home',
-		title: 'broadcast TV',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-	},
-	contentAdvertising2: {
-		key: '7',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-	},
-	webDevelopment2: {
-		key: '8',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-	},
-	contentAdvertising3: {
-		key: '9',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-	},
-	webDevelopment3: {
-		key: '10',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-	},
-};
-
-// Formula for finding the minWidth and maxWidth of each panel
-// w = Total window width
-// m = Max width of a panel = 2p
-// n = Total number of panels
-// p = Min width of panel
-// p = w / (n + 1)
-// m = 2p
-
-var arr = [];
-Object.keys(serviceCategories).forEach(function (key) {
-	arr.push(serviceCategories[key]);
-});
 
 const AboutUsPage = () => {
 	//Gsap Animations
@@ -134,7 +27,8 @@ const AboutUsPage = () => {
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		}).to(featureVideo, 0.2, { css: { opacity: '100%' } });
+		});
+		// .to(featureVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -199,7 +93,8 @@ const AboutUsPage = () => {
 			<div
 				className="featureVideoContainer"
 				ref={(el) => (featureVideoContainer = el)}>
-				<img
+				<PanelVideo videoName="Ontheball.mp4" />
+				{/* <img
 					className="video-mask"
 					src={require(`../../assets/feature-overlay.png`)}></img>
 				<video
@@ -214,7 +109,7 @@ const AboutUsPage = () => {
 						src={require('../../assets/Ontheball.mp4')}
 						type="video/mp4"
 					/>
-				</video>
+				</video> */}
 			</div>
 		</div>
 	);
