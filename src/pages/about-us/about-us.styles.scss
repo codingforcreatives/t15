@@ -10,6 +10,55 @@
 	// border-width: 10px;
 	overflow: hidden;
 	width: 100vw;
+	height: auto;
+}
+
+.about-introduction-container {
+	display: flex;
+	width: 60%;
+	padding-top: 60px;
+	padding-bottom: 100px;
+
+	.about-introduction-title {
+		color: white;
+		font-size: 36px;
+		font-family: 'Montserrat-black', sans-serif;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+	}
+
+	.about-introduction-text {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		color: white;
+		opacity: 50%;
+		line-height: 1.8em;
+		margin-left: 40px;
+	}
+}
+
+.office-image {
+	position: relative;
+	height: 60vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-image: url('../../assets/t15office.png');
+
+	h2 {
+		color: white;
+		font-size: 36px;
+		font-family: 'Montserrat-black', sans-serif;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+	}
 }
 
 .featureVideoContainer {
@@ -21,10 +70,9 @@
 	// border-width: 20px;
 	overflow: hidden;
 	width: 70%;
-	height: 75%;
+	height: 100vh;
 	position: relative;
 	background-color: #1a1a1a;
-	height: 80vh;
 }
 
 .video-mask {

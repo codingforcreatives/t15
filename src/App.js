@@ -11,6 +11,11 @@ import WebsitePage from './pages/website-page/website-page.component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import SplashPage from './pages/splash-page/splash-page.component';
 
+//Portfolio
+
+//Video Content
+import TravelTourismPage from './pages/video-content-items/travel-tourism/travel-tourism-page.component';
+
 import Navbar from './components/navbar/navbar.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -32,6 +37,10 @@ function App() {
 					<Route exact path="/website-page" component={WebsitePage}></Route>
 					<Route exact path="/contact-page" component={ContactPage}></Route>
 					<Route exact path="/splash-page" component={SplashPage}></Route>
+					<Route
+						exact
+						path="/travel-tourism"
+						component={TravelTourismPage}></Route>
 				</Switch>
 			</div>
 		</div>
