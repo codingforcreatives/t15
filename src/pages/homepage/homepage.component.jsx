@@ -11,7 +11,7 @@ const serviceCategories = {
 		panelType: 'home',
 		title: 'branding',
 		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
+		overlayImageName: 'home-assets/branding.jpg',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 		linkURL: 'branding',
@@ -31,7 +31,7 @@ const serviceCategories = {
 		panelType: 'home',
 		title: 'video content',
 		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
+		overlayImageName: 'home-assets/video-content.jpg',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 		linkURL: 'video-content',
@@ -41,70 +41,10 @@ const serviceCategories = {
 		panelType: 'home',
 		title: 'web design',
 		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
+		overlayImageName: 'home-assets/websites.jpg',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 		linkURL: 'web-development',
-	},
-	branding2: {
-		key: '5',
-		panelType: 'home',
-		title: 'branding',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	broadcastTV2: {
-		key: '6',
-		panelType: 'home',
-		title: 'broadcast TV',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
-	},
-	contentAdvertising2: {
-		key: '7',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	webDevelopment2: {
-		key: '8',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
-	},
-	contentAdvertising3: {
-		key: '9',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	webDevelopment3: {
-		key: '10',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
 	},
 };
 
@@ -184,7 +124,7 @@ const HomePage = () => {
 		console.log('On HOME PAGE=========');
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+		}).to(backgroundVideo, 1, { css: { opacity: 1 } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -193,6 +133,7 @@ const HomePage = () => {
 				scale: 2,
 				opacity: 0,
 				delay: 1,
+				ease: Power4.easeOut,
 			})
 			.to(wordHere, 0.8, { opacity: 0.2, delay: 0.2 });
 		tl2
@@ -234,7 +175,7 @@ const HomePage = () => {
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
-				className="myVideo">
+				className="home-video">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source

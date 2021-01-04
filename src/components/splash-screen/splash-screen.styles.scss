@@ -1,6 +1,7 @@
 .splash-screen {
 	height: 100vh;
 	width: 100vw;
+	background: #1a1a1a;
 }
 #counter {
 	font-family: 'Montserrat', sans-serif;
@@ -15,6 +16,14 @@
 	text-transform: uppercase;
 	letter-spacing: 12px;
 	z-index: 100;
+}
+.splash-welcome {
+	display: none;
+	opacity: 0;
+}
+#movie {
+	opacity: 0;
+	scale: 0.1;
 }
 
 .circle {
@@ -46,9 +55,5 @@
 #movie {
 	width: 100vw;
 	height: 100vh;
-	border-style: solid;
-	border-width: 20px;
-	border-color: red;
-
 	position: absolute;
 }

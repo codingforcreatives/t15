@@ -2,9 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import './splash-screen.styles.scss';
 import { gsap, TimelineMax, TimelineLite, drawSVG, Linear, Power4 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { withRouter } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
-const SplashScreen = ({ backgroundVideo }) => {
+const SplashScreen = ({ backgroundVideo, history }) => {
 	//states
 	const [count, setCount] = useState(3);
 
@@ -12,8 +13,9 @@ const SplashScreen = ({ backgroundVideo }) => {
 	let rotator = useRef(null);
 	let circle = useRef(null);
 	let splashContainer = useRef(null);
+	let svgCounter = useRef(null);
 	let number = useRef(null);
-	let slogan = useRef(null);
+	let splashVideo = useRef(null);
 
 	let wordHere = useRef(null);
 	let wordUp = useRef(null);
@@ -63,27 +65,34 @@ const SplashScreen = ({ backgroundVideo }) => {
 	});
 
 	useEffect(() => {
-		tl1.from(wordHere, 1, {
-			x: -40,
-			y: -60,
+		tl.to(svgCounter, 0.8, {
+			scale: 1,
+			opacity: 1,
+			delay: 0,
+		}).to(glitchContainers, 0.8, { display: 'flex', delay: -0.8 });
+
+		tl1.from(wordHere, 0.8, {
+			// x: -40,
+			// y: -60,
 			scale: 2,
 			opacity: 0,
-			delay: 0.5,
+			delay: 0,
+			ease: Power4.easeOut,
 		});
-		tl22.from(wordUp, 1.5, { opacity: 0, delay: 1.5 });
+		// tl22.from(wordUp, 0.8, { opacity: 0, delay: 1.5 });
 
-		tl2.from(wordWhat, 1.5, { opacity: 0, delay: 3 });
+		tl2.from(wordWhat, 0.8, { opacity: 0, delay: 1.5 });
 
 		//4.4s
 
-		tl3.from(wordWe, 1.5, { opacity: 0, delay: 4.5 });
-		tl4.from(wordDo, 1.5, { opacity: 0, delay: 6 });
+		tl3.from(wordWe, 0.8, { opacity: 0, delay: 3 });
+		tl4.from(wordDo, 0.8, { opacity: 0, delay: 4.5 });
 
 		tlGlitch
 			.to('.words', 0.1, {
 				skewX: 70,
 				ease: Power4.easeInOut,
-				delay: 7,
+				delay: 5.5,
 			})
 			.to('.words', 0.04, { skewX: 0, ease: Power4.easeInOut })
 			.to('.words', 0.04, { opacity: 0 })
@@ -95,8 +104,23 @@ const SplashScreen = ({ backgroundVideo }) => {
 			.to('#txt', 0, { scale: 1.1 }, 'split')
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
-			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 });
+			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
+			.to(rotator, 0.1, { opacity: 0, delay: 0.5 })
+			.to(svgCounter, 2, {
+				scale: 200,
+				opacity: 0,
+				delay: 0,
+				ease: Power4.easeIn,
+			})
+			.to(splashVideo, 1, {
+				css: { opacity: 0 },
+				onComplete: goToHomePage,
+			});
 	}, []);
+
+	const goToHomePage = () => {
+		history.push('services');
+	};
 
 	// useEffect(() => {
 	// 	setInterval();
@@ -105,7 +129,12 @@ const SplashScreen = ({ backgroundVideo }) => {
 
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
-			<video autoPlay="autoPlay" muted loop="loop" className="splashVideo">
+			<video
+				autoPlay="autoPlay"
+				muted
+				loop="loop"
+				className="splashVideo"
+				ref={(el) => (splashVideo = el)}>
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
@@ -117,6 +146,7 @@ const SplashScreen = ({ backgroundVideo }) => {
 			<div className="video-overlay">
 				<svg
 					id="movie"
+					ref={(el) => (svgCounter = el)}
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 1200 1200">
 					<g id="film">
@@ -161,14 +191,14 @@ const SplashScreen = ({ backgroundVideo }) => {
 				</svg>
 				<div
 					ref={(el) => (glitchContainers = el)}
-					className="welcome-container glitch top"
+					className="welcome-container glitch top splash-welcome"
 					id="slogan">
 					<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
-						Level
+						Level up
 					</h2>
-					<h2 ref={(el) => (wordUp = el)} className="words" id="heres">
+					{/* <h2 ref={(el) => (wordUp = el)} className="words" id="heres">
 						up
-					</h2>
+					</h2> */}
 					<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
 						your
 					</h2>
@@ -184,4 +214,4 @@ const SplashScreen = ({ backgroundVideo }) => {
 	);
 };
 
-export default SplashScreen;
+export default withRouter(SplashScreen);

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
-import { TimelineLite, TweenMax } from 'gsap';
+import { TimelineLite, TweenMax, Power3, Power4 } from 'gsap';
 import { withRouter } from 'react-router-dom';
 import { Tween } from 'gsap/gsap-core';
 
@@ -89,7 +89,7 @@ const ExtendableVideo = ({
 
 	const handlePanelClick = () => {
 		TweenMax.to(extendableBox, 1, {
-			css: { scale: 8, opacity: 0 },
+			css: { scale: 8, opacity: 0, ease: Power4.easeIn },
 			onComplete: goToNextPage,
 		});
 	};
@@ -100,22 +100,25 @@ const ExtendableVideo = ({
 
 	useEffect(() => {
 		if (isInitialMount.current) {
-			tl.from(extendableBox, 1, {
+			tl.from(extendableBox, 1.5, {
 				x: myObj['X'],
 				y: myObj['Y'],
 				scale: 10,
 				opacity: 0,
 				delay: myObj['delay'],
+				ease: Power4.easeOut,
 			}).add(addMouseEvents);
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
 				TweenMax.to(extendableBox, expandDuration, {
 					width: myObj['maxPanelWidth'],
+					ease: Power3.easeInOut,
 				});
 			} else {
 				TweenMax.to(extendableBox, expandDuration, {
 					width: myObj['minPanelWidth'],
+					ease: Power3.easeOut,
 				});
 			}
 		}

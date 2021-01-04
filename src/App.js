@@ -26,7 +26,7 @@ function App() {
 			<div className="router-container">
 				{/* <Navbar /> */}
 				<Switch>
-					<Route exact path="/" component={HomePage}></Route>
+					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>
 					<Route exact path="/branding" component={BrandingPage}></Route>
 					<Route exact path="/broadcast-tv" component={BroadcastTVPage}></Route>
@@ -36,7 +36,7 @@ function App() {
 						component={VideoContentPage}></Route>
 					<Route exact path="/website-page" component={WebsitePage}></Route>
 					<Route exact path="/contact-page" component={ContactPage}></Route>
-					<Route exact path="/splash-page" component={SplashPage}></Route>
+					<Route exact path="/" component={SplashPage}></Route>
 					<Route
 						exact
 						path="/travel-tourism"
