@@ -47,7 +47,7 @@ const SplashScreen = ({ backgroundVideo }) => {
 
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
-			<video autoPlay="autoPlay" muted loop="loop" className="myVideo">
+			<video autoPlay="autoPlay" muted loop="loop" className="splashVideo">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
