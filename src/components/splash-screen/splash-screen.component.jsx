@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './splash-screen.styles.scss';
-import { gsap, TimelineMax, drawSVG, Linear } from 'gsap';
+import { gsap, TimelineMax, TimelineLite, drawSVG, Linear, Power4 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,9 +10,18 @@ const SplashScreen = ({ backgroundVideo }) => {
 
 	//Accessing elements
 	let rotator = useRef(null);
+	let circle = useRef(null);
 	let splashContainer = useRef(null);
 	let number = useRef(null);
 	let slogan = useRef(null);
+
+	let wordHere = useRef(null);
+	let wordUp = useRef(null);
+	let wordWhat = useRef(null);
+	let wordWe = useRef(null);
+	let wordDo = useRef(null);
+	let glitchContainers = useRef(null);
+	// let spinnerContainer = useRef(null);
 
 	let countDownTimer = () => {
 		setInterval(() => {
@@ -25,25 +34,74 @@ const SplashScreen = ({ backgroundVideo }) => {
 		}, 1500);
 	};
 
-	let tl = new TimelineMax({
+	let tlrotation = new TimelineMax({
 		repeat: 3,
 	});
-	let tl2 = new TimelineMax();
+	let tlcontainer = new TimelineMax();
+
+	const tl = new TimelineLite();
+	const tl1 = new TimelineLite();
+	const tl22 = new TimelineLite();
+	const tl2 = new TimelineLite();
+	const tl3 = new TimelineLite();
+	const tl4 = new TimelineLite();
+	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
-		tl.to(rotator, {
+		tlrotation.to(rotator, {
 			rotation: 360,
 			svgOrigin: '600 600',
 		});
 		if (count == 3) {
-			tl2.from(splashContainer, { opacity: 0 });
-			tl2.to(splashContainer, { opacity: 1 });
+			tlcontainer.from(splashContainer, { opacity: 0 });
+			tlcontainer.to(splashContainer, { opacity: 1 });
 		}
 
 		countDownTimer();
-		tl.duration(1.5).play();
-		tl2.duration(1).play();
+		tlrotation.duration(1.5).play();
+		tlcontainer.duration(1).play();
 	});
+
+	useEffect(() => {
+		tl1.from(wordHere, 1, {
+			x: -40,
+			y: -60,
+			scale: 2,
+			opacity: 0,
+			delay: 0.5,
+		});
+		tl22.from(wordUp, 1.5, { opacity: 0, delay: 1.5 });
+
+		tl2.from(wordWhat, 1.5, { opacity: 0, delay: 3 });
+
+		//4.4s
+
+		tl3.from(wordWe, 1.5, { opacity: 0, delay: 4.5 });
+		tl4.from(wordDo, 1.5, { opacity: 0, delay: 6 });
+
+		tlGlitch
+			.to('.words', 0.1, {
+				skewX: 70,
+				ease: Power4.easeInOut,
+				delay: 7,
+			})
+			.to('.words', 0.04, { skewX: 0, ease: Power4.easeInOut })
+			.to('.words', 0.04, { opacity: 0 })
+			.to('.words', 0.04, { opacity: 1 })
+			.to('.words', 0.04, { x: -20 })
+			.to('.words', 0.04, { x: 0 })
+			.add('split', 0)
+
+			.to('#txt', 0, { scale: 1.1 }, 'split')
+			.to('#txt', 0, { scale: 1 }, '+=0.02')
+
+			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 });
+	}, []);
+
+	// useEffect(() => {
+	// 	setInterval();
+	// 	tl3.from(number, 0.5, { scale: 2 });
+	// }, [count]);
 
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
@@ -62,7 +120,7 @@ const SplashScreen = ({ backgroundVideo }) => {
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 1200 1200">
 					<g id="film">
-						<g strokeWidth="2">
+						<g strokeWidth="2" ref={(el) => (circle = el)} className="circle">
 							<circle cx="600" cy="600" r="320" stroke="#444444" fill="none" />
 						</g>
 
@@ -76,6 +134,7 @@ const SplashScreen = ({ backgroundVideo }) => {
 							stroke="#444444"
 							strokeWidth="2"
 						/>
+
 						<text
 							id="counter"
 							textAnchor="middle"
@@ -88,7 +147,7 @@ const SplashScreen = ({ backgroundVideo }) => {
 							{count}
 						</text>
 
-						<text
+						{/* <text
 							id="slogan"
 							ref={(el) => (slogan = el)}
 							textAnchor="middle"
@@ -97,9 +156,29 @@ const SplashScreen = ({ backgroundVideo }) => {
 							fill="white"
 							fontSize="40">
 							Level up your digital presence
-						</text>
+						</text> */}
 					</g>
 				</svg>
+				<div
+					ref={(el) => (glitchContainers = el)}
+					className="welcome-container glitch top"
+					id="slogan">
+					<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
+						Level
+					</h2>
+					<h2 ref={(el) => (wordUp = el)} className="words" id="heres">
+						up
+					</h2>
+					<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
+						your
+					</h2>
+					<h2 ref={(el) => (wordWe = el)} className="words" id="we">
+						digital
+					</h2>
+					<h2 ref={(el) => (wordDo = el)} className="words" id="do">
+						presence
+					</h2>
+				</div>
 			</div>
 		</div>
 	);
