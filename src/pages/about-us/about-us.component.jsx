@@ -9,65 +9,74 @@ import { Tween } from 'gsap/gsap-core';
 const AboutUsPage = () => {
 	const testimonialItems = [
 		{
+			index: 1,
 			name: 'James Kennerly',
 			company: 'Air New Zealand',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Robert was hired as a content creator for the Air New Zealand Airpoints Escape campaign in 2017. The campaign utilised social marketing channels Instagram and Facebook to promote regional travel and iconic global Airpoints Hotel Partner Hilton. He was easy to collaborate with, brought great ideas to the table and had a real talent for capturing amazing moments in both static shots and video.',
 		},
 		{
+			index: 2,
 			name: 'Joel Thompson, Director',
 			company: 'OutBeyond',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Eric adopts a holistic approach to creative content which enables businesses to showcase their authentic core messages and what they stand for. His ability to work to full briefs, but also challenge the traditional thinking of business owner direction allows for a real story to come through and be told in the most natural yet thought provoking way that modern day businesses need to thrive in the world of digital. His deliverables have helped our business accelerate our growth from a tiny business, to a large-scale operation. Through his profound understanding of our requirements, his energy, charisma and professionalism Eric has been instrumental in OutBeyonds Success. I have no hesitation in recommending Eric to businesses who are entrepreneurial, innovative and continually push the envelope.',
 		},
 		{
+			index: 3,
 			name: 'Urs Bauer',
 			company: 'ATravelling Cinema Co.',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Robert has a great eye for detail and knows how to get the perfect shot. His editing is well thought out and if you give him creative freedom, he’ll come up with the perfect composition. He listens carefully, is easy to work with and is happy to go the extra mile to achieve the best outcome possible.',
 		},
 		{
+			index: 4,
 			name: 'Ashley Andrew, Sales & Marketing Manager',
 			company: 'Jucy',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'At JUCY, we’ve collaborated with Eric on multiple content creation projects and he always over delivers. I find Eric very easy to work with as he has great communication skills and can follow a brief or deliver on-brand content with creative freedom. I love that Eric can create video for multiple channels and always presents out of the box creative. Eric has a high attention for detail and is a pleasure to work with. I would recommend working with Eric on any video content needs.',
 		},
 		{
+			index: 5,
 			name: 'Tasha Meys, Founder',
 			company: 'Ace The Gram',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'We were thrilled by the video that Rob put together for us. They interpreted our brief perfectly and produced a beautiful video which captured the vibe of our business. Rob and T15 Media were professional, creative, talented and a pleasure to work with.',
 		},
 		{
+			index: 6,
 			name: 'Kris Lal, Director',
 			company: 'Curatorsocial',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Curatorsocial has had the pleasure of working with Eric Lin on several projects thus far including content creation for esteemed clients such as Air NZ and the Chiefs Rugby team, his aim is always to deliver for his client, guided by their initiatives and narrative, he masterfully weaves a story through imagery and video that brings our campaigns to life. From travel to corporate, Eric has adapted to deliver to brief and on time. He is on the cusp of becoming one of the regions next big things in terms of content creation, we have worked with hundreds of influencers and creators at Curatorsocial, the mere fact we continue to return for his expertise and service should speak volumes for potential clients.',
 		},
 		{
+			index: 7,
 			name: 'Joe Olds, Global Marketing Manager',
 			company: 'G Adventures',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'In conjunction with Thailand Tourism and Junkee Media in Australia, we at G Adventures recently sent Eric to Thailand to capture a variety of videos for usage over several channels. The quality of Eric’s work was outstanding and we have found him to be an exceptionally talented young filmmaker who we will definitely be working with again for video shoots around the world.',
 		},
 		{
+			index: 8,
 			name: 'Jimena Fernandez, Online Marketing Leader',
 			company: 'Hilton Buenos Aires',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Eric worked and stayed at Hilton Buenos Aires in October (2018). During his days with us he was extremely professional, attentive and always making sure the final results were of high quality. We would love to work with him again in the near future!',
 		},
 		{
+			index: 9,
 			name: 'Paul Maloney, Digital Marketing Manager',
 			company: 'Polar Pro',
-			image: "${require('../../assets/T15_NoText.png')}",
+			image: 'T15_No-Text.png',
 			quote:
 				'Eric Lin is a creative and talented videographer with a keen eye for detail, a knack for storytelling and a compassion for others that makes him a true pleasure to work with. We have no hesitations in recommending Eric for your future video projects!',
 		},

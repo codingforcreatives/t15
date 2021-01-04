@@ -4,7 +4,7 @@ import { gsap, TimelineMax, drawSVG, Linear } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-const SplashScreen = () => {
+const SplashScreen = ({ backgroundVideo }) => {
 	//states
 	const [count, setCount] = useState(3);
 
@@ -51,7 +51,7 @@ const SplashScreen = () => {
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
-					src={require('../../assets/Website-Hero-Compressed-v2.mp4')}
+					src={require(`../../assets/${backgroundVideo}`)}
 					type="video/mp4"
 				/>
 			</video>
