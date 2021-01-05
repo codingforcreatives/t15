@@ -65,8 +65,8 @@ const ExtendableVideo = ({
 	};
 
 	const addMouseEvents = () => {
-		extendableBox.addEventListener('mouseenter', handleExpand);
-		extendableBox.addEventListener('mouseleave', handleShrink);
+		// extendableBox.addEventListener('mouseenter', handleExpand);
+		// extendableBox.addEventListener('mouseleave', handleShrink);
 	};
 
 	//expansion
@@ -181,10 +181,10 @@ const ExtendableVideo = ({
 				panelType === 'home' ? (
 					<h2 className="panel-title">{title}</h2>
 				) : (
-					<img
-						className="logoImage"
-						src={require(`../../assets/${logoName}`)}></img>
-				)
+						<img
+							className="logoImage"
+							src={require(`../../assets/${logoName}`)}></img>
+					)
 			}
 		</div>
 	);

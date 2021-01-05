@@ -15,6 +15,7 @@ import VideoContentPage from './pages/video-content-page/video-content-page.comp
 import WebsitePage from './pages/website-page/website-page.component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import SplashPage from './pages/splash-page/splash-page.component';
+import NipoonPortfolioPage from './pages/nipoon-portfolio-page/nipoon-portfolio-page.component';
 
 //Portfolio
 
@@ -31,6 +32,7 @@ function App() {
 			<div className="router-container">
 				{/* <Navbar /> */}
 				<Switch>
+					<Route exact path="/nipoon-portfolio" component={NipoonPortfolioPage}></Route>
 					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>
 					<Route exact path="/branding" component={BrandingPage}></Route>
