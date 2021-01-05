@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './splash-screen.styles.scss';
-import { gsap, TimelineMax, TimelineLite, drawSVG, Linear, Power4 } from 'gsap';
+import { gsap, TimelineMax, TimelineLite, Power4, Power2 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { withRouter } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +43,6 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 
 	const tl = new TimelineLite();
 	const tl1 = new TimelineLite();
-	const tl22 = new TimelineLite();
 	const tl2 = new TimelineLite();
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
@@ -106,11 +105,11 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(rotator, 0.1, { opacity: 0, delay: 0.5 })
-			.to(svgCounter, 2, {
+			.to(svgCounter, 1.5, {
 				scale: 200,
 				opacity: 0,
 				delay: 0,
-				ease: Power4.easeIn,
+				ease: Power2.easeIn,
 			})
 			.to(splashVideo, 1, {
 				css: { opacity: 0 },
