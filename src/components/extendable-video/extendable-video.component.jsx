@@ -42,6 +42,7 @@ const ExtendableVideo = ({
 	});
 
 	const isInitialMount = useRef(true);
+	let videoBack = useRef(null);
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
@@ -75,6 +76,7 @@ const ExtendableVideo = ({
 		setExpanded(true);
 		setContent(
 			<video
+				ref={(el) => (videoBack = el)}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
@@ -148,7 +150,7 @@ const ExtendableVideo = ({
 					tl.to(extendableBox, 1, {
 						width: myObj['minPanelWidth'],
 						ease: Power4.easeOut,
-					}).to(extendableBox, 1, {
+					}).to(extendableBox, 2, {
 						css: {
 							scale: 200,
 							opacity: 0,
