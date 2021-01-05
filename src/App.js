@@ -1,5 +1,10 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux';
+import {
+	setIndexClicked,
+	setPanelClicked,
+} from './redux/extendable-video/extendable-video.actions';
 
 //Pages
 import HomePage from './pages/homepage/homepage.component';
@@ -47,4 +52,9 @@ function App() {
 	);
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+	setIndexClicked: (index) => dispatch(setIndexClicked(index)),
+	setPanelClicked: (clicked) => dispatch(setPanelClicked(clicked)),
+});
+
+export default connect(null, mapDispatchToProps)(App);

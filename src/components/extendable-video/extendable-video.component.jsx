@@ -1,11 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
-import { TimelineLite, TweenMax, Power3, Power4 } from 'gsap';
+import { TimelineLite, TweenMax, Power3, Power4, Power2 } from 'gsap';
 import { withRouter } from 'react-router-dom';
-import { Tween } from 'gsap/gsap-core';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import {
+	setIndexClicked,
+	setPanelClicked,
+} from '../../redux/extendable-video/extendable-video.actions';
 
 const ExtendableVideo = ({
-	key,
 	panelType,
 	logoName,
 	title,
@@ -22,6 +26,11 @@ const ExtendableVideo = ({
 	linkURL,
 	history,
 	match,
+	panelClicked,
+	indexClicked,
+	setPanelClicked,
+	setIndexClicked,
+	key,
 }) => {
 	const [expanded, setExpanded] = useState(false);
 	const [content, setContent] = useState(() => {
@@ -36,8 +45,10 @@ const ExtendableVideo = ({
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
+	let yExit = null;
 
 	position === 'up' ? (marginTop = 50) : (marginTop = 0);
+	position === 'up' ? (yExit = -200) : (yExit = 200);
 	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
 
 	//entrance animations
@@ -88,10 +99,8 @@ const ExtendableVideo = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		TweenMax.to(extendableBox, 1, {
-			css: { scale: 8, opacity: 0, ease: Power4.easeIn },
-			onComplete: goToNextPage,
-		});
+		setPanelClicked(true);
+		setIndexClicked(title);
 	};
 
 	const goToNextPage = () => {
@@ -124,6 +133,37 @@ const ExtendableVideo = ({
 		}
 	}, [content, expanded]);
 
+	useEffect(() => {
+		if (panelClicked == true) {
+			if (panelClicked == true) {
+				if (indexClicked != title) {
+					TweenMax.to(extendableBox, 0.4, {
+						y: yExit,
+						opacity: 0,
+						delay: 1.5,
+						ease: Power2.easeIn,
+					});
+				} else {
+					let tl = new TimelineLite();
+					tl.to(extendableBox, 1, {
+						width: myObj['minPanelWidth'],
+						ease: Power4.easeOut,
+					}).to(extendableBox, 1, {
+						css: {
+							scale: 200,
+							opacity: 0,
+							delay: 4,
+							ease: Power2.easeIn,
+						},
+						onComplete: goToNextPage,
+					});
+				}
+			}
+		}
+
+		setPanelClicked(false);
+	}, [indexClicked, panelClicked]);
+
 	return (
 		<div
 			ref={(el) => (extendableBox = el)}
@@ -150,4 +190,20 @@ const ExtendableVideo = ({
 	);
 };
 
-export default withRouter(ExtendableVideo);
+const mapStateToProps = (state) => ({
+	panelClicked: state.extendableVideo.panelClicked,
+	indexClicked: state.extendableVideo.indexClicked,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	setIndexClicked: (index) => dispatch(setIndexClicked(index)),
+	setPanelClicked: (clicked) => dispatch(setPanelClicked(clicked)),
+});
+
+// export default withRouter(
+// 	connect(mapStateToProps, mapDispatchToProps)(ExtendableVideo)
+// );
+export default compose(
+	withRouter,
+	connect(mapStateToProps, mapDispatchToProps)
+)(ExtendableVideo);

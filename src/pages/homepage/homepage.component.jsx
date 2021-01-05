@@ -32,7 +32,7 @@ const serviceCategories = {
 		title: 'video content',
 		logoName: '',
 		overlayImageName: 'home-assets/video-content.jpg',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'home-assets/video-content.mp4',
 		position: 'up',
 		linkURL: 'video-content',
 	},
@@ -42,7 +42,7 @@ const serviceCategories = {
 		title: 'web design',
 		logoName: '',
 		overlayImageName: 'home-assets/websites.jpg',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'home-assets/Build7.mp4',
 		position: 'down',
 		linkURL: 'web-development',
 	},
@@ -60,6 +60,7 @@ var arr = [];
 Object.keys(serviceCategories).forEach(function (key) {
 	arr.push(serviceCategories[key]);
 });
+console.log(arr[0]);
 
 const HomePage = () => {
 	//comment this out later

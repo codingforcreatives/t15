@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
-	panelClicked: null,
-	indexClicked: null,
+	panelClicked: false,
+	indexClicked: '0',
 };
 
 const extendableVideoReducer = (state = INITIAL_STATE, action) => {
