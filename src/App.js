@@ -29,7 +29,7 @@ function App() {
 		<div className="App">
 			{/* <HomePage /> */}
 			<div className="router-container">
-				{/* <Navbar /> */}
+				<Navbar />
 				<Switch>
 					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>

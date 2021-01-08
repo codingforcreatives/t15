@@ -32,7 +32,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		{
 			title: 'Content Creation',
 			path: '/',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
+			videoName: 'home-assets/video-content.mp4',
 			cName: 'nav-text',
 			key: 4,
 			delay: 2,
@@ -48,7 +48,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		{
 			title: 'Websites',
 			path: '/',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
+			videoName: 'home-assets/Build7.mp4',
 			cName: 'nav-text',
 			key: 6,
 			delay: 3,
