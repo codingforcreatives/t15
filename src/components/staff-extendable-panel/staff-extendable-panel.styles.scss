@@ -1,0 +1,71 @@
+#extendable-box {
+	position: relative;
+	overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.still-image {
+	height: 100%;
+	z-index: 2;
+}
+
+.logoImage {
+	width: 100px;
+	z-index: 10;
+	position: absolute;
+}
+
+.panel-title {
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	opacity: 0.8;
+	color: white;
+	transform: rotate(-90deg) translate(-100%, 0);
+	transform-origin: 0 0;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index: 10;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	width: 250px;
+	text-align: right;
+}
+
+.extendable-video-background {
+	height: 100%;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+//can add a class for this when more than 4 panels
+
+@media only screen and (max-width: 1024px) {
+	.panel-title {
+		left: 10px;
+		top: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.extendable-box {
+	}
+}

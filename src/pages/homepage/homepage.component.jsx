@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './homepage.styles.scss';
+import './homepage.styles.css';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -122,7 +122,6 @@ const HomePage = () => {
 	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
-		console.log('On HOME PAGE=========');
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
 		}).to(backgroundVideo, 1, { css: { opacity: 1 } });
@@ -202,8 +201,7 @@ const HomePage = () => {
 				</h2>
 			</div>
 
-			<div className="panel-container" ref={(el) => (panelContainer = el)}>
-				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
+			<div className="home-panel-container" ref={(el) => (panelContainer = el)}>
 				{arr.map((item) => (
 					<ExtendableVideo
 						key={item.key}

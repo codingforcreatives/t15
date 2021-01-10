@@ -13,31 +13,31 @@ function Navbar() {
 	const showSidebar = () => setSidebar(!sidebar);
 
 	let menuBar = useRef(null);
+	let logo = useRef(null);
 	let firstLoad = false;
 
 	let tl = new TimelineLite();
+	let tl2 = new TimelineLite();
 
 	useEffect(() => {
-		sidebar
-			? tl.to(menuBar, 1, { css: { display: 'block', opacity: 1 } })
-			: tl.to(menuBar, 1, { css: { display: 'none', opacity: 0 } });
+		if (sidebar) {
+			tl.to(menuBar, 1, { css: { display: 'block', opacity: 1 } });
+			tl2.to(logo, 1, { opacity: 0 });
+		} else {
+			tl2.to(logo, 0.2, { opacity: 1 });
+			tl.to(menuBar, 1, { css: { display: 'none', opacity: 0 } });
+		}
 	}, [sidebar]);
 	return (
 		<div className="navbar-component-container">
 			<div class="menu-bar" ref={(el) => (menuBar = el)}>
 				<MenuContents></MenuContents>
 			</div>
+			<img
+				ref={(el) => (logo = el)}
+				className="still-image"
+				src={require(`../../assets/t15_logo.png`)}></img>
 			<div className="navbar" onClick={() => setSidebar(!sidebar)}>
-				{/* {sidebar ? (
-					<Link to="#" className="close">
-						<AiIcons.AiOutlineClose />
-					</Link>
-				) : (
-					<Link to="#" className="hamburger">
-						<FaIcons.FaBars />
-					</Link>
-				)} */}
-
 				<Hamburger
 					toggled={sidebar}
 					toggle={setSidebar}

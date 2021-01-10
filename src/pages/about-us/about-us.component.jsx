@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import './about-us.styles.scss';
 import PanelVideo from '../../components/panel-video/panel-video.component';
 import TestimonialSlider from '../../components/testimonial-slider/testimonial-slider.component';
+import StaffExtendablePanel from '../../components/staff-extendable-panel/staff-extendable-panel.component';
 
 import { TweenMax, Power3, Power4, TimelineLite, Linear } from 'gsap';
 import { Tween } from 'gsap/gsap-core';
@@ -81,6 +82,77 @@ const AboutUsPage = () => {
 				'Eric Lin is a creative and talented videographer with a keen eye for detail, a knack for storytelling and a compassion for others that makes him a true pleasure to work with. We have no hesitations in recommending Eric for your future video projects!',
 		},
 	];
+
+	const profiles = {
+		Eric: {
+			key: '1',
+			panelType: 'portfolio',
+			title: 'Eric Lin',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'up',
+		},
+		Rob: {
+			key: '2',
+			panelType: 'portfolio',
+			title: 'travel & tourism',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'down',
+		},
+		Kyndel: {
+			key: '3',
+			panelType: 'portfolio',
+			title: 'video content',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'up',
+		},
+		Alexis: {
+			key: '4',
+			panelType: 'portfolio',
+			title: 'web design',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'down',
+		},
+		Clary: {
+			key: '5',
+			panelType: 'portfolio',
+			title: 'branding',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'up',
+		},
+		Alan: {
+			key: '6',
+			panelType: 'portfolio',
+			title: 'broadcast TV',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'down',
+		},
+		Anastasia: {
+			key: '7',
+			panelType: 'portfolio',
+			title: 'video content',
+			logoName: '',
+			overlayImageName: 'temporary-screenshot.png',
+			videoName: 'Website-Hero-Compressed-v2.mp4',
+			position: 'up',
+		},
+	};
+
+	var arr = [];
+	Object.keys(profiles).forEach(function (key) {
+		arr.push(profiles[key]);
+	});
 	//Gsap Animations
 	let parallaxOfficeImage = useRef(null);
 	let homepageContainer = useRef(null);
@@ -90,6 +162,7 @@ const AboutUsPage = () => {
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
 	let featureVideoContainer = useRef(null);
+	let panelContainer = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -99,6 +172,42 @@ const AboutUsPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+
+	var totalWindowWidth = window.innerWidth * 0.8;
+	var numPanels = arr.length;
+
+	var panelMinWidth = totalWindowWidth / (numPanels + 1);
+
+	var panelMaxWidth = panelMinWidth * 2;
+
+	//Panel Animation Coordinates
+	let totalPanelsOnEachSide = arr.length / 2;
+	let leftHand_Y = -60;
+	let leftHand_X = -40;
+	let rightHand_Y = 60;
+	let rightHand_X = 40;
+	let delay = 0.5;
+	let increment_Y = rightHand_Y / totalPanelsOnEachSide;
+	let increment_X = rightHand_X / totalPanelsOnEachSide;
+	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
+
+	const calculateX = (key) => {
+		//left hand side
+		return increment_X * key + leftHand_X;
+	};
+
+	const calculateDelay = (key) => {
+		return delay * key;
+	};
+
+	const calculateY = (key) => {
+		// left hand side
+		if (key <= totalPanelsOnEachSide) {
+			return increment_Y * key * -1 + leftHand_Y;
+		} else {
+			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
+		}
+	};
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -195,6 +304,29 @@ const AboutUsPage = () => {
 			</div>
 
 			<TestimonialSlider testimonials={testimonialItems} />
+
+			<div
+				className="staff-panel-container"
+				ref={(el) => (panelContainer = el)}>
+				{arr.map((item) => (
+					<StaffExtendablePanel
+						key={item.index}
+						panelType="staff"
+						title={item.title}
+						logoName={item.logoName}
+						overlayImageName={item.overlayImageName}
+						videoName={item.videoName}
+						position={item.position}
+						from_X={calculateX(item.key)}
+						from_Y={calculateY(item.key)}
+						delay={calculateDelay(item.key)}
+						prevTimlineDelay={prevTimelineDelay}
+						minPanelWidth={panelMinWidth}
+						maxPanelWidth={panelMaxWidth}
+						expandDuration={2}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

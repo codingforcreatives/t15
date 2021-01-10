@@ -109,15 +109,14 @@
 	// border-width: 2px;
 	overflow: hidden;
 }
-
-// .feature-video {
-// 	opacity: 0%;
-// 	width: 100%;
-// 	height: 100%;
-// 	object-fit: cover;
-// 	overflow: hidden;
-// }
-
+.staff-panel-container {
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 88vw;
+	display: flex;
+	overflow: hidden;
+}
 // /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
 	//can do this for when more than 4 panels
@@ -143,5 +142,12 @@
 
 	.welcome-container h2 {
 		margin: 14px 0px 0px 0px;
+	}
+
+	.staff-panel-container {
+		flex-direction: column;
+		height: auto;
+		padding-top: 80px;
+		padding-bottom: 60px;
 	}
 }
