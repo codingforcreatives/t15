@@ -18,7 +18,7 @@ const serviceCategories = {
 	broadcastTV: {
 		key: '2',
 		panelType: 'portfolio',
-		title: 'broadcast TV',
+		title: 'travel & tourism',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',

@@ -45,6 +45,7 @@ const ExtendableVideo = ({
 	let panelWidth = null;
 
 	const isInitialMount = useRef(true);
+	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
 	const logo = 'tepari.png';
 	var marginTop = 0;
@@ -63,7 +64,7 @@ const ExtendableVideo = ({
 
 	position === 'up' ? (yExit = -200) : (yExit = 200);
 
-	isMobile ? (panelWidth = '80vw') : (panelWidth = minPanelWidth);
+	isMobile ? (panelWidth = '88vw') : (panelWidth = minPanelWidth);
 
 	//entrance animations
 	let extendableBox = useRef(null);
@@ -143,6 +144,16 @@ const ExtendableVideo = ({
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
+				console.log('not is Mobile ANIMATIOns');
+				if (panelType != 'home') {
+					panelTitle.style.transform = 'none';
+					panelTitle.style.textAlign = 'left';
+					panelTitle.style.width = '80%';
+					panelTitle.style.left = 20;
+					panelTitle.style.top = 'auto';
+					panelTitle.style.bottom = 20;
+				}
+
 				tl.from(extendableBox, 1.5, {
 					x: myObj['X'],
 					y: myObj['Y'],
@@ -213,11 +224,9 @@ const ExtendableVideo = ({
 			}}>
 			{content}
 
-			{
-				//show title or logo depending on page
-
-				<h2 className="panel-title">{title}</h2>
-			}
+			<h2 className="panel-title" ref={(el) => (panelTitle = el)}>
+				{title}
+			</h2>
 		</div>
 	);
 };
