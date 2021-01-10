@@ -47,6 +47,7 @@ const StaffExtendablePanel = ({
 	const isInitialMount = useRef(true);
 	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
+	let bioContainer = useRef(null);
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
@@ -69,6 +70,7 @@ const StaffExtendablePanel = ({
 	//entrance animations
 	let extendableBox = useRef(null);
 	let tl = new TimelineLite();
+	let tl2 = new TimelineLite();
 	let total = delay + 4;
 
 	const myObj = {
@@ -165,11 +167,17 @@ const StaffExtendablePanel = ({
 					width: myObj['maxPanelWidth'],
 					ease: Power3.easeInOut,
 				});
+				TweenMax.to(panelTitle, 0.2, { opacity: 0 });
+				TweenMax.to(bioContainer, 0.5, { opacity: 1 });
 			} else {
-				TweenMax.to(extendableBox, expandDuration, {
-					width: myObj['minPanelWidth'],
-					ease: Power3.easeOut,
-				});
+				tl2
+					.to(bioContainer, 1, { opacity: 0 })
+					.to(panelTitle, 1, { opacity: 1 })
+					.to(extendableBox, expandDuration, {
+						width: myObj['minPanelWidth'],
+						ease: Power3.easeOut,
+						delay: -1,
+					});
 			}
 		}
 	}, [content, expanded]);
@@ -223,6 +231,15 @@ const StaffExtendablePanel = ({
 			<h2 className="panel-title" ref={(el) => (panelTitle = el)}>
 				{title}
 			</h2>
+			<div className="member-bio-container" ref={(el) => (bioContainer = el)}>
+				<h3>Eric Lin</h3>
+				<p>
+					Eric Lin is a cinematographer and editor who has been producing video
+					content for the past 5 years. Eric is our head of content and has a
+					lot of experience in a wide range of industries both locally and
+					internationally.
+				</p>
+			</div>
 		</div>
 	);
 };
