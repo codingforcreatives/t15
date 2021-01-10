@@ -7,22 +7,15 @@
 	align-items: center;
 	background-color: #0f0e0f;
 	visibility: hidden;
-
-	// border-style: solid;
-	// border-color: green;
-	// border-width: 10px;
-	// overflow: hidden;
+	/* padding: 20px 20px 20px 20px; */
 }
 
-.panel-container {
+.home-panel-container {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	width: 100vw;
+	width: 88vw;
 	display: none;
-	// border-style: solid;
-	// border-color: pink;
-	// border-width: 5px;
 	overflow: hidden;
 }
 
@@ -32,9 +25,7 @@
 	z-index: 1;
 	justify-content: center;
 	align-items: center;
-	// border-style: solid;
-	// border-color: orange;
-	// border-width: 2px;
+
 	overflow: hidden;
 }
 
@@ -46,9 +37,7 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
-	// border-style: solid;
-	// border-color: orange;
-	// border-width: 2px;
+
 	overflow: hidden;
 }
 
@@ -56,29 +45,22 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	// height: 100vh;
-	width: 100vw;
+	min-width: 100%;
+	min-height: 100vh;
 	opacity: 0;
 	overflow: hidden;
 }
 
-// /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
-	//can do this for when more than 4 panels
-	// .panel-container {
-	// 	flex-direction: column;
-	// }
 	.welcome-container {
-		// border-color: blue;
 		width: 100vw;
 	}
 	.homepage-container {
-		// border-color: red;
 		width: 100vw;
 		padding-top: 20px;
 		padding-bottom: 20px;
 	}
-
+	/* 
 	.home-video {
 		position: fixed;
 		left: 0;
@@ -87,7 +69,7 @@
 		width: auto;
 		opacity: 0%;
 		overflow: hidden;
-	}
+	} */
 }
 
 @media only screen and (max-width: 500px) {
