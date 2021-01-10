@@ -41,29 +41,20 @@
 
 .extendable-video-background {
 	height: 100%;
-	// opacity: 1;
-	// animation-name: fadeInOpacity;
-	// animation-iteration-count: 1;
-	// animation-timing-function: ease-in;
-	// animation-duration: 1s;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
 }
 
-// .extendable-video-background {
-// 	opacity: 1;
-// 	animation-name: fadeInOpacity;
-// 	animation-iteration-count: 1;
-// 	animation-timing-function: ease-in;
-// 	animation-duration: 1s;
-// }
-
-// @keyframes fadeInOpacity {
-// 	0% {
-// 		opacity: 0;
-// 	}
-// 	100% {
-// 		opacity: 1;
-// 	}
-// }
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
 //can add a class for this when more than 4 panels
 

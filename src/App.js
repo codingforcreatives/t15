@@ -30,7 +30,7 @@ function App() {
 		<div className="App">
 			{/* <HomePage /> */}
 			<div className="router-container">
-				{/* <Navbar /> */}
+				<Navbar />
 				<Switch>
 					<Route exact path="/nipoon-portfolio" component={NipoonPortfolioPage}></Route>
 					<Route exact path="/services" component={HomePage}></Route>
