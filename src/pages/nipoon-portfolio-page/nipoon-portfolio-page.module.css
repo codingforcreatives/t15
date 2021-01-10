@@ -1,4 +1,4 @@
-.outter-container {
+.outerContainer {
     background-color: #1a1a1a;
     color: white;
     min-height: 100vh;
@@ -7,17 +7,17 @@
     box-sizing: border-box;
 }
 
-.inner-container {
+.innerContainer {
     padding: 60px 3%;
     max-width: 1040px;
     margin: 0 auto;
 }
 
-.header-image {
+.headerImage {
     width: 100%;
 }
 
-.header-text-container {
+.headerTextContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,25 +26,25 @@
 }
 
 @media (max-width: 744px) {
-    .header-text-container {
+    .headerTextContainer {
         display: flex;
         flex-direction: column;
         align-items: start;
     }
 }
 
-.header-text-left-section {
+.headerTextLeftSection {
     flex: 1;
     margin-right: 48px;
 }
 
-.header-text-right-section {
-    flex: 1
+.headerTextRightSection {
+    width: 200px;
 }
 
 
 @media (max-width: 744px) {
-    .header-text-left-section {
+    .headerTextLeftSection {
         margin-bottom: 48px;
         margin-right: 0;
     }
@@ -71,36 +71,30 @@
     height: 16px;
 }
 
-.item1-container {
+.space3 {
+    height: 24px;
+}
+
+.item1Container {
     padding: 64px 0;
     border-bottom: 1px solid white;
     text-align: center;
 }
 
 
-.item2-container {
+.item2Container {
     padding: 64px 0;
     border-bottom: 1px solid white;
     text-align: center;
 }
 
 
-.item3-container {
+.item3Container {
     padding: 64px 0;
-    border-bottom: 1px solid white;
     text-align: center;
 }
 
-.featureVideoContainer {
-    justify-content: center;
-    align-items: center;
-
-    // border-style: solid;
-    // border-color: red;
-    // border-width: 20px;
-    overflow: hidden;
-    width: 70%;
-    height: 100vh;
-    position: relative;
-    background-color: #1a1a1a;
+.keenSlide {
+    height: 300px;
+    width: 500px;
 }
