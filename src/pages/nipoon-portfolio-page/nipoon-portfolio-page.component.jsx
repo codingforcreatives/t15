@@ -56,27 +56,27 @@ const NipoonPortfolioPage = () => {
 								<img className={styles.keenSlide} src={"https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"} />
 							</div>
 						</div>
+					</div>
 
-						<div className={styles.item2Container}>
-							<div className={styles.heading2}>POLAR PRO</div>
-							<div className={styles.space2}></div>
-							<div>We are specialists in helping businesses deliver their stories in the most creative ways possible.From full-in-house production to strategy and creative treatment, you have come to the right place. We’ve got you.</div>
-							<div className={styles.space3}></div>
+					<div className={styles.item2Container}>
+						<div className={styles.heading2}>POLAR PRO</div>
+						<div className={styles.space2}></div>
+						<div>We are specialists in helping businesses deliver their stories in the most creative ways possible.From full-in-house production to strategy and creative treatment, you have come to the right place. We’ve got you.</div>
+						<div className={styles.space3}></div>
 
-							<VimeoVideo videoURL={"https://vimeo.com/326463076"} />
-						</div>
+						<VimeoVideo videoURL={"https://vimeo.com/326463076"} />
+					</div>
 
-						<div className={styles.item3Container}>
-							<div className={styles.heading2}>MAUI CAMPERVANS</div>
-							<div className={styles.space2}></div>
-							<div>We are specialists in helping businesses deliver their stories in the most creative ways possible.From full-in-house production to strategy and creative treatment, you have come to the right place. We’ve got you.</div>
-							<div className={styles.space3}></div>
+					<div className={styles.item3Container}>
+						<div className={styles.heading2}>MAUI CAMPERVANS</div>
+						<div className={styles.space2}></div>
+						<div>We are specialists in helping businesses deliver their stories in the most creative ways possible.From full-in-house production to strategy and creative treatment, you have come to the right place. We’ve got you.</div>
+						<div className={styles.space3}></div>
 
-							<VimeoVideo videoURL={"https://vimeo.com/326463076"} />
-
-						</div>
+						<VimeoVideo videoURL={"https://vimeo.com/326463076"} />
 
 					</div>
+
 				</div>
 			</div>
 		</>
