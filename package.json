@@ -9,6 +9,7 @@
 		"axios": "^0.21.1",
 		"classnames": "^2.2.6",
 		"gsap": "^3.5.1",
+		"keen-slider": "^5.3.5",
 		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
