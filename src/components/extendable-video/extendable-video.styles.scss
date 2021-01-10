@@ -1,13 +1,16 @@
 #extendable-box {
 	position: relative;
 	overflow: hidden;
-	height: 60vh;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: black;
 	margin-left: 6px;
 	margin-right: 6px;
+	border-style: solid;
+	border-color: red;
+	border-width: 10;
 }
 
 .still-image {
@@ -62,5 +65,10 @@
 	.panel-title {
 		left: 10px;
 		top: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.extendable-box {
 	}
 }

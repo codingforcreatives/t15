@@ -41,16 +41,29 @@ const ExtendableVideo = ({
 		);
 	});
 
+	const isMobile = window.innerWidth < 480;
+	let panelWidth = null;
+
 	const isInitialMount = useRef(true);
 	let videoBack = useRef(null);
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
 	let yExit = null;
+	let panelHeight = '60vh';
 
-	position === 'up' ? (marginTop = 50) : (marginTop = 0);
+	if (!isMobile || panelType === 'home') {
+		position === 'up' ? (marginTop = 50) : (marginTop = 0);
+		position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
+	} else {
+		marginTop = 10;
+		marginBottom = 10;
+		panelHeight = '150px';
+	}
+
 	position === 'up' ? (yExit = -200) : (yExit = 200);
-	position === 'down' ? (marginBottom = 50) : (marginBottom = 0);
+
+	isMobile ? (panelWidth = '80vw') : (panelWidth = minPanelWidth);
 
 	//entrance animations
 	let extendableBox = useRef(null);
@@ -62,7 +75,8 @@ const ExtendableVideo = ({
 		Y: from_Y,
 		delay: total,
 		maxPanelWidth: maxPanelWidth,
-		minPanelWidth: minPanelWidth,
+		minPanelWidth: panelWidth,
+		panelHeight: panelHeight,
 	};
 
 	const addMouseEvents = () => {
@@ -74,17 +88,25 @@ const ExtendableVideo = ({
 	const handleExpand = () => {
 		console.log('HANDLE EXPAND');
 		setExpanded(true);
-		setContent(
-			<video
-				ref={(el) => (videoBack = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="extendable-video-background"
-				mask="url(#clipPath)">
-				<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
-			</video>
-		);
+		if (isMobile) {
+			setContent(
+				<img
+					className="still-image"
+					src={require(`../../assets/${overlayImageName}`)}></img>
+			);
+		} else {
+			setContent(
+				<video
+					ref={(el) => (videoBack = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="extendable-video-background"
+					mask="url(#clipPath)">
+					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
+				</video>
+			);
+		}
 	};
 
 	//shrink
@@ -111,14 +133,26 @@ const ExtendableVideo = ({
 
 	useEffect(() => {
 		if (isInitialMount.current) {
-			tl.from(extendableBox, 1.5, {
-				x: myObj['X'],
-				y: myObj['Y'],
-				scale: 10,
-				opacity: 0,
-				delay: myObj['delay'],
-				ease: Power4.easeOut,
-			}).add(addMouseEvents);
+			if (!isMobile) {
+				tl.from(extendableBox, 1.5, {
+					x: myObj['X'],
+					y: myObj['Y'],
+					scale: 10,
+					opacity: 0,
+					delay: myObj['delay'],
+					ease: Power4.easeOut,
+				}).add(addMouseEvents);
+			} else {
+				tl.from(extendableBox, 1.5, {
+					x: myObj['X'],
+					y: myObj['Y'],
+					scale: 10,
+					opacity: 0,
+					delay: myObj['delay'],
+					ease: Power4.easeOut,
+				});
+			}
+
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
@@ -172,21 +206,17 @@ const ExtendableVideo = ({
 			id="extendable-box"
 			onClick={handlePanelClick}
 			style={{
-				width: minPanelWidth,
+				width: myObj.minPanelWidth,
 				marginTop: marginTop,
 				marginBottom: marginBottom,
+				height: myObj.panelHeight,
 			}}>
 			{content}
 
 			{
 				//show title or logo depending on page
-				panelType === 'home' ? (
-					<h2 className="panel-title">{title}</h2>
-				) : (
-					<img
-						className="logoImage"
-						src={require(`../../assets/${logoName}`)}></img>
-				)
+
+				<h2 className="panel-title">{title}</h2>
 			}
 		</div>
 	);

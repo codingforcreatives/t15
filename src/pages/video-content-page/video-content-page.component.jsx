@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './homepage.styles.scss';
+import './portfolio-panels.styles.css';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -8,7 +8,7 @@ import ExtendableVideo from '../../components/extendable-video/extendable-video.
 const serviceCategories = {
 	branding: {
 		key: '1',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'branding',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -17,7 +17,7 @@ const serviceCategories = {
 	},
 	broadcastTV: {
 		key: '2',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'broadcast TV',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -26,7 +26,7 @@ const serviceCategories = {
 	},
 	contentAdvertising: {
 		key: '3',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'video content',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -35,7 +35,7 @@ const serviceCategories = {
 	},
 	webDevelopment: {
 		key: '4',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'web design',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -44,7 +44,7 @@ const serviceCategories = {
 	},
 	branding2: {
 		key: '5',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'branding',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -53,7 +53,7 @@ const serviceCategories = {
 	},
 	broadcastTV2: {
 		key: '6',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'broadcast TV',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -62,7 +62,7 @@ const serviceCategories = {
 	},
 	contentAdvertising2: {
 		key: '7',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'video content',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -71,7 +71,7 @@ const serviceCategories = {
 	},
 	webDevelopment2: {
 		key: '8',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'web design',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -80,7 +80,7 @@ const serviceCategories = {
 	},
 	contentAdvertising3: {
 		key: '9',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'video content',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -89,7 +89,7 @@ const serviceCategories = {
 	},
 	webDevelopment3: {
 		key: '10',
-		panelType: 'home',
+		panelType: 'portfolio',
 		title: 'web design',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
@@ -169,6 +169,8 @@ const VideoContentPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	const isMobile = window.innerWidth < 480;
+	let flexDirection = 'row';
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -195,6 +197,11 @@ const VideoContentPage = () => {
 			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
+		isMobile ? (flexDirection = 'column') : (flexDirection = 'row');
+
+		const myObj = {
+			flexDirection: flexDirection,
+		};
 
 		tlGlitch
 			.to('.words', 0.1, {
@@ -213,11 +220,17 @@ const VideoContentPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(panelContainer, 1, {
+				display: 'flex',
+				flexDirection: myObj.flexDirection,
+				delay: -0.08,
+			});
 	});
 
 	return (
-		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
+		<div
+			ref={(el) => (homepageContainer = el)}
+			className="portfolio-page-container">
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"
@@ -250,14 +263,8 @@ const VideoContentPage = () => {
 			</div>
 
 			<div
-				className="panel-container"
-				ref={(el) => (panelContainer = el)}
-				style={
-					{
-						// width: window.innerWidth * 0.8,
-					}
-				}>
-				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
+				className="portfolio-panel-container"
+				ref={(el) => (panelContainer = el)}>
 				{arr.map((item) => (
 					<ExtendableVideo
 						key={item.key}
