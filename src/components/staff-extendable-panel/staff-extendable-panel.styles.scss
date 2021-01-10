@@ -39,6 +39,42 @@
 	text-align: right;
 }
 
+.member-bio-container {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	border-style: solid;
+	border-color: red;
+	border-width: 2px;
+	z-index: 10;
+	width: 90%;
+	padding: 14px 14px 14px 20px;
+	opacity: 0;
+	height: 50%;
+}
+
+.member-bio-container h3 {
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	opacity: 0.8;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-align: left;
+}
+
+.member-bio-container p {
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	opacity: 0.8;
+	width: 250px;
+	text-align: left;
+	color: white;
+	width: 100%;
+	line-height: 1.8em;
+}
+
 .extendable-video-background {
 	height: 100%;
 	animation-name: fadeInOpacity;
