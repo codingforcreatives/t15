@@ -5,6 +5,7 @@ import './navbar.styles.scss';
 import { Link } from 'react-router-dom';
 import MenuContents from '../menu-contents/menu-contents.component';
 import { TimelineLite } from 'gsap';
+import { Sling as Hamburger } from 'hamburger-react';
 
 function Navbar() {
 	const [sidebar, setSidebar] = useState(false);
@@ -27,7 +28,7 @@ function Navbar() {
 				<MenuContents></MenuContents>
 			</div>
 			<div className="navbar" onClick={() => setSidebar(!sidebar)}>
-				{sidebar ? (
+				{/* {sidebar ? (
 					<Link to="#" className="close">
 						<AiIcons.AiOutlineClose />
 					</Link>
@@ -35,7 +36,14 @@ function Navbar() {
 					<Link to="#" className="hamburger">
 						<FaIcons.FaBars />
 					</Link>
-				)}
+				)} */}
+
+				<Hamburger
+					toggled={sidebar}
+					toggle={setSidebar}
+					color="#FFFFFF"
+					duration={0.8}
+				/>
 			</div>
 		</div>
 	);
