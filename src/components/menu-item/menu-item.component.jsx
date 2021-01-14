@@ -1,10 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './menu-item.styles.scss';
-import { Link } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 
 import { Power4, TimelineLite } from 'gsap';
 
-const MenuItem = ({ key, title, videoName, onChange, path, delay }) => {
+const MenuItem = ({
+	key,
+	title,
+	videoName,
+	onChange,
+	path,
+	delay,
+	currentRouteVideo,
+}) => {
 	let tlGlitch = new TimelineLite();
 	let tlEntrance = new TimelineLite();
 	let singleElement = useRef(null);
@@ -26,18 +34,24 @@ const MenuItem = ({ key, title, videoName, onChange, path, delay }) => {
 			.to(singleElement, 0, { scale: 1 }, '+=0.02');
 		onChange(videoName);
 	};
+
+	const handleMouseLeave = () => {
+		onChange(currentRouteVideo);
+	};
 	const myObj = {
 		delay: delay,
 	};
 
 	return (
-		<div
+		<NavLink
 			ref={(el) => (singleElement = el)}
 			className="menu-text"
 			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			activeStyle={{ borderStyle: 'solid', boderWidth: 2, borderColor: 'red' }}
 			to={path}>
 			{title}
-		</div>
+		</NavLink>
 	);
 };
 
