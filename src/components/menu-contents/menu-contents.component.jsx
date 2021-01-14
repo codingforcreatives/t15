@@ -4,7 +4,7 @@ import MenuItem from '../menu-item/menu-item.component';
 import { TimelineLite, TweenMax } from 'gsap';
 import { useLocation } from 'react-router-dom';
 
-const MenuContents = ({ id, title, imageUrl, size }) => {
+const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 	const menuData = [
 		{
 			title: 'About',
@@ -124,6 +124,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 						path={item.path}
 						delay={item.delay}
 						onChange={(value) => setVideo(value)}
+						setMenuState={setMenuState}
 						currentRouteVideo={menuData[indexOfCurrentPage].videoName}
 					/>
 				))}

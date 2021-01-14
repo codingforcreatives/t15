@@ -12,6 +12,7 @@ const MenuItem = ({
 	path,
 	delay,
 	currentRouteVideo,
+	setMenuState,
 }) => {
 	let tlGlitch = new TimelineLite();
 	let tlEntrance = new TimelineLite();
@@ -38,6 +39,10 @@ const MenuItem = ({
 	const handleMouseLeave = () => {
 		onChange(currentRouteVideo);
 	};
+
+	const handleMouseClick = () => {
+		setMenuState(false);
+	};
 	const myObj = {
 		delay: delay,
 	};
@@ -48,6 +53,7 @@ const MenuItem = ({
 			className="menu-text"
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
+			onClick={handleMouseClick}
 			activeStyle={{ borderStyle: 'solid', boderWidth: 2, borderColor: 'red' }}
 			to={path}>
 			{title}

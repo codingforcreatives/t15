@@ -31,7 +31,8 @@ function Navbar() {
 	return (
 		<div className="navbar-component-container">
 			<div class="menu-bar" ref={(el) => (menuBar = el)}>
-				<MenuContents></MenuContents>
+				<MenuContents
+					setMenuState={(value) => setSidebar(value)}></MenuContents>
 			</div>
 			<img
 				ref={(el) => (logo = el)}
