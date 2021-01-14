@@ -69,8 +69,12 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 	const location = useLocation();
 	console.log('LOCATION');
 	console.log(location.pathname);
+	console.log('TYPE');
+	console.log(typeof location.pathname);
 
-	const indexOfCurrentPage = menuData.findIndex((x) => x.path === '/services');
+	const indexOfCurrentPage = menuData.findIndex(
+		(x) => x.path === location.pathname
+	);
 	// menuData[indexOfCurrentPage].videoName;
 	console.log('current page index in the array');
 	console.log(indexOfCurrentPage);
@@ -79,7 +83,9 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 	let menuBackgroundVideo = useRef(null);
 	let singleElement = useRef(null);
 
-	const [currentVideo, setVideo] = useState('Website-Hero-Compressed-v2.mp4');
+	const [currentVideo, setVideo] = useState(
+		menuData[indexOfCurrentPage].videoName
+	);
 	let tl = new TimelineLite();
 	let tlEntrance = new TimelineLite();
 
@@ -118,7 +124,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 						path={item.path}
 						delay={item.delay}
 						onChange={(value) => setVideo(value)}
-						currentRouteVideo={'home-assets/Build7.mp4'}
+						currentRouteVideo={menuData[indexOfCurrentPage].videoName}
 					/>
 				))}
 				{/* <div className="test">{currentVideo} </div> */}
