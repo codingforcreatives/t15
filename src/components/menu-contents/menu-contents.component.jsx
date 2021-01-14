@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import './menu-contents.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
 import { TimelineLite, TweenMax } from 'gsap';
+import { useLocation } from 'react-router-dom';
 
 const MenuContents = ({ id, title, imageUrl, size }) => {
 	const menuData = [
 		{
 			title: 'About',
-			path: '/',
+			path: '/about',
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 1,
@@ -15,7 +16,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		},
 		{
 			title: 'All Services',
-			path: '/',
+			path: '/services',
 			videoName: 'Website-Hero-Compressed-v2.mp4',
 			cName: 'nav-text',
 			key: 2,
@@ -23,7 +24,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		},
 		{
 			title: 'Broadcast TV',
-			path: '/',
+			path: '/broadcast-tv',
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 3,
@@ -31,7 +32,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		},
 		{
 			title: 'Content Creation',
-			path: '/',
+			path: '/video-content',
 			videoName: 'home-assets/video-content.mp4',
 			cName: 'nav-text',
 			key: 4,
@@ -39,7 +40,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		},
 		{
 			title: 'Branding',
-			path: '/',
+			path: '/branding',
 			videoName: 'T15-Film-Overlay.mp4',
 			cName: 'nav-text',
 			key: 5,
@@ -47,7 +48,15 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 		},
 		{
 			title: 'Websites',
-			path: '/',
+			path: '/websites',
+			videoName: 'home-assets/Build7.mp4',
+			cName: 'nav-text',
+			key: 6,
+			delay: 3,
+		},
+		{
+			title: 'Contact',
+			path: '/contact',
 			videoName: 'home-assets/Build7.mp4',
 			cName: 'nav-text',
 			key: 6,
@@ -56,6 +65,15 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 	];
 
 	// switchBackgroundVideo = (videoName) => {};
+
+	const location = useLocation();
+	console.log('LOCATION');
+	console.log(location.pathname);
+
+	const indexOfCurrentPage = menuData.findIndex((x) => x.path === '/services');
+	// menuData[indexOfCurrentPage].videoName;
+	console.log('current page index in the array');
+	console.log(indexOfCurrentPage);
 
 	const onMenuTextHover = () => {};
 	let menuBackgroundVideo = useRef(null);
@@ -100,6 +118,7 @@ const MenuContents = ({ id, title, imageUrl, size }) => {
 						path={item.path}
 						delay={item.delay}
 						onChange={(value) => setVideo(value)}
+						currentRouteVideo={'home-assets/Build7.mp4'}
 					/>
 				))}
 				{/* <div className="test">{currentVideo} </div> */}

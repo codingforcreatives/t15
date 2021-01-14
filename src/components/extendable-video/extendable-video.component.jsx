@@ -81,8 +81,10 @@ const ExtendableVideo = ({
 	};
 
 	const addMouseEvents = () => {
-		extendableBox.addEventListener('mouseenter', handleExpand);
-		extendableBox.addEventListener('mouseleave', handleShrink);
+		if (extendableBox) {
+			extendableBox.addEventListener('mouseenter', handleExpand);
+			extendableBox.addEventListener('mouseleave', handleShrink);
+		}
 	};
 
 	//expansion
