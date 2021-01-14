@@ -7,10 +7,11 @@ const PanelVideo = ({ videoURL }) => {
 
 	return (
 		<>
-			<div
-				className={styles.panelVideo}
-			>
-				<img className={styles.panelOverlay} src={require(`../../assets/feature-overlay.png`)} />
+			<div className={styles.panelVideo}>
+				<img
+					className={styles.panelOverlay}
+					src={require(`../../assets/feature-overlay-6.png`)}
+				/>
 				<ReactPlayer
 					config={{
 						vimeo: {
@@ -25,7 +26,7 @@ const PanelVideo = ({ videoURL }) => {
 					url={url}
 					width="100%"
 					height="100%"
-				// className={styles.panelVideo}
+					// className={styles.panelVideo}
 				/>
 			</div>
 		</>
