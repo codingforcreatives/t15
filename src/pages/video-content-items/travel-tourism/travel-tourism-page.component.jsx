@@ -5,7 +5,7 @@ import PanelVideo from '../../../components/panel-video/panel-video.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 
 import ReactPlayer from 'react-player';
-import VimeoVideo from './../../components/vimeo-video/vimeo-video.component';
+import VimeoVideo from '../../../components/vimeo-video/vimeo-video.component';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
