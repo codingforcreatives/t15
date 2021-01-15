@@ -377,7 +377,7 @@ const AboutUsPage = () => {
 			<div
 				className="featureVideoContainer"
 				ref={(el) => (featureVideoContainer = el)}>
-				<PanelVideo videoURL="https://vimeo.com/326463076" />
+				<PanelVideo videoName="Masci_HQ.mp4" />
 			</div>
 			<div className="about-introduction-container">
 				<h1 className="about-introduction-title">
