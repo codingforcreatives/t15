@@ -1,0 +1,32 @@
+.testimonialContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	/* width: 100%; */
+	padding: 20px 20% 20px 20%;
+}
+
+.testimonial-content-container {
+	text-align: center;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	color: white;
+	opacity: 50%;
+	line-height: 1.8em;
+}
+h3 {
+	color: white;
+	font-size: 14px;
+	font-family: 'Montserrat-black', sans-serif;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+.testimonialLogo {
+	width: 180px;
+}

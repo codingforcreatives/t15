@@ -83,8 +83,10 @@ const StaffExtendablePanel = ({
 	};
 
 	const addMouseEvents = () => {
-		extendableBox.addEventListener('mouseenter', handleExpand);
-		extendableBox.addEventListener('mouseleave', handleShrink);
+		if (extendableBox) {
+			extendableBox.addEventListener('mouseenter', handleExpand);
+			extendableBox.addEventListener('mouseleave', handleShrink);
+		}
 	};
 
 	//expansion
@@ -120,8 +122,7 @@ const StaffExtendablePanel = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		setPanelClicked(true);
-		setIndexClicked(title);
+		setExpanded(true);
 	};
 
 	const goToNextPage = () => {
@@ -163,11 +164,11 @@ const StaffExtendablePanel = ({
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
+				TweenMax.to(panelTitle, 0.2, { opacity: 0 });
 				TweenMax.to(extendableBox, expandDuration, {
 					width: myObj['maxPanelWidth'],
 					ease: Power3.easeInOut,
 				});
-				TweenMax.to(panelTitle, 0.2, { opacity: 0 });
 				TweenMax.to(bioContainer, 0.5, { opacity: 1 });
 			} else {
 				tl2
