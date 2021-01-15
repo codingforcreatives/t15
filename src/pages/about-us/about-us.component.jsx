@@ -1,11 +1,19 @@
-import React, { useRef, useEffect } from 'react';
-import './about-us.styles.scss';
+import React, { useRef, useEffect, useState } from 'react';
+import './about-us.styles.css';
 import PanelVideo from '../../components/panel-video/panel-video.component';
-import TestimonialSlider from '../../components/testimonial-slider/testimonial-slider.component';
+
 import StaffExtendablePanel from '../../components/staff-extendable-panel/staff-extendable-panel.component';
+
+import Gallery from 'react-grid-gallery';
+
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
 
 import { TweenMax, Power3, Power4, TimelineLite, Linear } from 'gsap';
 import { Tween } from 'gsap/gsap-core';
+import TestimonialContent from '../../components/testimonial-contents/testimonial-content.component';
+
+const styles = require('./about-us.styles.css');
 
 const AboutUsPage = () => {
 	const testimonialItems = [
@@ -23,7 +31,7 @@ const AboutUsPage = () => {
 			company: 'OutBeyond',
 			image: 'T15_No-Text.png',
 			quote:
-				'Eric adopts a holistic approach to creative content which enables businesses to showcase their authentic core messages and what they stand for. His ability to work to full briefs, but also challenge the traditional thinking of business owner direction allows for a real story to come through and be told in the most natural yet thought provoking way that modern day businesses need to thrive in the world of digital. His deliverables have helped our business accelerate our growth from a tiny business, to a large-scale operation. Through his profound understanding of our requirements, his energy, charisma and professionalism Eric has been instrumental in OutBeyonds Success. I have no hesitation in recommending Eric to businesses who are entrepreneurial, innovative and continually push the envelope.',
+				'Eric adopts a holistic approach to creative content which enables businesses to showcase their authentic core messages and what they stand for. His ability to work to full briefs, but also challenge the traditional thinking of business owner direction allows for a real story to come through and be told in the most natural yet thought provoking way that modern day businesses need to thrive in the world of digital. ',
 		},
 		{
 			index: 3,
@@ -149,6 +157,86 @@ const AboutUsPage = () => {
 		},
 	};
 
+	const logos = [
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+		{
+			src: require('../../assets/T15_No-Text.png'),
+			width: 150,
+			height: 150,
+		},
+	];
+
+	const IMAGES = [
+		{
+			src: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
+			thumbnail:
+				'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg',
+			thumbnailWidth: 320,
+			thumbnailHeight: 174,
+
+			caption: 'After Rain (Jeshu John - designerspics.com)',
+		},
+		{
+			src: 'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
+			thumbnail:
+				'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg',
+			thumbnailWidth: 320,
+			thumbnailHeight: 212,
+			tags: [
+				{ value: 'Ocean', title: 'Ocean' },
+				{ value: 'People', title: 'People' },
+			],
+			caption: 'Boats (Jeshu John - designerspics.com)',
+		},
+
+		{
+			src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
+			thumbnail:
+				'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
+			thumbnailWidth: 320,
+			thumbnailHeight: 212,
+		},
+	];
+
 	var arr = [];
 	Object.keys(profiles).forEach(function (key) {
 		arr.push(profiles[key]);
@@ -209,12 +297,23 @@ const AboutUsPage = () => {
 		}
 	};
 
+	let generatedImages = Array(20)
+		.fill(1)
+		.map(() => {
+			const height = Math.floor(Math.random() * (600 - 300) + 300);
+			const width = Math.floor(Math.random() * (700 - 200) + 200);
+			return {
+				src: `https://via.placeholder.com/${width}x${height}`,
+				width: width * 10,
+				height: height * 10,
+			};
+		});
+	const [images] = useState(generatedImages);
+
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
 		});
-
-		// .to(featureVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -275,13 +374,11 @@ const AboutUsPage = () => {
 					audience
 				</h2>
 			</div>
-
 			<div
 				className="featureVideoContainer"
 				ref={(el) => (featureVideoContainer = el)}>
 				<PanelVideo videoURL="https://vimeo.com/326463076" />
 			</div>
-
 			<div className="about-introduction-container">
 				<h1 className="about-introduction-title">
 					We Connect Business Owners With Their Audience
@@ -298,13 +395,20 @@ const AboutUsPage = () => {
 					solutions; working with both small and large brands alike.
 				</p>
 			</div>
-
 			<div className="office-image" ref={(el) => (parallaxOfficeImage = el)}>
 				<h2>Our Clients</h2>
 			</div>
-
-			<TestimonialSlider testimonials={testimonialItems} />
-
+			{/* <TestimonialSlider testimonials={testimonialItems} /> */}
+			<div className="testimonial-container">
+				<Slider autoplay="5000">
+					{testimonialItems.map((testimonial, index) => (
+						<div key={index}>
+							<TestimonialContent
+								testimonial={testimonial}></TestimonialContent>
+						</div>
+					))}
+				</Slider>
+			</div>
 			<div
 				className="staff-panel-container"
 				ref={(el) => (panelContainer = el)}>
@@ -327,6 +431,45 @@ const AboutUsPage = () => {
 					/>
 				))}
 			</div>
+			<div className="client-logos-container">
+				<div className="logo-row">
+					<div className="row-break">
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/MIM.png`)}></img>
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/Daikin.png`)}></img>
+					</div>
+					<div className="row-break">
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/DestinationGoldCoast.png`)}></img>
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/Hilton.png`)}></img>
+					</div>
+				</div>
+				<div className="logo-row">
+					<div className="row-break">
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/Mazda.png`)}></img>
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/AirNZ.png`)}></img>
+					</div>
+					<div className="row-break">
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/OticonMedical.png`)}></img>
+						<img
+							className="logo-image"
+							src={require(`../../assets/client-logos/Hilton.png`)}></img>
+					</div>
+				</div>
+			</div>
+			HELLO
 		</div>
 	);
 };
