@@ -21,7 +21,7 @@ import SplashPage from './pages/splash-page/splash-page.component';
 //Video Content
 import TravelTourismPage from './pages/video-content-items/travel-tourism/travel-tourism-page.component';
 
-import Navbar from './components/navbar/navbar.component';
+// import Navbar from './components/navbar/navbar.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
 		<div className="App">
 			{/* <HomePage /> */}
 			<div className="router-container">
-				<Navbar />
+				{/* <Navbar /> */}
 				<Switch>
 					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>
