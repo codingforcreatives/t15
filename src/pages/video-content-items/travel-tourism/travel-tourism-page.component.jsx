@@ -10,7 +10,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
-const styles = require('./travel-tourism.styles.css');
+const styles = require('./travel-tourism.module.css');
 
 // post ids:
 // Travel & Tourism: 28716
@@ -80,10 +80,6 @@ const TravelTourismPage = () => {
 	};
 
 	useEffect(() => {
-		tl.to(homepageContainer, 0.2, {
-			css: { visibility: 'visible' },
-		});
-
 		axios
 			.get('https://t15media.com/wp-json/wp/v2/video_content/28716')
 			.then((res) => handleData(res.data))
@@ -116,7 +112,7 @@ const TravelTourismPage = () => {
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>
-						<PanelVideo videoURL="https://vimeo.com/326463076" />
+						<PanelVideo videoName="Masci_HQ.mp4" />
 					</div>
 					<div className={styles.headerTextContainer}>
 						<div className={styles.headerTextLeftSection}>
