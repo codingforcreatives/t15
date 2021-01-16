@@ -15,6 +15,7 @@ import VideoContentPage from './pages/video-content-page/video-content-page.comp
 import WebsitePage from './pages/website-page/website-page.component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import SplashPage from './pages/splash-page/splash-page.component';
+import Navbar from './components/navbar/navbar.component';
 
 //Portfolio
 
@@ -29,7 +30,7 @@ function App() {
 		<div className="App">
 			{/* <HomePage /> */}
 			<div className="router-container">
-				{/* <Navbar /> */}
+				<Navbar />
 				<Switch>
 					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>

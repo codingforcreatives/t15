@@ -11,12 +11,14 @@ const MenuItem = ({
 	onChange,
 	path,
 	delay,
-	currentRouteVideo,
+	defaultVideo,
+	allMenuData,
 	setMenuState,
 }) => {
 	let tlGlitch = new TimelineLite();
 	let tlEntrance = new TimelineLite();
 	let singleElement = useRef(null);
+	const location = useLocation();
 
 	const handleMouseEnter = () => {
 		tlGlitch
@@ -36,8 +38,18 @@ const MenuItem = ({
 		onChange(videoName);
 	};
 
+	const indexOfCurrentPage = allMenuData.findIndex(
+		(x) => x.path === location.pathname
+	);
+
+	console.log(indexOfCurrentPage);
+
 	const handleMouseLeave = () => {
-		onChange(currentRouteVideo);
+		if (indexOfCurrentPage != -1) {
+			onChange(allMenuData[indexOfCurrentPage].videoName);
+		} else {
+			onChange(defaultVideo);
+		}
 	};
 
 	const handleMouseClick = () => {
@@ -54,7 +66,7 @@ const MenuItem = ({
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			onClick={handleMouseClick}
-			activeStyle={{ borderStyle: 'solid', boderWidth: 2, borderColor: 'red' }}
+			activeStyle={{ textDecoration: 'line-through' }}
 			to={path}>
 			{title}
 		</NavLink>
