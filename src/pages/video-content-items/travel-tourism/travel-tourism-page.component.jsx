@@ -105,7 +105,15 @@ const TravelTourismPage = () => {
 	// 	</div>
 	// );
 
-	const [sliderRef] = useKeenSlider({ slidesPerView: 2, spacing: 24 });
+	const [currentSlide, setCurrentSlide] = useState(0)
+	const [sliderRef, slider] = useKeenSlider({
+		initial: 0,
+		slidesPerView: 2,
+		spacing: 24,
+		slideChanged(s) {
+			setCurrentSlide(s.details().relativeSlide)
+		},
+	})
 
 	return (
 		<>
@@ -146,34 +154,50 @@ const TravelTourismPage = () => {
 						</div>
 						<div className={styles.space3}></div>
 
-						<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						<div className={styles.vimeoVideoContainer}>
+							<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						</div>
 
 						<div className={styles.space3}></div>
-						<div ref={sliderRef} className="keen-slider">
-							<div className="keen-slider__slide">
-								<img
-									className={styles.keenSlide}
-									src={
-										'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
-									}
-								/>
+						<div className={styles.navigationWrapper}>
+							<div ref={sliderRef} className="keen-slider">
+								<div className="keen-slider__slide">
+									<img
+										className={styles.keenSlide}
+										src={
+											'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
+										}
+									/>
+								</div>
+								<div className="keen-slider__slide">
+									<img
+										className={styles.keenSlide}
+										src={
+											'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
+										}
+									/>
+								</div>
+								<div className="keen-slider__slide">
+									<img
+										className={styles.keenSlide}
+										src={
+											'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
+										}
+									/>
+								</div>
 							</div>
-							<div className="keen-slider__slide">
-								<img
-									className={styles.keenSlide}
-									src={
-										'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
-									}
-								/>
-							</div>
-							<div className="keen-slider__slide">
-								<img
-									className={styles.keenSlide}
-									src={
-										'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
-									}
-								/>
-							</div>
+							{slider && (
+								<>
+									<ArrowLeft
+										onClick={(e) => e.stopPropagation() || slider.prev()}
+										disabled={currentSlide === 0}
+									/>
+									<ArrowRight
+										onClick={(e) => e.stopPropagation() || slider.next()}
+										disabled={currentSlide === slider.details().size - 1}
+									/>
+								</>
+							)}
 						</div>
 					</div>
 
@@ -188,7 +212,9 @@ const TravelTourismPage = () => {
 						</div>
 						<div className={styles.space3}></div>
 
-						<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						<div className={styles.vimeoVideoContainer}>
+							<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						</div>
 					</div>
 
 					<div className={styles.item3Container}>
@@ -202,7 +228,9 @@ const TravelTourismPage = () => {
 						</div>
 						<div className={styles.space3}></div>
 
-						<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						<div className={styles.vimeoVideoContainer}>
+							<VimeoVideo videoURL={'https://vimeo.com/326463076'} />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -215,3 +243,31 @@ export default TravelTourismPage;
 /* <div className="featureVideoContainer">
 				<PanelVideo videoURL="https://vimeo.com/326463076" />
 			</div> */
+
+
+
+const ArrowLeft = (props) => {
+	return (
+		<svg
+			onClick={props.onClick}
+			className={`${styles.arrow} ${styles.arrowLeft} `}
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+		>
+			<path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+		</svg >
+	)
+}
+
+const ArrowRight = (props) => {
+	return (
+		<svg
+			onClick={props.onClick}
+			className={`${styles.arrow} ${styles.arrowRight} `}
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+		>
+			<path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+		</svg >
+	)
+}
