@@ -64,28 +64,25 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		},
 	];
 
-	// switchBackgroundVideo = (videoName) => {};
-
 	const location = useLocation();
-	console.log('LOCATION');
-	console.log(location.pathname);
-	console.log('TYPE');
-	console.log(typeof location.pathname);
 
 	const indexOfCurrentPage = menuData.findIndex(
 		(x) => x.path === location.pathname
 	);
-	// menuData[indexOfCurrentPage].videoName;
-	console.log('current page index in the array');
-	console.log(indexOfCurrentPage);
 
 	const onMenuTextHover = () => {};
+	const defaultVideo = 'Website-Hero-Compressed-v2.mp4';
 	let menuBackgroundVideo = useRef(null);
 	let singleElement = useRef(null);
 
-	const [currentVideo, setVideo] = useState(
-		menuData[indexOfCurrentPage].videoName
-	);
+	//plan : change this to a default video. then on currentRouteVideo prop, make sure its not empty and if it is, use default video
+
+	// const [currentVideo, setVideo] = useState(
+	// 	menuData[indexOfCurrentPage].videoName
+	// );
+
+	const [currentVideo, setVideo] = useState(defaultVideo);
+
 	let tl = new TimelineLite();
 	let tlEntrance = new TimelineLite();
 
@@ -125,7 +122,8 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 						delay={item.delay}
 						onChange={(value) => setVideo(value)}
 						setMenuState={setMenuState}
-						currentRouteVideo={menuData[indexOfCurrentPage].videoName}
+						allMenuData={menuData}
+						defaultVideo={defaultVideo}
 					/>
 				))}
 				{/* <div className="test">{currentVideo} </div> */}
