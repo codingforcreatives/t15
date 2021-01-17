@@ -92,8 +92,6 @@
 	}
 }
 
-//can add a class for this when more than 4 panels
-
 @media only screen and (max-width: 1024px) {
 	.panel-title {
 		left: 10px;

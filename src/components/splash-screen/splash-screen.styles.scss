@@ -15,7 +15,7 @@
 	opacity: 90%;
 	text-transform: uppercase;
 	letter-spacing: 12px;
-	z-index: 100;
+	z-index: 1;
 }
 .splash-welcome {
 	display: none;
@@ -56,4 +56,10 @@
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
+}
+
+@media (max-width: 400px) {
+	.splash-display {
+		display: none;
+	}
 }

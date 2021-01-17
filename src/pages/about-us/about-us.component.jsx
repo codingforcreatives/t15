@@ -4,13 +4,10 @@ import PanelVideo from '../../components/panel-video/panel-video.component';
 
 import StaffExtendablePanel from '../../components/staff-extendable-panel/staff-extendable-panel.component';
 
-import Gallery from 'react-grid-gallery';
-
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 
-import { TweenMax, Power3, Power4, TimelineLite, Linear } from 'gsap';
-import { Tween } from 'gsap/gsap-core';
+import { Power4, TimelineLite } from 'gsap';
 import TestimonialContent from '../../components/testimonial-contents/testimonial-content.component';
 
 const styles = require('./about-us.styles.css');
@@ -205,37 +202,17 @@ const AboutUsPage = () => {
 		},
 	];
 
-	const IMAGES = [
-		{
-			src: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
-			thumbnail:
-				'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg',
-			thumbnailWidth: 320,
-			thumbnailHeight: 174,
+	const chevronLeft = (
+		<img
+			className="testimonial-chevrons"
+			src={require(`../../assets/chevron-left.png`)}></img>
+	);
 
-			caption: 'After Rain (Jeshu John - designerspics.com)',
-		},
-		{
-			src: 'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg',
-			thumbnail:
-				'https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg',
-			thumbnailWidth: 320,
-			thumbnailHeight: 212,
-			tags: [
-				{ value: 'Ocean', title: 'Ocean' },
-				{ value: 'People', title: 'People' },
-			],
-			caption: 'Boats (Jeshu John - designerspics.com)',
-		},
-
-		{
-			src: 'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
-			thumbnail:
-				'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg',
-			thumbnailWidth: 320,
-			thumbnailHeight: 212,
-		},
-	];
+	const chevronRight = (
+		<img
+			className="testimonial-chevrons"
+			src={require(`../../assets/chevron-right.png`)}></img>
+	);
 
 	var arr = [];
 	Object.keys(profiles).forEach(function (key) {
@@ -353,7 +330,11 @@ const AboutUsPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(featureVideoContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(featureVideoContainer, 1, {
+				display: 'flex',
+				delay: -0.08,
+				opacity: 1,
+			});
 	});
 
 	return (
@@ -398,9 +379,11 @@ const AboutUsPage = () => {
 			<div className="office-image" ref={(el) => (parallaxOfficeImage = el)}>
 				<h2>Our Clients</h2>
 			</div>
-			{/* <TestimonialSlider testimonials={testimonialItems} /> */}
 			<div className="testimonial-container">
-				<Slider autoplay="5000">
+				<Slider
+					autoplay="5000"
+					previousButton={chevronLeft}
+					nextButton={chevronRight}>
 					{testimonialItems.map((testimonial, index) => (
 						<div key={index}>
 							<TestimonialContent

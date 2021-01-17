@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import './staff-extendable-panel.styles.scss';
+import './staff-extendable-panel.styles.css';
 import { TimelineLite, TweenMax, Power3, Power4, Power2 } from 'gsap';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
@@ -133,15 +133,10 @@ const StaffExtendablePanel = ({
 		if (isInitialMount.current) {
 			if (!isMobile) {
 				tl.from(extendableBox, 1.5, {
-					x: myObj['X'],
-					y: myObj['Y'],
-					scale: 10,
 					opacity: 0,
-					delay: myObj['delay'],
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
-				console.log('not is Mobile ANIMATIOns');
 				if (panelType != 'home') {
 					panelTitle.style.transform = 'none';
 					panelTitle.style.textAlign = 'left';
