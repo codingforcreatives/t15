@@ -1,0 +1,30 @@
+.item1Container {
+	padding: 64px 0;
+	border-bottom: 1px solid white;
+	text-align: center;
+}
+
+.heading2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.space2 {
+	height: 16px;
+}
+
+.space3 {
+	height: 24px;
+}
+
+.vimeoVideoContainer > div {
+	max-width: 1040px;
+	height: 700px;
+}
+
+@media (max-width: 744px) {
+	.vimeoVideoContainer > div {
+		max-width: 1040px;
+		height: 300px;
+	}
+}
