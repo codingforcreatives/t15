@@ -6,95 +6,86 @@ import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
 import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
 const serviceCategories = {
-	branding: {
+	traveltourism: {
 		key: '1',
 		panelType: 'portfolio',
-		title: 'branding',
+		title: 'Travel & Tourism',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 	},
-	broadcastTV: {
+	education: {
 		key: '2',
 		panelType: 'portfolio',
-		title: 'travel & tourism',
+		title: 'Education',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 	},
-	contentAdvertising: {
+	healthmedical: {
 		key: '3',
 		panelType: 'portfolio',
-		title: 'video content',
+		title: 'Health & Medical',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 	},
-	webDevelopment: {
+	eventsfestivals: {
 		key: '4',
 		panelType: 'portfolio',
-		title: 'web design',
+		title: 'Events & Festivals',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 	},
-	branding2: {
+	lifestylefashion: {
 		key: '5',
 		panelType: 'portfolio',
-		title: 'branding',
+		title: 'Lifestyle & Fashion',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 	},
-	broadcastTV2: {
+	appssoftware: {
 		key: '6',
 		panelType: 'portfolio',
-		title: 'broadcast TV',
+		title: 'Apps & Software',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 	},
-	contentAdvertising2: {
+	product: {
 		key: '7',
 		panelType: 'portfolio',
-		title: 'video content',
+		title: 'Product',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
 	},
-	webDevelopment2: {
+	realestate: {
 		key: '8',
 		panelType: 'portfolio',
-		title: 'web design',
+		title: 'Real Estate',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
 	},
-	contentAdvertising3: {
+	charitiesorganisations: {
 		key: '9',
 		panelType: 'portfolio',
-		title: 'video content',
+		title: 'Charities & Organisations',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-	},
-	webDevelopment3: {
-		key: '10',
-		panelType: 'portfolio',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
 	},
 };
 

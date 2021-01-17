@@ -9,7 +9,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'About',
 			path: '/about',
-			videoName: 'T15-Film-Overlay.mp4',
+			videoName: 'home-assets/branding_cover.mp4',
 			cName: 'nav-text',
 			key: 1,
 			delay: 0.5,
@@ -25,7 +25,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Broadcast TV',
 			path: '/broadcast-tv',
-			videoName: 'T15-Film-Overlay.mp4',
+			videoName: 'home-assets/broadcast_tv_cover.mp4',
 			cName: 'nav-text',
 			key: 3,
 			delay: 1.5,
@@ -33,7 +33,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Content Creation',
 			path: '/video-content',
-			videoName: 'home-assets/video-content.mp4',
+			videoName: 'home-assets/content_creation_cover.mp4',
 			cName: 'nav-text',
 			key: 4,
 			delay: 2,
@@ -41,7 +41,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Branding',
 			path: '/branding',
-			videoName: 'T15-Film-Overlay.mp4',
+			videoName: 'home-assets/branding_cover.mp4',
 			cName: 'nav-text',
 			key: 5,
 			delay: 2.5,
@@ -49,7 +49,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Websites',
 			path: '/websites',
-			videoName: 'home-assets/Build7.mp4',
+			videoName: 'home-assets/websites_cover.mp4',
 			cName: 'nav-text',
 			key: 6,
 			delay: 3,
@@ -57,7 +57,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Contact',
 			path: '/contact',
-			videoName: 'home-assets/Build7.mp4',
+			videoName: 'home-assets/websites_cover.mp4',
 			cName: 'nav-text',
 			key: 6,
 			delay: 3,
