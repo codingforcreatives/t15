@@ -25,7 +25,7 @@ const styles = require('../video-content.module.css');
 // Real Estate: 28725
 // Charities & Organisations: 28726
 
-const TravelTourismPage = () => {
+const RealEstatePage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -91,7 +91,7 @@ const TravelTourismPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28716')
+			.get('https://t15media.com/wp-json/wp/v2/video_content/28725')
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -127,12 +127,14 @@ const TravelTourismPage = () => {
 
 					<PortfolioDivider />
 					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
 					<PortfolioDivider />
 					<PortfolioItemSection item={item2}></PortfolioItemSection>
+					<PortfolioGallerySection
+						item={item2.gallery}></PortfolioGallerySection>
 					<PortfolioDivider />
 					<PortfolioItemSection item={item3}></PortfolioItemSection>
+					<PortfolioGallerySection
+						item={item3.gallery}></PortfolioGallerySection>
 					<PortfolioDivider />
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>
@@ -141,4 +143,4 @@ const TravelTourismPage = () => {
 	);
 };
 
-export default TravelTourismPage;
+export default RealEstatePage;

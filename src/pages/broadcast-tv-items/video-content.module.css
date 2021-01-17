@@ -24,7 +24,6 @@
 	height: 80vh;
 	position: relative;
 	background-color: #1a1a1a;
-	margin-top: 100px;
 	margin-bottom: 40px;
 }
 
@@ -60,13 +59,13 @@
 	}
 }
 
-.vimeoVideoContainer>div {
+.vimeoVideoContainer > div {
 	max-width: 1040px;
 	height: 700px;
 }
 
 @media (max-width: 744px) {
-	.vimeoVideoContainer>div {
+	.vimeoVideoContainer > div {
 		max-width: 1040px;
 		height: 300px;
 	}

@@ -15,17 +15,9 @@ const styles = require('../video-content.module.css');
 
 // POST IDs:
 
-// Travel & Tourism: 28716
-// Education: 28717
-// Health & Medical: 28720
-// Events & Festivals: 28721
-// Lifestyle & Fashion: 28722
-// Apps & Software: 28723
-// Product: 28724
-// Real Estate: 28725
-// Charities & Organisations: 28726
+// Destination LA: 28727
 
-const TravelTourismPage = () => {
+const DestinationLAPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -91,7 +83,7 @@ const TravelTourismPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28716')
+			.get('https://t15media.com/wp-json/wp/v2/video_content/28723')
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -127,12 +119,8 @@ const TravelTourismPage = () => {
 
 					<PortfolioDivider />
 					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
 					<PortfolioDivider />
 					<PortfolioItemSection item={item2}></PortfolioItemSection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item3}></PortfolioItemSection>
 					<PortfolioDivider />
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>
@@ -141,4 +129,4 @@ const TravelTourismPage = () => {
 	);
 };
 
-export default TravelTourismPage;
+export default DestinationLAPage;

@@ -59,6 +59,7 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
+	line-height: 1.4em;
 }
 
 .about-introduction-text {
@@ -188,7 +189,6 @@ h2 {
 	.about-introduction-container {
 		flex-direction: column;
 		width: 80%;
-		text-align: center;
 	}
 
 	.about-introduction-text {
@@ -200,6 +200,7 @@ h2 {
 
 	.about-introduction-title {
 		font-size: 28px;
+		line-height: 1.4em;
 	}
 }
 
