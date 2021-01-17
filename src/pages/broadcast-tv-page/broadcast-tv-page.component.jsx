@@ -1,110 +1,40 @@
 import React, { useRef, useEffect } from 'react';
-import './homepage.styles.scss';
+import './broadcast-tv.module.css';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
 import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
 const serviceCategories = {
-	branding: {
+	destinationla: {
 		key: '1',
-		panelType: 'home',
-		title: 'branding',
+		panelType: 'portfolio',
+		title: 'Destination LA',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: '',
+		linkURL: 'destination-la',
 	},
-	broadcastTV: {
+	staycation: {
 		key: '2',
-		panelType: 'home',
-		title: 'broadcast TV',
+		panelType: 'portfolio',
+		title: 'Staycation',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'down',
-		linkURL: '',
+		linkURL: 'staycation',
 	},
-	contentAdvertising: {
+	wonderfulplaces: {
 		key: '3',
-		panelType: 'home',
-		title: 'video content',
+		panelType: 'portfolio',
+		title: 'Wonderful Places',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'Website-Hero-Compressed-v2.mp4',
 		position: 'up',
-		linkURL: '',
-	},
-	webDevelopment: {
-		key: '4',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
-	},
-	branding2: {
-		key: '5',
-		panelType: 'home',
-		title: 'branding',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	broadcastTV2: {
-		key: '6',
-		panelType: 'home',
-		title: 'broadcast TV',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
-	},
-	contentAdvertising2: {
-		key: '7',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	webDevelopment2: {
-		key: '8',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
-	},
-	contentAdvertising3: {
-		key: '9',
-		panelType: 'home',
-		title: 'video content',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'up',
-		linkURL: '',
-	},
-	webDevelopment3: {
-		key: '10',
-		panelType: 'home',
-		title: 'web design',
-		logoName: '',
-		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
-		position: 'down',
-		linkURL: '',
+		linkURL: 'wonderful-places',
 	},
 };
 
@@ -179,9 +109,10 @@ const BroadcastTVPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	const isMobile = window.innerWidth < 480;
+	let flexDirection = 'row';
 
 	useEffect(() => {
-		console.log('On BROADCAST PAGE=========');
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
 		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
@@ -206,6 +137,11 @@ const BroadcastTVPage = () => {
 			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
+		isMobile ? (flexDirection = 'column') : (flexDirection = 'row');
+
+		const myObj = {
+			flexDirection: flexDirection,
+		};
 
 		tlGlitch
 			.to('.words', 0.1, {
@@ -224,17 +160,23 @@ const BroadcastTVPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(panelContainer, 1, {
+				display: 'flex',
+				flexDirection: myObj.flexDirection,
+				delay: -0.08,
+			});
 	});
 
 	return (
-		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
+		<div
+			ref={(el) => (homepageContainer = el)}
+			className="portfolio-page-container">
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
-				className="myVideo">
+				className="portfolio-video">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
@@ -250,25 +192,19 @@ const BroadcastTVPage = () => {
 					We
 				</h2>
 				<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
-					Make
+					make
 				</h2>
 				<h2 ref={(el) => (wordWe = el)} className="words" id="we">
-					TV
+					tv
 				</h2>
 				<h2 ref={(el) => (wordDo = el)} className="words" id="do">
-					Shows
+					shows
 				</h2>
 			</div>
 
 			<div
-				className="panel-container"
-				ref={(el) => (panelContainer = el)}
-				style={
-					{
-						// width: window.innerWidth * 0.8,
-					}
-				}>
-				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
+				className="portfolio-panel-container"
+				ref={(el) => (panelContainer = el)}>
 				{arr.map((item) => (
 					<ExtendableVideo
 						key={item.key}
@@ -284,6 +220,7 @@ const BroadcastTVPage = () => {
 						prevTimlineDelay={prevTimelineDelay}
 						minPanelWidth={panelMinWidth}
 						maxPanelWidth={panelMaxWidth}
+						linkURL={item.linkURL}
 						expandDuration={2}
 					/>
 				))}

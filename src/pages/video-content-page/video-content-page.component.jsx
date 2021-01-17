@@ -271,6 +271,7 @@ const VideoContentPage = () => {
 						prevTimlineDelay={prevTimelineDelay}
 						minPanelWidth={panelMinWidth}
 						maxPanelWidth={panelMaxWidth}
+						linkURL={item.linkURL}
 						expandDuration={2}
 					/>
 				))}
