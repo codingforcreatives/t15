@@ -15,15 +15,9 @@ const styles = require('../video-content.module.css');
 
 // POST IDs:
 
-// Travel & Tourism: 28716
-// Education: 28717
-// Health & Medical: 28720
-// Events & Festivals: 28721
-// Lifestyle & Fashion: 28722
-// Apps & Software: 28723
-// Product: 28724
-// Real Estate: 28725
-// Charities & Organisations: 28726
+// Destination LA: 28727
+// Staycation: 28728
+// Wonderful Places: 28729
 
 const StaycationPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
@@ -91,7 +85,7 @@ const StaycationPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28726')
+			.get('https://t15media.com/wp-json/wp/v2/video_content/28728')
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -122,8 +116,8 @@ const StaycationPage = () => {
 						item1={item1}
 						item2={item2}
 						item3={item3}
-						backText="content creation"
-						backRoute="/video-content"></PortfolioIntroductionSection>
+						backText="broadcast tv"
+						backRoute="/broadcast-tv"></PortfolioIntroductionSection>
 
 					<PortfolioDivider />
 					<PortfolioItemSection item={item1}></PortfolioItemSection>
