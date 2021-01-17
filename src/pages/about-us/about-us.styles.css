@@ -103,6 +103,12 @@ h2 {
 	background-color: #1a1a1a;
 	margin-top: 100px;
 	margin-bottom: 40px;
+	display: none;
+	opacity: 0;
+}
+
+.testimonial-chevrons {
+	height: 28px;
 }
 
 .video-mask {
@@ -216,6 +222,19 @@ h2 {
 	.logo-image {
 		width: 200px;
 		height: 200px;
+	}
+
+	.slider {
+		display: none;
+	}
+
+	.client-logos-container {
+		margin-top: 0px;
+		margin-bottom: 100px;
+	}
+
+	.testimonial-container {
+		display: none;
 	}
 }
 

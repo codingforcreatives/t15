@@ -121,11 +121,6 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 		history.push('services');
 	};
 
-	// useEffect(() => {
-	// 	setInterval();
-	// 	tl3.from(number, 0.5, { scale: 2 });
-	// }, [count]);
-
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
 			<video
@@ -175,29 +170,16 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 							{'0'}
 							{count}
 						</text>
-
-						{/* <text
-							id="slogan"
-							ref={(el) => (slogan = el)}
-							textAnchor="middle"
-							x="600"
-							y="620"
-							fill="white"
-							fontSize="40">
-							Level up your digital presence
-						</text> */}
 					</g>
 				</svg>
 				<div
 					ref={(el) => (glitchContainers = el)}
-					className="welcome-container glitch top splash-welcome"
+					className="welcome-container glitch top splash-welcome splash-display"
 					id="slogan">
 					<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
 						Level up
 					</h2>
-					{/* <h2 ref={(el) => (wordUp = el)} className="words" id="heres">
-						up
-					</h2> */}
+
 					<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
 						your
 					</h2>

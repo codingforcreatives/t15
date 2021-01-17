@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import './navbar.styles.scss';
-import { Link } from 'react-router-dom';
 import MenuContents from '../menu-contents/menu-contents.component';
 import { TimelineLite } from 'gsap';
+import { withRouter, Link } from 'react-router-dom';
 import { Sling as Hamburger } from 'hamburger-react';
 
 function Navbar() {
@@ -18,6 +16,10 @@ function Navbar() {
 
 	let tl = new TimelineLite();
 	let tl2 = new TimelineLite();
+
+	const goHome = () => {
+		// history.push(linkURL);
+	};
 
 	useEffect(() => {
 		if (sidebar) {
@@ -34,10 +36,12 @@ function Navbar() {
 				<MenuContents
 					setMenuState={(value) => setSidebar(value)}></MenuContents>
 			</div>
-			<img
-				ref={(el) => (logo = el)}
-				className="still-image"
-				src={require(`../../assets/t15_logo.png`)}></img>
+			<Link to="/services">
+				<img
+					ref={(el) => (logo = el)}
+					className="still-image"
+					src={require(`../../assets/t15_logo.png`)}></img>
+			</Link>
 			<div className="navbar" onClick={() => setSidebar(!sidebar)}>
 				<Hamburger
 					toggled={sidebar}
@@ -50,4 +54,4 @@ function Navbar() {
 	);
 }
 
-export default Navbar;
+export default withRouter(Navbar);
