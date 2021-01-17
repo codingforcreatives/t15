@@ -11,7 +11,6 @@ import HomePage from './pages/homepage/homepage.component';
 import AboutUsPage from './pages/about-us/about-us.component';
 import BroadcastTVPage from './pages/broadcast-tv-page/broadcast-tv-page.component';
 import VideoContentPage from './pages/video-content-page/video-content-page.component';
-import WebsitePage from './pages/website-page/website-page.component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import SplashPage from './pages/splash-page/splash-page.component';
 import Navbar from './components/navbar/navbar.component';
@@ -61,7 +60,7 @@ function App() {
 						exact
 						path="/video-content"
 						component={VideoContentPage}></Route>
-					<Route exact path="/website-page" component={WebsitePage}></Route>
+
 					<Route exact path="/contact-page" component={ContactPage}></Route>
 					<Route exact path="/" component={SplashPage}></Route>
 					<Route
@@ -102,7 +101,10 @@ function App() {
 						path="/wonderful-places"
 						component={WonderfulPlacesPage}></Route>
 					<Route exact path="/branding" component={BrandingPage}></Route>
-					<Route exact path="/websites" component={WebsiteAppPage}></Route>
+					<Route
+						exact
+						path="/websites-and-apps"
+						component={WebsiteAppPage}></Route>
 				</Switch>
 			</div>
 		</div>

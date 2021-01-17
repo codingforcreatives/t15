@@ -1,4 +1,4 @@
-.homepage-container {
+.portfolio-page-container {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -7,23 +7,18 @@
 	align-items: center;
 	background-color: #100f10;
 	visibility: hidden;
-
-	// border-style: solid;
-	// border-color: green;
-	// border-width: 10px;
-	// overflow: hidden;
 }
 
-.panel-container {
+.portfolio-panel-container {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	width: 100vw;
+	width: 88vw;
 	display: none;
-	// border-style: solid;
-	// border-color: pink;
-	// border-width: 5px;
 	overflow: hidden;
+	border-style: solid;
+	border-width: 5px;
+	border-color: red;
 }
 
 .welcome-container {
@@ -32,9 +27,7 @@
 	z-index: 1;
 	justify-content: center;
 	align-items: center;
-	// border-style: solid;
-	// border-color: orange;
-	// border-width: 2px;
+
 	overflow: hidden;
 }
 
@@ -46,34 +39,29 @@
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
-	// border-style: solid;
-	// border-color: orange;
-	// border-width: 2px;
 	overflow: hidden;
 }
 
-.myVideo {
+.portfolio-video {
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	height: 100vh;
-	width: 100vw;
+	min-width: 100%;
+	min-height: 100vh;
 	opacity: 0%;
 	overflow: hidden;
 }
 
-// /* Small Devices, Tablets */
+/* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
-	//can do this for when more than 4 panels
+	/* //can do this for when more than 4 panels
 	// .panel-container {
 	// 	flex-direction: column;
-	// }
+	// } */
 	.welcome-container {
-		// border-color: blue;
 		width: 100vw;
 	}
 	.homepage-container {
-		// border-color: red;
 		width: 100vw;
 		padding-top: 20px;
 		padding-bottom: 20px;
@@ -94,8 +82,16 @@
 	.welcome-container {
 		flex-direction: column;
 	}
+	.portfolio-page-container {
+		height: auto;
+	}
 
 	.welcome-container h2 {
 		margin: 14px 0px 0px 0px;
+	}
+	.portfolio-panel-container {
+		height: auto;
+		padding-top: 80px;
+		padding-bottom: 60px;
 	}
 }

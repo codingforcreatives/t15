@@ -44,7 +44,7 @@ const serviceCategories = {
 		overlayImageName: 'home-assets/websites_cover.jpg',
 		videoName: 'home-assets/websites_cover.mp4',
 		position: 'down',
-		linkURL: 'web-development',
+		linkURL: 'websites-and-apps',
 	},
 };
 
