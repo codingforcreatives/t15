@@ -1,4 +1,4 @@
-/* .outerContainer {
+.outerContainer {
 	background-color: #1a1a1a;
 	color: white;
 	min-height: 100vh;
@@ -15,6 +15,16 @@
 
 .headerImage {
 	width: 100%;
+}
+
+.featureVideoContainer {
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	height: 80vh;
+	position: relative;
+	background-color: #1a1a1a;
+	margin-bottom: 40px;
 }
 
 .headerTextContainer {
@@ -46,6 +56,18 @@
 	.headerTextLeftSection {
 		margin-bottom: 48px;
 		margin-right: 0;
+	}
+}
+
+.vimeoVideoContainer > div {
+	max-width: 1040px;
+	height: 700px;
+}
+
+@media (max-width: 744px) {
+	.vimeoVideoContainer > div {
+		max-width: 1040px;
+		height: 300px;
 	}
 }
 
@@ -93,4 +115,39 @@
 .keenSlide {
 	height: 300px;
 	width: 500px;
-} */
+}
+
+.navigationWrapper {
+	position: relative;
+}
+
+.arrow {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	fill: #fff;
+	cursor: pointer;
+}
+
+.arrowLeft {
+	position: absolute;
+	top: 50%;
+	height: 50px;
+	left: 0;
+	transform: translate(50%, -50%);
+}
+
+.arrowRight {
+	position: absolute;
+	top: 50%;
+	height: 50px;
+	right: 0;
+	transform: translate(-50%, -50%);
+}
+
+.arrowDisabled {
+	fill: rgba(255, 255, 255, 0.5);
+}

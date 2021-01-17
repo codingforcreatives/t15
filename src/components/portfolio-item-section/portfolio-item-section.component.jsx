@@ -9,7 +9,7 @@ const PortfolioItemSection = ({ item }) => {
 		<div className={styles.item1Container}>
 			<div className={styles.heading2}>{item.title}</div>
 			<div className={styles.space2}></div>
-			<div>{item.description}</div>
+			<div className={styles.description}>{item.description}</div>
 			<div className={styles.space3}></div>
 
 			<div className={styles.vimeoVideoContainer}>

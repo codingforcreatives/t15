@@ -11,7 +11,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 import { TimelineLite } from 'gsap';
-const styles = require('../video-content.module.css');
+const styles = require('./website-app.module.css');
 
 // POST IDs:
 
@@ -25,7 +25,7 @@ const styles = require('../video-content.module.css');
 // Real Estate: 28725
 // Charities & Organisations: 28726
 
-const TravelTourismPage = () => {
+const WebsiteAppPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -141,4 +141,4 @@ const TravelTourismPage = () => {
 	);
 };
 
-export default TravelTourismPage;
+export default WebsiteAppPage;

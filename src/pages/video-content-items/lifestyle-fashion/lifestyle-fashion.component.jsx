@@ -25,7 +25,7 @@ const styles = require('../video-content.module.css');
 // Real Estate: 28725
 // Charities & Organisations: 28726
 
-const TravelTourismPage = () => {
+const LifestyleFashionPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -91,7 +91,7 @@ const TravelTourismPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28716')
+			.get('https://t15media.com/wp-json/wp/v2/video_content/28722')
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -125,10 +125,12 @@ const TravelTourismPage = () => {
 						backText="content creation"
 						backRoute="/video-content"></PortfolioIntroductionSection>
 
+					<PortfolioGallerySection
+						item={item3.gallery}></PortfolioGallerySection>
+
 					<PortfolioDivider />
 					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
+
 					<PortfolioDivider />
 					<PortfolioItemSection item={item2}></PortfolioItemSection>
 					<PortfolioDivider />
@@ -141,4 +143,4 @@ const TravelTourismPage = () => {
 	);
 };
 
-export default TravelTourismPage;
+export default LifestyleFashionPage;

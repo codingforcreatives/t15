@@ -1,0 +1,14 @@
+.seperator {
+	height: 1px;
+	background-color: #707070;
+	width: 100%;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+/* @media (max-width: 744px) {
+	.seperator {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+} */
