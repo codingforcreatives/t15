@@ -12,7 +12,7 @@ const serviceCategories = {
 		title: 'Travel & Tourism',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/travel_tourism.mp4',
 		position: 'up',
 	},
 	education: {
@@ -21,16 +21,16 @@ const serviceCategories = {
 		title: 'Education',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/education.mp4',
 		position: 'down',
 	},
-	healthmedical: {
+	narrative: {
 		key: '3',
 		panelType: 'portfolio',
-		title: 'Health & Medical',
+		title: 'Narrative',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/education.mp4',
 		position: 'up',
 	},
 	eventsfestivals: {
@@ -39,7 +39,7 @@ const serviceCategories = {
 		title: 'Events & Festivals',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/events.mp4',
 		position: 'down',
 	},
 	lifestylefashion: {
@@ -48,7 +48,7 @@ const serviceCategories = {
 		title: 'Lifestyle & Fashion',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/lifestyle_fashion.mp4',
 		position: 'up',
 	},
 	appssoftware: {
@@ -57,7 +57,7 @@ const serviceCategories = {
 		title: 'Apps & Software',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/app_software.mp4',
 		position: 'down',
 	},
 	product: {
@@ -66,7 +66,7 @@ const serviceCategories = {
 		title: 'Product',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/product.mp4',
 		position: 'up',
 	},
 	realestate: {
@@ -75,7 +75,7 @@ const serviceCategories = {
 		title: 'Real Estate',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/real_estate.mp4',
 		position: 'down',
 	},
 	charitiesorganisations: {
@@ -84,7 +84,7 @@ const serviceCategories = {
 		title: 'Charities & Organisations',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'Website-Hero-Compressed-v2.mp4',
+		videoName: 'portfolio-assets/fitness_sports.mp4',
 		position: 'up',
 	},
 };
