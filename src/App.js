@@ -61,7 +61,7 @@ function App() {
 						path="/video-content"
 						component={VideoContentPage}></Route>
 
-					<Route exact path="/contact-page" component={ContactPage}></Route>
+					<Route exact path="/contact" component={ContactPage}></Route>
 					<Route exact path="/" component={SplashPage}></Route>
 					<Route
 						exact

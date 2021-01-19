@@ -84,7 +84,7 @@ const serviceCategories = {
 		title: 'Charities & Organisations',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
-		videoName: 'portfolio-assets/fitness_sports.mp4',
+		videoName: 'portfolio-assets/sports.mp4',
 		position: 'up',
 	},
 };

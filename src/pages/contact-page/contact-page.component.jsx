@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import './homepage.styles.scss';
+import './contact-page.style.css';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
+import { ReactTypeformEmbed } from 'react-typeform-embed';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
@@ -132,34 +133,20 @@ const ContactPage = () => {
 	let increment_X = rightHand_X / totalPanelsOnEachSide;
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
-	const calculateX = (key) => {
-		//left hand side
-
-		return increment_X * key + leftHand_X;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
-	};
-
 	const calculateDelay = (key) => {
 		return delay * key;
 	};
 
 	//Gsap Animations
 	let backgroundVideo = useRef(null);
-	let homepageContainer = useRef(null);
+	let contactPageContainer = useRef(null);
+	let typeformEmbed = useRef(null);
 	let wordHere = useRef(null);
 	let wordWhat = useRef(null);
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
-	let panelContainer = useRef(null);
+	let contactContainer = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -171,9 +158,9 @@ const ContactPage = () => {
 	var tlGlitch = new TimelineLite();
 
 	useEffect(() => {
-		tl.to(homepageContainer, 0.2, {
+		tl.to(contactPageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+		}).to(backgroundVideo, 1, { css: { opacity: 1, zIndex: -1 } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -213,17 +200,24 @@ const ContactPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(contactContainer, 1, { display: 'flex', delay: -0.08 });
 	});
 
+	let openForm = () => {
+		console.log('FORM OPENED');
+		typeformEmbed.typeform.open();
+	};
+
 	return (
-		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
+		<div
+			ref={(el) => (contactPageContainer = el)}
+			className="homepage-container">
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
-				className="myVideo">
+				className="home-video">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
 				<source
@@ -231,7 +225,6 @@ const ContactPage = () => {
 					type="video/mp4"
 				/>
 			</video>
-
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
@@ -249,33 +242,41 @@ const ContactPage = () => {
 				</h2>
 			</div>
 
-			<div
-				className="panel-container"
-				ref={(el) => (panelContainer = el)}
-				style={
-					{
-						// width: window.innerWidth * 0.8,
-					}
-				}>
-				{/* <ExtendableVideoGallery serviceCategories={serviceCategories} /> */}
-				{arr.map((item) => (
-					<ExtendableVideo
-						key={item.key}
-						panelType={item.panelType}
-						title={item.title}
-						logoName={item.logoName}
-						overlayImageName={item.overlayImageName}
-						videoName={item.videoName}
-						position={item.position}
-						from_X={calculateX(item.key)}
-						from_Y={calculateY(item.key)}
-						delay={calculateDelay(item.key)}
-						prevTimlineDelay={prevTimelineDelay}
-						minPanelWidth={panelMinWidth}
-						maxPanelWidth={panelMaxWidth}
-						expandDuration={2}
-					/>
-				))}
+			<div ref={(el) => (contactContainer = el)} className="contact-container">
+				<ReactTypeformEmbed
+					ref={(el) => (typeformEmbed = el)}
+					style={{ display: 'none' }}
+					buttonText="submit enquiry"
+					hideFooter="true"
+					popup="true"
+					url="https://sajs4fb4o0o.typeform.com/to/ixliqpXk"
+				/>
+
+				<div className="contact-image-container">
+					<img
+						className="contact-image"
+						src={require(`../../assets/office_vertical.jpg`)}></img>
+				</div>
+
+				<div className="contact-content-container">
+					<h1>Contact us</h1>
+					<p>
+						If you’d like to find out more about how we can work with <br></br>{' '}
+						you on a project, contact us today and let’s chat.
+					</p>
+					<h2>P | +61 474 066 679</h2>
+					<h2>E | admin@t15media.com</h2>
+					<h2>
+						A | Unit 48/91 Moreland Street Footscray, VIC 3011, Australia{' '}
+					</h2>
+
+					<button
+						className="btn"
+						onClick={openForm}
+						style={{ cursor: 'pointer' }}>
+						Fill in contact form
+					</button>
+				</div>
 			</div>
 		</div>
 	);
