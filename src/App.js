@@ -20,10 +20,10 @@ import Navbar from './components/navbar/navbar.component';
 //Video Content
 
 import AppsSoftwarePage from './pages/video-content-items/apps-software/apps-software.component';
-import CharitiesOrganisationsPage from './pages/video-content-items/charities-organisations/charities-organisations.component';
+import SportsFitnessPage from './pages/video-content-items/sports-fitness/sports-fitness.component';
 import EducationPage from './pages/video-content-items/education/education-page.component';
 import EventsFestivalsPage from './pages/video-content-items/events-festivals/events-festivals.component';
-import HealthMedicalPage from './pages/video-content-items/health-medical/health-medical.component';
+import NarrativePage from './pages/video-content-items/narrative/narrative.component';
 import LifestyleFashionPage from './pages/video-content-items/lifestyle-fashion/lifestyle-fashion.component';
 import ProductPage from './pages/video-content-items/product/product.component';
 import RealEstatePage from './pages/video-content-items/real-estate/real-estate.component';
@@ -69,17 +69,14 @@ function App() {
 						component={AppsSoftwarePage}></Route>
 					<Route
 						exact
-						path="/charities-organisations"
-						component={CharitiesOrganisationsPage}></Route>
+						path="/sports-fitness"
+						component={SportsFitnessPage}></Route>
 					<Route exact path="/education" component={EducationPage}></Route>
 					<Route
 						exact
 						path="/events-festivals"
 						component={EventsFestivalsPage}></Route>
-					<Route
-						exact
-						path="/health-medical"
-						component={HealthMedicalPage}></Route>
+					<Route exact path="/narrative" component={NarrativePage}></Route>
 					<Route
 						exact
 						path="/lifestyle-fashion"

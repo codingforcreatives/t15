@@ -25,7 +25,7 @@ const styles = require('../video-content.module.css');
 // Real Estate: 28725
 // Charities & Organisations: 28726
 
-const HealthMedicalPage = () => {
+const NarrativePage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -139,4 +139,4 @@ const HealthMedicalPage = () => {
 	);
 };
 
-export default HealthMedicalPage;
+export default NarrativePage;

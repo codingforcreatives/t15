@@ -25,7 +25,7 @@ const styles = require('../video-content.module.css');
 // Real Estate: 28725
 // Charities & Organisations: 28726
 
-const CharitiesOrganisationsPage = () => {
+const SportsFitnessPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
 
 	const [introduction, setIntroduction] = useState({
@@ -126,6 +126,8 @@ const CharitiesOrganisationsPage = () => {
 						backRoute="/video-content"></PortfolioIntroductionSection>
 
 					<PortfolioDivider />
+					<PortfolioItemSection item={item3}></PortfolioItemSection>
+					<PortfolioDivider />
 					<PortfolioItemSection item={item1}></PortfolioItemSection>
 					<PortfolioDivider />
 					<PortfolioItemSection item={item2}></PortfolioItemSection>
@@ -137,4 +139,4 @@ const CharitiesOrganisationsPage = () => {
 	);
 };
 
-export default CharitiesOrganisationsPage;
+export default SportsFitnessPage;

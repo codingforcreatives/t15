@@ -14,6 +14,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/travel_tourism.mp4',
 		position: 'up',
+		linkURL: 'travel-tourism',
 	},
 	education: {
 		key: '2',
@@ -23,6 +24,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/education.mp4',
 		position: 'down',
+		linkURL: 'education',
 	},
 	narrative: {
 		key: '3',
@@ -32,6 +34,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/education.mp4',
 		position: 'up',
+		linkURL: 'narrative',
 	},
 	eventsfestivals: {
 		key: '4',
@@ -41,6 +44,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/events.mp4',
 		position: 'down',
+		linkURL: 'events-festivals',
 	},
 	lifestylefashion: {
 		key: '5',
@@ -50,6 +54,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/lifestyle_fashion.mp4',
 		position: 'up',
+		linkURL: 'lifestyle-fashion',
 	},
 	appssoftware: {
 		key: '6',
@@ -59,6 +64,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/app_software.mp4',
 		position: 'down',
+		linkURL: 'apps-software',
 	},
 	product: {
 		key: '7',
@@ -68,6 +74,7 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/product.mp4',
 		position: 'up',
+		linkURL: 'product',
 	},
 	realestate: {
 		key: '8',
@@ -77,15 +84,17 @@ const serviceCategories = {
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/real_estate.mp4',
 		position: 'down',
+		linkURL: 'real-estate',
 	},
-	charitiesorganisations: {
+	sportsgitness: {
 		key: '9',
 		panelType: 'portfolio',
-		title: 'Charities & Organisations',
+		title: 'Sports & Fitness',
 		logoName: '',
 		overlayImageName: 'temporary-screenshot.png',
 		videoName: 'portfolio-assets/sports.mp4',
 		position: 'up',
+		linkURL: 'sports-fitness',
 	},
 };
 
