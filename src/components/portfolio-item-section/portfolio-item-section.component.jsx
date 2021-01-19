@@ -11,10 +11,13 @@ const PortfolioItemSection = ({ item }) => {
 			<div className={styles.space2}></div>
 			<div className={styles.description}>{item.description}</div>
 			<div className={styles.space3}></div>
-
-			<div className={styles.vimeoVideoContainer}>
-				<VimeoVideo videoURL={item.video} />
-			</div>
+			{item.video ? (
+				<div className={styles.vimeoVideoContainer}>
+					<VimeoVideo videoURL={item.video} />
+				</div>
+			) : (
+				<div></div>
+			)}
 		</div>
 	);
 };

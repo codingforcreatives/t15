@@ -138,7 +138,8 @@ const ContactPage = () => {
 	};
 
 	//Gsap Animations
-	let backgroundVideo = useRef(null);
+	let contactImage = useRef(null);
+	let contactContent = useRef(null);
 	let contactPageContainer = useRef(null);
 	let typeformEmbed = useRef(null);
 	let wordHere = useRef(null);
@@ -160,7 +161,7 @@ const ContactPage = () => {
 	useEffect(() => {
 		tl.to(contactPageContainer, 0.2, {
 			css: { visibility: 'visible' },
-		}).to(backgroundVideo, 1, { css: { opacity: 1, zIndex: -1 } });
+		});
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -200,7 +201,9 @@ const ContactPage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(contactContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(contactContainer, 1, { display: 'flex', delay: -0.08 })
+			.from(contactImage, 0.8, { opacity: 0, scale: 0.5 })
+			.from(contactContent, 1, { opacity: 0 });
 	});
 
 	let openForm = () => {
@@ -211,20 +214,7 @@ const ContactPage = () => {
 	return (
 		<div
 			ref={(el) => (contactPageContainer = el)}
-			className="homepage-container">
-			<video
-				ref={(el) => (backgroundVideo = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="home-video">
-				Your browser does not support the video tag. I suggest you upgrade your
-				browser
-				<source
-					src={require('../../assets/T15-Film-Overlay.mp4')}
-					type="video/mp4"
-				/>
-			</video>
+			className="contact-page-outer-container">
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
@@ -255,10 +245,13 @@ const ContactPage = () => {
 				<div className="contact-image-container">
 					<img
 						className="contact-image"
-						src={require(`../../assets/office_vertical.jpg`)}></img>
+						ref={(el) => (contactImage = el)}
+						src={require(`../../assets/office_vertical_panels.jpg`)}></img>
 				</div>
 
-				<div className="contact-content-container">
+				<div
+					className="contact-content-container"
+					ref={(el) => (contactContent = el)}>
 					<h1>Contact us</h1>
 					<p>
 						If you’d like to find out more about how we can work with <br></br>{' '}
