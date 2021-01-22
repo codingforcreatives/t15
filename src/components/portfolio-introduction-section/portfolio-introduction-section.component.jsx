@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const styles = require('./portfolio-introduction-section.module.css');
 
 const PortfolioIntroductionSection = ({
@@ -18,7 +18,9 @@ const PortfolioIntroductionSection = ({
 						className={styles.backArrow}
 						src={require(`../../assets/back-arrow-edge.png`)}></img>
 				</Link>
-				<div className={styles.backText}> {backText} </div>
+				<NavLink to={backRoute} style={{ textDecoration: 'none' }}>
+					<div className={styles.backText}> {backText} </div>
+				</NavLink>
 			</div>
 			<div className={styles.headerTextContainer}>
 				<div className={styles.headerTextLeftSection}>

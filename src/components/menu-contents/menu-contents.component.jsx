@@ -9,7 +9,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'About',
 			path: '/about',
-			videoName: 'home-assets/branding_cover.mp4',
+			videoName: 'about.mp4',
 			cName: 'nav-text',
 			key: 1,
 			delay: 0.5,
@@ -48,7 +48,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		},
 		{
 			title: 'Websites',
-			path: '/websites',
+			path: '/websites-and-apps',
 			videoName: 'home-assets/websites_cover.mp4',
 			cName: 'nav-text',
 			key: 6,
@@ -57,7 +57,7 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 		{
 			title: 'Contact',
 			path: '/contact',
-			videoName: 'home-assets/websites_cover.mp4',
+			videoName: 'contact.mp4',
 			cName: 'nav-text',
 			key: 6,
 			delay: 3,

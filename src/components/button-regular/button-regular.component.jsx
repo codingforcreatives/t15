@@ -27,11 +27,7 @@ const ButtonRegular = ({ buttonText, route }) => {
 
 	return (
 		<div className={styles.buttonContainer}>
-			<Link
-				ref={(el) => (button = el)}
-				className={styles.linkText}
-				to={route}
-				onMouseEnter={handleMouseEnter}>
+			<Link ref={(el) => (button = el)} className={styles.linkText} to={route}>
 				{buttonText}
 			</Link>
 		</div>

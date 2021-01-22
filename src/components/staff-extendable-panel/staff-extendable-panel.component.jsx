@@ -11,10 +11,11 @@ import {
 
 const StaffExtendablePanel = ({
 	panelType,
-	logoName,
 	title,
 	overlayImageName,
-	videoName,
+	hoverImage,
+	name,
+	bio,
 	position,
 	minPanelWidth,
 	maxPanelWidth,
@@ -93,19 +94,12 @@ const StaffExtendablePanel = ({
 	const handleExpand = () => {
 		console.log('HANDLE EXPAND');
 		setExpanded(true);
-		if (isMobile) {
-			// setContent(
-			// 	<img
-			// 		className="still-image"
-			// 		src={require(`../../assets/${overlayImageName}`)}></img>
-			// );
-		} else {
-			// setContent(
-			// 	<img
-			// 		className="still-image"
-			// 		src={require(`../../assets/${overlayImageName}`)}></img>
-			// );
-		}
+
+		setContent(
+			<img
+				className="still-image"
+				src={require(`../../assets/${hoverImage}`)}></img>
+		);
 	};
 
 	//shrink
@@ -220,21 +214,14 @@ const StaffExtendablePanel = ({
 				marginBottom: marginBottom,
 				height: myObj.panelHeight,
 			}}>
-			<img
-				className="still-image"
-				src={require(`../../assets/${overlayImageName}`)}></img>
+			{content}
 
 			<h2 className="panel-title" ref={(el) => (panelTitle = el)}>
 				{title}
 			</h2>
 			<div className="member-bio-container" ref={(el) => (bioContainer = el)}>
-				<h3>Eric Lin</h3>
-				<p>
-					Eric Lin is a cinematographer and editor who has been producing video
-					content for the past 5 years. Eric is our head of content and has a
-					lot of experience in a wide range of industries both locally and
-					internationally.
-				</p>
+				<h3>{name}</h3>
+				<p>{bio}</p>
 			</div>
 		</div>
 	);
