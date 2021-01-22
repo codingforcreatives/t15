@@ -65,7 +65,7 @@ function App() {
 					<Route exact path="/" component={SplashPage}></Route>
 					<Route
 						exact
-						path="/apps-software-videos"
+						path="/apps-software"
 						component={AppsSoftwarePage}></Route>
 					<Route
 						exact

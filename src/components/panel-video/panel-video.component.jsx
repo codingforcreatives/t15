@@ -10,7 +10,7 @@ const PanelVideo = ({ videoName }) => {
 			<div className={styles.panelVideo}>
 				<img
 					className={styles.panelOverlay}
-					src={require(`../../assets/feature-overlay-6.png`)}
+					src={require(`../../assets/feature-overlay-rounded.png`)}
 				/>
 				{/* <ReactPlayer
 					config={{
