@@ -36,6 +36,7 @@ const ExtendableVideo = ({
 	const [content, setContent] = useState(() => {
 		return (
 			<img
+				ref={(el) => (coverImage = el)}
 				className="still-image"
 				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
@@ -47,6 +48,7 @@ const ExtendableVideo = ({
 	const isInitialMount = useRef(true);
 	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
+	let coverImage = useRef(null);
 	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
@@ -88,16 +90,25 @@ const ExtendableVideo = ({
 	};
 
 	//expansion
+
 	const handleExpand = () => {
 		console.log('HANDLE EXPAND');
 		setExpanded(true);
 		if (isMobile) {
 			setContent(
 				<img
+					ref={(el) => (coverImage = el)}
 					className="still-image"
 					src={require(`../../assets/${overlayImageName}`)}></img>
 			);
 		} else {
+			TweenMax.to(coverImage, 2, {
+				css: {
+					opacity: 0,
+
+					ease: Power2.easeIn,
+				},
+			});
 			setContent(
 				<video
 					ref={(el) => (videoBack = el)}
@@ -118,6 +129,7 @@ const ExtendableVideo = ({
 		setExpanded(false);
 		setContent(
 			<img
+				ref={(el) => (coverImage = el)}
 				className="still-image"
 				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
@@ -152,8 +164,10 @@ const ExtendableVideo = ({
 					panelTitle.style.textAlign = 'left';
 					panelTitle.style.width = '80%';
 					panelTitle.style.left = 20;
-					panelTitle.style.top = 'auto';
-					panelTitle.style.bottom = 20;
+
+					panelTitle.style.bottom = '20px';
+					coverImage.style.width = '100%';
+					coverImage.style.height = 'auto';
 				}
 
 				tl.from(extendableBox, 1.5, {
@@ -243,9 +257,6 @@ const mapDispatchToProps = (dispatch) => ({
 	setPanelClicked: (clicked) => dispatch(setPanelClicked(clicked)),
 });
 
-// export default withRouter(
-// 	connect(mapStateToProps, mapDispatchToProps)(ExtendableVideo)
-// );
 export default compose(
 	withRouter,
 	connect(mapStateToProps, mapDispatchToProps)

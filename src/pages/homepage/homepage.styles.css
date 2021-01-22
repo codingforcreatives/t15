@@ -72,6 +72,16 @@
 	} */
 }
 
+@media only screen and (max-width: 1000px) {
+	.welcome-container {
+		flex-direction: column;
+	}
+
+	.welcome-container h2 {
+		margin: 8px 0px 8px 0px !important;
+	}
+}
+
 @media only screen and (max-width: 500px) {
 	.welcome-container {
 		flex-direction: column;

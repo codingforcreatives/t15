@@ -81,7 +81,7 @@ function App() {
 						exact
 						path="/lifestyle-fashion"
 						component={LifestyleFashionPage}></Route>
-					<Route exact path="/product-videos" component={ProductPage}></Route>
+					<Route exact path="/product" component={ProductPage}></Route>
 					<Route exact path="/real-estate" component={RealEstatePage}></Route>
 					<Route
 						exact

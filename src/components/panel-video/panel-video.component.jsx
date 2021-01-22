@@ -33,7 +33,7 @@ const PanelVideo = ({ videoName }) => {
 					autoPlay="autoPlay"
 					muted
 					loop="loop"
-					className="feature-video"
+					className={styles.panelFeatureVideo}
 					mask="url(#clipPath)">
 					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
 				</video>

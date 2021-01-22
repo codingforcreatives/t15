@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './portfolio-panels.styles.css';
+
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';

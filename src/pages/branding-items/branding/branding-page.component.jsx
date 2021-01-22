@@ -9,6 +9,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import { API_URL } from '../../../components/globals';
 
 import { TimelineLite } from 'gsap';
 const styles = require('./branding.module.css');
@@ -93,7 +94,7 @@ const BrandingPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28742')
+			.get(API_URL + '28742')
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -116,7 +117,7 @@ const BrandingPage = () => {
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>
-						<PanelVideo videoName="Masci_HQ.mp4" />
+						<PanelVideo videoName="home-assets/branding_cover.mp4" />
 					</div>
 
 					<PortfolioIntroductionSection
@@ -126,7 +127,6 @@ const BrandingPage = () => {
 						item3={item3}
 						backText="all services"
 						backRoute="/services"></PortfolioIntroductionSection>
-
 					<PortfolioDivider />
 
 					<PortfolioGallerySection

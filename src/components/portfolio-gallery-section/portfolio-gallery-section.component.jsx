@@ -25,11 +25,6 @@ const PortfolioGallerySection = ({ item }) => {
 	return (
 		<div className={styles.navigationWrapper}>
 			<div ref={sliderRef} className="keen-slider">
-				{/* {toArray.map((item) => (
-					<div className="keen-slider__slide">
-						<img className={styles.keenSlide} src={item} />
-					</div>
-				))} */}
 				<div className="keen-slider__slide">
 					<div
 						className={styles.keenSlideContainer}
