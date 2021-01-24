@@ -9,10 +9,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-<<<<<<< HEAD
 import { API_URL } from '../../../components/globals';
-=======
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 
 import { TimelineLite } from 'gsap';
 const styles = require('../video-content.module.css');
@@ -95,11 +92,7 @@ const EventsFestivalsPage = () => {
 
 	useEffect(() => {
 		axios
-<<<<<<< HEAD
 			.get(API_URL + '28721')
-=======
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28721')
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -122,11 +115,7 @@ const EventsFestivalsPage = () => {
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>
-<<<<<<< HEAD
 						<PanelVideo videoName="portfolio-assets/events.mp4" />
-=======
-						<PanelVideo videoName="Masci_HQ.mp4" />
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 					</div>
 
 					<PortfolioIntroductionSection

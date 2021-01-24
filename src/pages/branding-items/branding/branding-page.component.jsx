@@ -9,10 +9,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-<<<<<<< HEAD
 import { API_URL } from '../../../components/globals';
-=======
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 
 import { TimelineLite } from 'gsap';
 const styles = require('./branding.module.css');
@@ -28,11 +25,8 @@ const styles = require('./branding.module.css');
 // Product: 28724
 // Real Estate: 28725
 // Charities & Organisations: 28726
-<<<<<<< HEAD
 // Websites & Apps: 28745
 // Branding: 28742
-=======
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 
 const BrandingPage = () => {
 	const [isLoaded, setLoaded] = useState(false);
@@ -100,11 +94,7 @@ const BrandingPage = () => {
 
 	useEffect(() => {
 		axios
-<<<<<<< HEAD
 			.get(API_URL + '28742')
-=======
-			.get('https://t15media.com/wp-json/wp/v2/video_content/28716')
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 			.then((res) => handleData(res.data))
 			.catch((err) => console.log(err));
 
@@ -127,11 +117,7 @@ const BrandingPage = () => {
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>
-<<<<<<< HEAD
 						<PanelVideo videoName="home-assets/branding_cover.mp4" />
-=======
-						<PanelVideo videoName="Masci_HQ.mp4" />
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 					</div>
 
 					<PortfolioIntroductionSection
@@ -139,7 +125,6 @@ const BrandingPage = () => {
 						item1={item1}
 						item2={item2}
 						item3={item3}
-<<<<<<< HEAD
 						backText="all services"
 						backRoute="/services"></PortfolioIntroductionSection>
 					<PortfolioDivider />
@@ -147,20 +132,6 @@ const BrandingPage = () => {
 					<PortfolioGallerySection
 						item={item1.gallery}></PortfolioGallerySection>
 					<PortfolioDivider />
-=======
-						backText="content creation"
-						backRoute="/video-content"></PortfolioIntroductionSection>
-
-					<PortfolioDivider />
-					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item2}></PortfolioItemSection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item3}></PortfolioItemSection>
-					<PortfolioDivider />
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>
 			</div>

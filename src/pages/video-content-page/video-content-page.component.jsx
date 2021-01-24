@@ -1,9 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import './portfolio-panels.styles.css';
-<<<<<<< HEAD
-
-=======
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -30,17 +26,10 @@ const serviceCategories = {
 		position: 'down',
 		linkURL: 'education',
 	},
-<<<<<<< HEAD
 	narrative: {
 		key: '3',
 		panelType: 'portfolio',
 		title: 'Narrative',
-=======
-	healthmedical: {
-		key: '3',
-		panelType: 'portfolio',
-		title: 'Health & Medical',
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 		logoName: '',
 		overlayImageName: 'portfolio-assets/narrative.jpg',
 		videoName: 'portfolio-assets/narrative.mp4',
@@ -97,25 +86,15 @@ const serviceCategories = {
 		position: 'down',
 		linkURL: 'real-estate',
 	},
-<<<<<<< HEAD
 	sportsgitness: {
 		key: '9',
 		panelType: 'portfolio',
 		title: 'Sports & Fitness',
-=======
-	charitiesorganisations: {
-		key: '9',
-		panelType: 'portfolio',
-		title: 'Charities & Organisations',
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 		logoName: '',
 		overlayImageName: 'portfolio-assets/sports.jpg',
 		videoName: 'portfolio-assets/sports.mp4',
 		position: 'up',
-<<<<<<< HEAD
 		linkURL: 'sports-fitness',
-=======
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 	},
 };
 

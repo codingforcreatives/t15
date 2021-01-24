@@ -16,12 +16,6 @@
 	width: 88vw;
 	display: none;
 	overflow: hidden;
-<<<<<<< HEAD
-=======
-	border-style: solid;
-	border-width: 5px;
-	border-color: red;
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 }
 
 .welcome-container {
@@ -38,11 +32,7 @@
 	margin-right: 20px;
 	color: white;
 	font-size: 36px;
-<<<<<<< HEAD
 	font-family: 'Montserrat', sans-serif;
-=======
-	font-family: 'Montserrat-black', sans-serif;
->>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 8px;
