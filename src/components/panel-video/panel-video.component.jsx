@@ -29,13 +29,25 @@ const PanelVideo = ({ videoName }) => {
 					// className={styles.panelVideo}
 				/> */}
 
-				<video
+				{/* <video
 					autoPlay="autoPlay"
 					muted
 					loop="loop"
 					className={styles.panelFeatureVideo}
 					mask="url(#clipPath)">
 					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
+				</video> */}
+
+				<video
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className={styles.panelFeatureVideo}
+					mask="url(#clipPath)">
+					<source
+						src="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/broadcast_tv_cover.mp4"
+						type="video/mp4"
+					/>
 				</video>
 			</div>
 		</>
