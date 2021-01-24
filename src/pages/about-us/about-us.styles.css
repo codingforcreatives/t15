@@ -43,8 +43,12 @@
 
 .about-introduction-container {
 	display: flex;
+<<<<<<< HEAD
 	max-width: 1024px;
 	width: 80%;
+=======
+	width: 75%;
+>>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 	padding-top: 60px;
 	padding-bottom: 100px;
 }

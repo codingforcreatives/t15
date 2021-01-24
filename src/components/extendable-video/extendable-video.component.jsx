@@ -164,10 +164,15 @@ const ExtendableVideo = ({
 					panelTitle.style.textAlign = 'left';
 					panelTitle.style.width = '80%';
 					panelTitle.style.left = 20;
+<<<<<<< HEAD
 
 					panelTitle.style.bottom = '20px';
 					coverImage.style.width = '100%';
 					coverImage.style.height = 'auto';
+=======
+					panelTitle.style.top = 'auto';
+					panelTitle.style.bottom = 20;
+>>>>>>> 909d6be19b55b15ef4259257d61c7f0ceb4a6485
 				}
 
 				tl.from(extendableBox, 1.5, {
