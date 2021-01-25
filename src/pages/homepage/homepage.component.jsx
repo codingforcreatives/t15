@@ -68,33 +68,7 @@ const HomePage = () => {
 	var numPanels = arr.length;
 	var panelMinWidth = totalWindowWidth / (numPanels + 1);
 	var panelMaxWidth = panelMinWidth * 2;
-
-	//Panel Animation Coordinates
-	let totalPanelsOnEachSide = arr.length / 2;
-	let leftHand_Y = -60;
-	let leftHand_X = -40;
-	let rightHand_Y = 60;
-	let rightHand_X = 40;
 	let delay = 0.5;
-	let increment_Y = rightHand_Y / totalPanelsOnEachSide;
-	let increment_X = rightHand_X / totalPanelsOnEachSide;
-	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
-
-	const calculateX = (key) => {
-		// return increment_X * key + leftHand_X;
-		return -60;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		// if (key <= totalPanelsOnEachSide) {
-		// 	return increment_Y * key * -1 + leftHand_Y;
-		// } else {
-		// 	return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		// }
-
-		return 40;
-	};
 
 	const calculateDelay = (key) => {
 		return delay * key;
@@ -209,8 +183,8 @@ const HomePage = () => {
 						videoName={item.videoName}
 						position={item.position}
 						linkURL={item.linkURL}
-						from_X={calculateX(item.key)}
-						from_Y={calculateY(item.key)}
+						from_X={-60}
+						from_Y={40}
 						delay={calculateDelay(item.key)}
 						prevTimlineDelay={prevTimelineDelay}
 						minPanelWidth={panelMinWidth}
