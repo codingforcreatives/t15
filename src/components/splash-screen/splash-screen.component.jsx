@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './splash-screen.styles.scss';
-import { gsap, TimelineMax, TimelineLite, Power4, Power2 } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TimelineMax, TimelineLite, Power4, Power2 } from 'gsap';
 import { withRouter } from 'react-router-dom';
-gsap.registerPlugin(ScrollTrigger);
+import { SPLASH_VIDEO_URL } from '../../components/globals';
 
 const SplashScreen = ({ backgroundVideo, history }) => {
 	//states
@@ -23,7 +22,6 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 	let wordWe = useRef(null);
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
-	// let spinnerContainer = useRef(null);
 
 	let countDownTimer = () => {
 		setInterval(() => {
@@ -32,7 +30,6 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 			} else {
 				//do nothing
 			}
-			console.log(count);
 		}, 1500);
 	};
 
@@ -71,19 +68,13 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 		}).to(glitchContainers, 0.8, { display: 'flex', delay: -0.8 });
 
 		tl1.from(wordHere, 0.8, {
-			// x: -40,
-			// y: -60,
 			scale: 2,
 			opacity: 0,
 			delay: 0,
 			ease: Power4.easeOut,
 		});
-		// tl22.from(wordUp, 0.8, { opacity: 0, delay: 1.5 });
 
 		tl2.from(wordWhat, 0.8, { opacity: 0, delay: 1.5 });
-
-		//4.4s
-
 		tl3.from(wordWe, 0.8, { opacity: 0, delay: 3 });
 		tl4.from(wordDo, 0.8, { opacity: 0, delay: 4.5 });
 
@@ -131,10 +122,7 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 				ref={(el) => (splashVideo = el)}>
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
-				<source
-					src={require(`../../assets/${backgroundVideo}`)}
-					type="video/mp4"
-				/>
+				<source src={SPLASH_VIDEO_URL} type="video/mp4" />
 			</video>
 
 			<div className="video-overlay">

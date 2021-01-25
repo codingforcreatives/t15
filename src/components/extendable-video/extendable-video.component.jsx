@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './extendable-video.styles.scss';
 import { TimelineLite, TweenMax, Power3, Power4, Power2 } from 'gsap';
+import { S3_BASE_URL } from '../../components/globals';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -11,7 +12,6 @@ import {
 
 const ExtendableVideo = ({
 	panelType,
-	logoName,
 	title,
 	overlayImageName,
 	videoName,
@@ -21,11 +21,9 @@ const ExtendableVideo = ({
 	from_X,
 	from_Y,
 	delay,
-	prevTimelineDelay,
 	expandDuration,
 	linkURL,
 	history,
-	match,
 	panelClicked,
 	indexClicked,
 	setPanelClicked,
@@ -38,7 +36,7 @@ const ExtendableVideo = ({
 			<img
 				ref={(el) => (coverImage = el)}
 				className="still-image"
-				src={require(`../../assets/${overlayImageName}`)}></img>
+				src={S3_BASE_URL + overlayImageName}></img>
 		);
 	});
 
@@ -49,7 +47,6 @@ const ExtendableVideo = ({
 	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
 	let coverImage = useRef(null);
-	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
 	let yExit = null;
@@ -99,7 +96,7 @@ const ExtendableVideo = ({
 				<img
 					ref={(el) => (coverImage = el)}
 					className="still-image"
-					src={require(`../../assets/${overlayImageName}`)}></img>
+					src={S3_BASE_URL + overlayImageName}></img>
 			);
 		} else {
 			TweenMax.to(coverImage, 2, {
@@ -117,7 +114,7 @@ const ExtendableVideo = ({
 					loop="loop"
 					className="extendable-video-background"
 					mask="url(#clipPath)">
-					<source src={require(`../../assets/${videoName}`)} type="video/mp4" />
+					<source src={S3_BASE_URL + videoName} type="video/mp4" />
 				</video>
 			);
 		}
@@ -131,7 +128,7 @@ const ExtendableVideo = ({
 			<img
 				ref={(el) => (coverImage = el)}
 				className="still-image"
-				src={require(`../../assets/${overlayImageName}`)}></img>
+				src={S3_BASE_URL + overlayImageName}></img>
 		);
 	};
 

@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import './homepage.styles.css';
-// import SplashScreen from '../../components/splash-screen/splash-screen.component';
-
-import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
-
+import { Power4, TimelineLite } from 'gsap';
+import { FILM_STATIC_BG_URL } from '../../components/globals';
 import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
+
 const serviceCategories = {
 	branding: {
 		key: '1',
@@ -67,9 +66,7 @@ const HomePage = () => {
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
 	var numPanels = arr.length;
-
 	var panelMinWidth = totalWindowWidth / (numPanels + 1);
-
 	var panelMaxWidth = panelMinWidth * 2;
 
 	//Panel Animation Coordinates
@@ -84,8 +81,6 @@ const HomePage = () => {
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
 	const calculateX = (key) => {
-		//left hand side
-
 		return increment_X * key + leftHand_X;
 	};
 
@@ -178,10 +173,7 @@ const HomePage = () => {
 				className="home-video">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser
-				<source
-					src={require('../../assets/T15-Film-Overlay.mp4')}
-					type="video/mp4"
-				/>
+				<source src={FILM_STATIC_BG_URL} type="video/mp4" />
 			</video>
 
 			<div

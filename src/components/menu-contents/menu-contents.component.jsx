@@ -1,90 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './menu-contents.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
-import { TimelineLite, TweenMax } from 'gsap';
+import { TimelineLite } from 'gsap';
 import { useLocation } from 'react-router-dom';
+import {
+	S3_BASE_URL,
+	DEFAULT_MENU_VIDEO,
+	MENU_DATA,
+} from '../../components/globals';
 
-const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
-	const menuData = [
-		{
-			title: 'About',
-			path: '/about',
-			videoName: 'about.mp4',
-			cName: 'nav-text',
-			key: 1,
-			delay: 0.5,
-		},
-		{
-			title: 'All Services',
-			path: '/services',
-			videoName: 'Website-Hero-Compressed-v2.mp4',
-			cName: 'nav-text',
-			key: 2,
-			delay: 1,
-		},
-		{
-			title: 'Broadcast TV',
-			path: '/broadcast-tv',
-			videoName: 'home-assets/broadcast_tv_cover.mp4',
-			cName: 'nav-text',
-			key: 3,
-			delay: 1.5,
-		},
-		{
-			title: 'Content Creation',
-			path: '/video-content',
-			videoName: 'home-assets/content_creation_cover.mp4',
-			cName: 'nav-text',
-			key: 4,
-			delay: 2,
-		},
-		{
-			title: 'Branding',
-			path: '/branding',
-			videoName: 'home-assets/branding_cover.mp4',
-			cName: 'nav-text',
-			key: 5,
-			delay: 2.5,
-		},
-		{
-			title: 'Websites',
-			path: '/websites-and-apps',
-			videoName: 'home-assets/websites_cover.mp4',
-			cName: 'nav-text',
-			key: 6,
-			delay: 3,
-		},
-		{
-			title: 'Contact',
-			path: '/contact',
-			videoName: 'contact.mp4',
-			cName: 'nav-text',
-			key: 6,
-			delay: 3,
-		},
-	];
-
+const MenuContents = ({ setMenuState }) => {
 	const location = useLocation();
 
-	const indexOfCurrentPage = menuData.findIndex(
-		(x) => x.path === location.pathname
-	);
-
-	const onMenuTextHover = () => {};
-	const defaultVideo = 'Website-Hero-Compressed-v2.mp4';
 	let menuBackgroundVideo = useRef(null);
 	let singleElement = useRef(null);
-
-	//plan : change this to a default video. then on currentRouteVideo prop, make sure its not empty and if it is, use default video
-
-	// const [currentVideo, setVideo] = useState(
-	// 	menuData[indexOfCurrentPage].videoName
-	// );
-
-	const [currentVideo, setVideo] = useState(defaultVideo);
-
 	let tl = new TimelineLite();
-	let tlEntrance = new TimelineLite();
+	const [currentVideo, setVideo] = useState(DEFAULT_MENU_VIDEO);
 
 	useEffect(() => {
 		tl.to(menuBackgroundVideo, 0, {
@@ -107,13 +38,10 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 				muted
 				loop="loop"
 				className="menu-background-video">
-				<source
-					src={require(`../../assets/${currentVideo}`)}
-					type="video/mp4"
-				/>
+				<source src={S3_BASE_URL + currentVideo} type="video/mp4" />
 			</video>
 			<div className="menu-text-container" ref={(el) => (singleElement = el)}>
-				{menuData.map((item) => (
+				{MENU_DATA.map((item) => (
 					<MenuItem
 						key={item.id}
 						title={item.title}
@@ -122,8 +50,8 @@ const MenuContents = ({ id, title, imageUrl, size, setMenuState }) => {
 						delay={item.delay}
 						onChange={(value) => setVideo(value)}
 						setMenuState={setMenuState}
-						allMenuData={menuData}
-						defaultVideo={defaultVideo}
+						allMenuData={MENU_DATA}
+						defaultVideo={DEFAULT_MENU_VIDEO}
 					/>
 				))}
 				{/* <div className="test">{currentVideo} </div> */}
