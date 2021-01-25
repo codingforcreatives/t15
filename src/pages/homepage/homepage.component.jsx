@@ -3,6 +3,7 @@ import './homepage.styles.css';
 import { Power4, TimelineLite } from 'gsap';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
+import { BrowserView } from 'react-device-detect';
 
 const serviceCategories = {
 	branding: {
@@ -165,16 +166,18 @@ const HomePage = () => {
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
-			<video
-				ref={(el) => (backgroundVideo = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="home-video">
-				Your browser does not support the video tag. I suggest you upgrade your
-				browser
-				<source src={FILM_STATIC_BG_URL} type="video/mp4" />
-			</video>
+			<BrowserView>
+				<video
+					ref={(el) => (backgroundVideo = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="home-video">
+					Your browser does not support the video tag. I suggest you upgrade
+					your browser
+					<source src={FILM_STATIC_BG_URL} type="video/mp4" />
+				</video>
+			</BrowserView>
 
 			<div
 				ref={(el) => (glitchContainers = el)}

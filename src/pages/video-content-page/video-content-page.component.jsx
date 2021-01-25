@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './portfolio-panels.styles.css';
-// import SplashScreen from '../../components/splash-screen/splash-screen.component';
+import { BrowserView } from 'react-device-detect';
+import { FILM_STATIC_BG_URL } from '../../components/globals';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
@@ -231,19 +232,18 @@ const VideoContentPage = () => {
 		<div
 			ref={(el) => (homepageContainer = el)}
 			className="portfolio-page-container">
-			<video
-				ref={(el) => (backgroundVideo = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="portfolio-video">
-				Your browser does not support the video tag. I suggest you upgrade your
-				browser
-				<source
-					src={require('../../assets/T15-Film-Overlay.mp4')}
-					type="video/mp4"
-				/>
-			</video>
+			<BrowserView>
+				<video
+					ref={(el) => (backgroundVideo = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="portfolio-video">
+					Your browser does not support the video tag. I suggest you upgrade
+					your browser
+					<source src={FILM_STATIC_BG_URL} type="video/mp4" />
+				</video>
+			</BrowserView>
 
 			<div
 				ref={(el) => (glitchContainers = el)}
