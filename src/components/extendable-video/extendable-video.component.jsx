@@ -241,14 +241,14 @@ const ExtendableVideo = ({
 			}}>
 			{/* {content} */}
 
-			<video
+			{/* <video
 				ref={(el) => (videoBack = el)}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
 				className={styles.extendableVideoBackground}>
 				<source src={S3_BASE_URL + videoName} type="video/mp4" />
-			</video>
+			</video> */}
 
 			<img
 				ref={(el) => (coverImage = el)}
