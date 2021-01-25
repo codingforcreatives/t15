@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
+import { S3_BASE_URL } from '../../components/globals';
 const styles = require('./panel-video.module.css');
 
 const PanelVideo = ({ videoName }) => {
@@ -10,7 +11,7 @@ const PanelVideo = ({ videoName }) => {
 			<div className={styles.panelVideo}>
 				<img
 					className={styles.panelOverlay}
-					src={require(`../../assets/feature-overlay-rounded.png`)}
+					src="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/feature-overlay-rounded.png"
 				/>
 				{/* <ReactPlayer
 					config={{
@@ -44,10 +45,7 @@ const PanelVideo = ({ videoName }) => {
 					loop="loop"
 					className={styles.panelFeatureVideo}
 					mask="url(#clipPath)">
-					<source
-						src="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/broadcast_tv_cover.mp4"
-						type="video/mp4"
-					/>
+					<source src={S3_BASE_URL + videoName} type="video/mp4" />
 				</video>
 			</div>
 		</>
