@@ -73,6 +73,7 @@ const ExtendableVideo = ({
 	//entrance animations
 	let extendableBox = useRef(null);
 	let tl = new TimelineLite();
+	let expandTransition = new TimelineLite();
 	let total = delay + 4;
 
 	const myObj = {
@@ -96,32 +97,17 @@ const ExtendableVideo = ({
 	const handleExpand = () => {
 		console.log('HANDLE EXPAND');
 		setExpanded(true);
-		if (isMobile) {
-			setContent(
-				<img
-					ref={(el) => (coverImage = el)}
-					className={styles.stillImage}
-					src={require(`../../assets/${overlayImageName}`)}></img>
-			);
-		} else {
-			TweenMax.to(coverImage, 2, {
-				css: {
-					opacity: 0,
 
-					ease: Power2.easeIn,
-				},
-			});
-			setContent(
-				<video
-					ref={(el) => (videoBack = el)}
-					autoPlay="autoPlay"
-					muted
-					loop="loop"
-					className={styles.extendableVideoBackground}>
-					<source src={S3_BASE_URL + videoName} type="video/mp4" />
-				</video>
-			);
-		}
+		// setContent(
+		// 	<video
+		// 		ref={(el) => (videoBack = el)}
+		// 		autoPlay="autoPlay"
+		// 		muted
+		// 		loop="loop"
+		// 		className={styles.extendableVideoBackground}>
+		// 		<source src={S3_BASE_URL + videoName} type="video/mp4" />
+		// 	</video>
+		// );
 	};
 
 	//shrink
@@ -184,15 +170,29 @@ const ExtendableVideo = ({
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
-				TweenMax.to(extendableBox, expandDuration, {
-					width: myObj['maxPanelWidth'],
-					ease: Power3.easeInOut,
-				});
+				expandTransition
+					.to(extendableBox, expandDuration, {
+						width: myObj['maxPanelWidth'],
+						ease: Power3.easeInOut,
+					})
+					.to(coverImage, 1, {
+						css: {
+							opacity: 0,
+							ease: Power2.easeIn,
+						},
+					});
 			} else {
-				TweenMax.to(extendableBox, expandDuration, {
-					width: myObj['minPanelWidth'],
-					ease: Power3.easeOut,
-				});
+				expandTransition
+					.to(coverImage, 1, {
+						css: {
+							opacity: 1,
+							ease: Power2.easeIn,
+						},
+					})
+					.to(extendableBox, expandDuration, {
+						width: myObj['minPanelWidth'],
+						ease: Power3.easeOut,
+					});
 			}
 		}
 	}, [content, expanded]);
@@ -239,12 +239,21 @@ const ExtendableVideo = ({
 				marginBottom: marginBottom,
 				height: myObj.panelHeight,
 			}}>
-			{content}
+			{/* {content} */}
+
+			<video
+				ref={(el) => (videoBack = el)}
+				autoPlay="autoPlay"
+				muted
+				loop="loop"
+				className={styles.extendableVideoBackground}>
+				<source src={S3_BASE_URL + videoName} type="video/mp4" />
+			</video>
 
 			<img
 				ref={(el) => (coverImage = el)}
 				className={styles.stillImage2}
-				src={require(`../../assets/office.jpg`)}></img>
+				src={require(`../../assets/${overlayImageName}`)}></img>
 
 			<h2 className={styles.panelTitle} ref={(el) => (panelTitle = el)}>
 				{title}
