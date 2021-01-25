@@ -13,7 +13,6 @@ const styles = require('./extendable-video.module.css');
 
 const ExtendableVideo = ({
 	panelType,
-	logoName,
 	title,
 	overlayImageName,
 	videoName,
@@ -23,26 +22,15 @@ const ExtendableVideo = ({
 	from_X,
 	from_Y,
 	delay,
-	prevTimelineDelay,
 	expandDuration,
 	linkURL,
 	history,
-	match,
 	panelClicked,
 	indexClicked,
 	setPanelClicked,
-	setIndexClicked,
 	key,
 }) => {
 	const [expanded, setExpanded] = useState(false);
-	const [content, setContent] = useState(() => {
-		return (
-			<img
-				ref={(el) => (coverImage = el)}
-				className={styles.stillImage}
-				src={require(`../../assets/${overlayImageName}`)}></img>
-		);
-	});
 
 	const isMobile = window.innerWidth < 480;
 	let panelWidth = null;
@@ -51,7 +39,6 @@ const ExtendableVideo = ({
 	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
 	let coverImage = useRef(null);
-	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
 	let yExit = null;
@@ -95,31 +82,12 @@ const ExtendableVideo = ({
 	//expansion
 
 	const handleExpand = () => {
-		console.log('HANDLE EXPAND');
 		setExpanded(true);
-
-		// setContent(
-		// 	<video
-		// 		ref={(el) => (videoBack = el)}
-		// 		autoPlay="autoPlay"
-		// 		muted
-		// 		loop="loop"
-		// 		className={styles.extendableVideoBackground}>
-		// 		<source src={S3_BASE_URL + videoName} type="video/mp4" />
-		// 	</video>
-		// );
 	};
 
 	//shrink
 	const handleShrink = () => {
-		console.log('HANDLE SHRINK');
 		setExpanded(false);
-		setContent(
-			<img
-				ref={(el) => (coverImage = el)}
-				className={styles.stillImage}
-				src={require(`../../assets/${overlayImageName}`)}></img>
-		);
 	};
 
 	//panel clicked
@@ -196,7 +164,7 @@ const ExtendableVideo = ({
 					});
 			}
 		}
-	}, [content, expanded]);
+	}, [expanded]);
 
 	useEffect(() => {
 		if (panelClicked == true) {
@@ -240,15 +208,17 @@ const ExtendableVideo = ({
 				marginBottom: marginBottom,
 				height: myObj.panelHeight,
 			}}>
-			{/* {content} */}
-
-			<video
-				ref={(el) => (videoBack = el)}
-				muted
-				loop="loop"
-				className={styles.extendableVideoBackground}>
-				<source src={S3_BASE_URL + videoName} type="video/mp4" />
-			</video>
+			{expanded ? (
+				<video
+					ref={(el) => (videoBack = el)}
+					muted
+					loop="loop"
+					className={styles.extendableVideoBackground}>
+					<source src={S3_BASE_URL + videoName} type="video/mp4" />
+				</video>
+			) : (
+				<div />
+			)}
 
 			<img
 				ref={(el) => (coverImage = el)}

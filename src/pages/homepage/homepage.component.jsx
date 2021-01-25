@@ -63,7 +63,6 @@ Object.keys(serviceCategories).forEach(function (key) {
 console.log(arr[0]);
 
 const HomePage = () => {
-	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
 	var numPanels = arr.length;
@@ -82,16 +81,19 @@ const HomePage = () => {
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
 	const calculateX = (key) => {
-		return increment_X * key + leftHand_X;
+		// return increment_X * key + leftHand_X;
+		return -60;
 	};
 
 	const calculateY = (key) => {
 		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
+		// if (key <= totalPanelsOnEachSide) {
+		// 	return increment_Y * key * -1 + leftHand_Y;
+		// } else {
+		// 	return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
+		// }
+
+		return 40;
 	};
 
 	const calculateDelay = (key) => {
