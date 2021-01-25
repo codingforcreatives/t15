@@ -170,17 +170,18 @@ const ExtendableVideo = ({
 			isInitialMount.current = false;
 		} else {
 			if (expanded === true) {
-				expandTransition
-					.to(extendableBox, expandDuration, {
-						width: myObj['maxPanelWidth'],
-						ease: Power3.easeInOut,
-					})
-					.to(coverImage, 1, {
-						css: {
-							opacity: 0,
-							ease: Power2.easeIn,
-						},
-					});
+				TweenMax.to(extendableBox, expandDuration, {
+					width: myObj['maxPanelWidth'],
+					ease: Power3.easeInOut,
+				});
+				TweenMax.to(coverImage, 1, {
+					css: {
+						opacity: 0,
+						ease: Power2.easeIn,
+					},
+				});
+				videoBack.currentTime = 0;
+				videoBack.play();
 			} else {
 				expandTransition
 					.to(coverImage, 1, {
@@ -241,14 +242,13 @@ const ExtendableVideo = ({
 			}}>
 			{/* {content} */}
 
-			{/* <video
+			<video
 				ref={(el) => (videoBack = el)}
-				autoPlay="autoPlay"
 				muted
 				loop="loop"
 				className={styles.extendableVideoBackground}>
 				<source src={S3_BASE_URL + videoName} type="video/mp4" />
-			</video> */}
+			</video>
 
 			<img
 				ref={(el) => (coverImage = el)}
