@@ -12,6 +12,7 @@ import {
 
 const ExtendableVideo = ({
 	panelType,
+	logoName,
 	title,
 	overlayImageName,
 	videoName,
@@ -21,9 +22,11 @@ const ExtendableVideo = ({
 	from_X,
 	from_Y,
 	delay,
+	prevTimelineDelay,
 	expandDuration,
 	linkURL,
 	history,
+	match,
 	panelClicked,
 	indexClicked,
 	setPanelClicked,
@@ -36,7 +39,7 @@ const ExtendableVideo = ({
 			<img
 				ref={(el) => (coverImage = el)}
 				className="still-image"
-				src={S3_BASE_URL + overlayImageName}></img>
+				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
 	});
 
@@ -47,6 +50,7 @@ const ExtendableVideo = ({
 	let panelTitle = useRef(null);
 	let videoBack = useRef(null);
 	let coverImage = useRef(null);
+	const logo = 'tepari.png';
 	var marginTop = 0;
 	var marginBottom = 0;
 	let yExit = null;
@@ -96,7 +100,7 @@ const ExtendableVideo = ({
 				<img
 					ref={(el) => (coverImage = el)}
 					className="still-image"
-					src={S3_BASE_URL + overlayImageName}></img>
+					src={require(`../../assets/${overlayImageName}`)}></img>
 			);
 		} else {
 			TweenMax.to(coverImage, 2, {
@@ -128,7 +132,7 @@ const ExtendableVideo = ({
 			<img
 				ref={(el) => (coverImage = el)}
 				className="still-image"
-				src={S3_BASE_URL + overlayImageName}></img>
+				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
 	};
 
