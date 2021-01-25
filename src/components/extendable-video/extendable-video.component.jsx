@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import './extendable-video.styles.scss';
 import { TimelineLite, TweenMax, Power3, Power4, Power2 } from 'gsap';
 import { S3_BASE_URL } from '../../components/globals';
 import { withRouter } from 'react-router-dom';
@@ -9,6 +8,8 @@ import {
 	setIndexClicked,
 	setPanelClicked,
 } from '../../redux/extendable-video/extendable-video.actions';
+
+const styles = require('./extendable-video.module.css');
 
 const ExtendableVideo = ({
 	panelType,
@@ -38,7 +39,7 @@ const ExtendableVideo = ({
 		return (
 			<img
 				ref={(el) => (coverImage = el)}
-				className="still-image"
+				className={styles.stillImage}
 				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
 	});
@@ -99,7 +100,7 @@ const ExtendableVideo = ({
 			setContent(
 				<img
 					ref={(el) => (coverImage = el)}
-					className="still-image"
+					className={styles.stillImage}
 					src={require(`../../assets/${overlayImageName}`)}></img>
 			);
 		} else {
@@ -116,8 +117,7 @@ const ExtendableVideo = ({
 					autoPlay="autoPlay"
 					muted
 					loop="loop"
-					className="extendable-video-background"
-					mask="url(#clipPath)">
+					className={styles.extendableVideoBackground}>
 					<source src={S3_BASE_URL + videoName} type="video/mp4" />
 				</video>
 			);
@@ -131,7 +131,7 @@ const ExtendableVideo = ({
 		setContent(
 			<img
 				ref={(el) => (coverImage = el)}
-				className="still-image"
+				className={styles.stillImage}
 				src={require(`../../assets/${overlayImageName}`)}></img>
 		);
 	};
@@ -139,8 +139,8 @@ const ExtendableVideo = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		setPanelClicked(true);
-		setIndexClicked(title);
+		// setPanelClicked(true);
+		// setIndexClicked(title);
 	};
 
 	const goToNextPage = () => {
@@ -231,7 +231,7 @@ const ExtendableVideo = ({
 	return (
 		<div
 			ref={(el) => (extendableBox = el)}
-			id="extendable-box"
+			className={styles.extendableBox}
 			onClick={handlePanelClick}
 			style={{
 				width: myObj.minPanelWidth,
@@ -241,7 +241,12 @@ const ExtendableVideo = ({
 			}}>
 			{content}
 
-			<h2 className="panel-title" ref={(el) => (panelTitle = el)}>
+			<img
+				ref={(el) => (coverImage = el)}
+				className={styles.stillImage2}
+				src={require(`../../assets/office.jpg`)}></img>
+
+			<h2 className={styles.panelTitle} ref={(el) => (panelTitle = el)}>
 				{title}
 			</h2>
 		</div>

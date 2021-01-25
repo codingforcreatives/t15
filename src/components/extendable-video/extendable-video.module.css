@@ -1,4 +1,4 @@
-#extendable-box {
+.extendableBox {
 	position: relative;
 	overflow: hidden;
 	border-radius: 10px;
@@ -9,9 +9,15 @@
 	margin-right: 6px;
 }
 
-.still-image {
+.stillImage {
 	height: 100%;
 	z-index: 2;
+}
+
+.stillImage2 {
+	height: 100%;
+	z-index: 2;
+	position: absolute;
 }
 
 .logoImage {
@@ -20,7 +26,7 @@
 	position: absolute;
 }
 
-.panel-title {
+.panelTitle {
 	font-size: 18px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 900;
@@ -38,7 +44,7 @@
 	text-align: right;
 }
 
-.extendable-video-background {
+.extendableVideoBackground {
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -49,7 +55,7 @@
 	min-height: 100%;
 	/* Setting width & height to auto prevents the browser from stretching or squishing the video */
 	width: auto;
-	height: auto;
+	height: 100%;
 	/* Center the video */
 	position: absolute;
 	top: 50%;
@@ -66,16 +72,9 @@
 	}
 }
 
-//can add a class for this when more than 4 panels
-
 @media only screen and (max-width: 1024px) {
-	.panel-title {
+	.panelTitle {
 		left: 10px;
 		top: 10px;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	.extendable-box {
 	}
 }
