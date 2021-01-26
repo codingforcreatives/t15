@@ -1,6 +1,7 @@
 import React from 'react';
 import { S3_BASE_URL, PANEL_VIDEO_OVERLAY } from '../../components/globals';
 import logo from '../../assets/standby.gif';
+import tvstatic from '../../assets/tv-static.gif';
 const styles = require('./panel-video.module.css');
 
 const PanelVideo = ({ videoName }) => {
@@ -11,7 +12,7 @@ const PanelVideo = ({ videoName }) => {
 				<img className={styles.standBy} src={logo} alt="loading..." />
 
 				<video
-					poster="tv-static.gif"
+					poster={tvstatic}
 					autoPlay="autoPlay"
 					muted
 					loop="loop"

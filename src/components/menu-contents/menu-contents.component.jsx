@@ -4,7 +4,7 @@ import { S3_BASE_URL } from '../../components/globals';
 import MenuItem from '../menu-item/menu-item.component';
 import { TimelineLite, TweenMax } from 'gsap';
 import { useLocation } from 'react-router-dom';
-import TV_STATIC from '../../assets/tv-static.gif';
+import TV_STATIC from '../../assets/tv-static-3.gif';
 
 const MenuContents = ({ setMenuState }) => {
 	const menuData = [
@@ -96,7 +96,7 @@ const MenuContents = ({ setMenuState }) => {
 				attr: { src: S3_BASE_URL + currentVideo },
 			})
 			.to(menuBackgroundVideo, 2, {
-				opacity: 0.4,
+				opacity: 1,
 			});
 		menuBackgroundVideo.src = S3_BASE_URL + currentVideo;
 	}, [currentVideo]);
@@ -105,6 +105,7 @@ const MenuContents = ({ setMenuState }) => {
 		<div className="menu-items-container">
 			<img className="tvStatic" src={TV_STATIC} alt="loading..." />
 			<video
+				poster={TV_STATIC}
 				ref={(el) => (menuBackgroundVideo = el)}
 				autoPlay="autoPlay"
 				muted
@@ -112,6 +113,7 @@ const MenuContents = ({ setMenuState }) => {
 				className="menu-background-video">
 				<source src={S3_BASE_URL + currentVideo} type="video/mp4" />
 			</video>
+			<div className="dark-overlay" />
 			<div className="menu-text-container" ref={(el) => (singleElement = el)}>
 				{menuData.map((item) => (
 					<MenuItem

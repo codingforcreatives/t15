@@ -11,7 +11,8 @@
 	justify-content: center;
 }
 
-.tvStatic {
+.tvStatic,
+.dark-overlay {
 	/* Make video to at least 100% wide and tall */
 	min-width: 100%;
 	min-height: 100%;
@@ -23,6 +24,11 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+.dark-overlay {
+	opacity: 0.5;
+	z-index: 1;
+	background-color: black;
 }
 
 .menu-background-video {
