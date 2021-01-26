@@ -79,6 +79,7 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 		tl4.from(wordDo, 0.8, { opacity: 0, delay: 4.5 });
 
 		tlGlitch
+			.to(glitchContainers, 0.5, { visibility: 'visible' })
 			.to('.words', 0.1, {
 				skewX: 70,
 				ease: Power4.easeInOut,
