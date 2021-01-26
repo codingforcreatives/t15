@@ -171,12 +171,12 @@ const VideoContentPage = () => {
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
 	const isMobile = window.innerWidth < 480;
-	// let flexDirection = 'row';
+	let flexDirection = 'row';
 
 	useEffect(() => {
-		// tl.to(homepageContainer, 0.2, {
-		// 	css: { visibility: 'visible' },
-		// }).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+		tl.to(homepageContainer, 0.2, {
+			css: { visibility: 'visible' },
+		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {
@@ -198,6 +198,7 @@ const VideoContentPage = () => {
 			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
+		isMobile ? (flexDirection = 'column') : (flexDirection = 'row');
 
 		tlGlitch
 			.to('.words', 0.1, {
