@@ -4,6 +4,7 @@ import { S3_BASE_URL } from '../../components/globals';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { BrowserView } from 'react-device-detect';
 import {
 	setIndexClicked,
 	setPanelClicked,
@@ -73,9 +74,11 @@ const ExtendableVideo = ({
 	};
 
 	const addMouseEvents = () => {
-		if (extendableBox) {
-			extendableBox.addEventListener('mouseenter', handleExpand);
-			extendableBox.addEventListener('mouseleave', handleShrink);
+		if (!isMobile) {
+			if (extendableBox) {
+				extendableBox.addEventListener('mouseenter', handleExpand);
+				extendableBox.addEventListener('mouseleave', handleShrink);
+			}
 		}
 	};
 
@@ -113,13 +116,11 @@ const ExtendableVideo = ({
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
-				console.log('not is Mobile ANIMATIOns');
 				if (panelType != 'home') {
 					panelTitle.style.transform = 'none';
 					panelTitle.style.textAlign = 'left';
 					panelTitle.style.width = '80%';
 					panelTitle.style.left = 20;
-
 					panelTitle.style.bottom = '20px';
 					coverImage.style.width = '100%';
 					coverImage.style.height = 'auto';
@@ -151,17 +152,16 @@ const ExtendableVideo = ({
 				videoBack.currentTime = 0;
 				videoBack.play();
 			} else {
-				expandTransition
-					.to(coverImage, 1, {
-						css: {
-							opacity: 1,
-							ease: Power2.easeIn,
-						},
-					})
-					.to(extendableBox, expandDuration, {
-						width: myObj['minPanelWidth'],
-						ease: Power3.easeOut,
-					});
+				TweenMax.to(coverImage, 1, {
+					css: {
+						opacity: 1,
+						ease: Power2.easeIn,
+					},
+				});
+				TweenMax.to(extendableBox, expandDuration, {
+					width: myObj['minPanelWidth'],
+					ease: Power3.easeOut,
+				});
 			}
 		}
 	}, [expanded]);
@@ -209,13 +209,15 @@ const ExtendableVideo = ({
 				height: myObj.panelHeight,
 			}}>
 			{expanded ? (
-				<video
-					ref={(el) => (videoBack = el)}
-					muted
-					loop="loop"
-					className={styles.extendableVideoBackground}>
-					<source src={S3_BASE_URL + videoName} type="video/mp4" />
-				</video>
+				<BrowserView>
+					<video
+						ref={(el) => (videoBack = el)}
+						muted
+						loop="loop"
+						className={styles.extendableVideoBackground}>
+						<source src={S3_BASE_URL + videoName} type="video/mp4" />
+					</video>
+				</BrowserView>
 			) : (
 				<div />
 			)}
