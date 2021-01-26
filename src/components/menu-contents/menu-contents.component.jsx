@@ -103,7 +103,7 @@ const MenuContents = ({ setMenuState }) => {
 
 	return (
 		<div className="menu-items-container">
-			<img className={styles.tvStatic} src={TV_STATIC} alt="loading..." />
+			<img className="tvStatic" src={TV_STATIC} alt="loading..." />
 			<video
 				ref={(el) => (menuBackgroundVideo = el)}
 				autoPlay="autoPlay"
