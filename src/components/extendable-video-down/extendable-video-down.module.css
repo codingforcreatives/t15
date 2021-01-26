@@ -1,0 +1,109 @@
+.extendableBox {
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 6px;
+	margin-right: 6px;
+	height: 60vh;
+	width: 154px;
+	margin-top: 50px;
+}
+
+.stillImageBack {
+	height: 100%;
+	width: auto;
+}
+
+.stillImage {
+	height: 100%;
+	z-index: 2;
+	position: absolute;
+}
+
+.logoImage {
+	width: 100px;
+	z-index: 10;
+	position: absolute;
+}
+
+.panelTitle {
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 900;
+	opacity: 0.8;
+	color: white;
+	transform: rotate(-90deg) translate(-100%, 0);
+	transform-origin: 0 0;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index: 10;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	width: 250px;
+	text-align: right;
+}
+
+.extendableVideoBackground {
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+
+	/* Make video to at least 100% wide and tall */
+	min-width: 100%;
+	min-height: 100%;
+	/* Setting width & height to auto prevents the browser from stretching or squishing the video */
+	width: auto;
+	height: 100%;
+	/* Center the video */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.panelTitle {
+		left: 10px;
+		top: 10px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.extendableBox {
+		height: 160px;
+		width: 100% !important;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.panelTitle {
+		transform: none;
+		text-align: left;
+		width: 80%;
+		left: 20px;
+	}
+
+	.coverImage {
+		width: 100%;
+		height: auto;
+	}
+
+	.stillImageBack,
+	.stillImage {
+		width: 100%;
+		height: auto;
+	}
+}

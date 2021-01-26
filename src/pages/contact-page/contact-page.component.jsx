@@ -5,7 +5,6 @@ import { ReactTypeformEmbed } from 'react-typeform-embed';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
-import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
 const serviceCategories = {
 	branding: {
 		key: '1',

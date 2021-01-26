@@ -9,9 +9,9 @@ import {
 	setPanelClicked,
 } from '../../redux/extendable-video/extendable-video.actions';
 
-const styles = require('./extendable-video.module.css');
+const styles = require('./extendable-video-down.module.css');
 
-const ExtendableVideo = ({
+const ExtendableVideoDown = ({
 	panelType,
 	title,
 	overlayImageName,
@@ -92,8 +92,8 @@ const ExtendableVideo = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		// setPanelClicked(true);
-		// setIndexClicked(title);
+		setPanelClicked(true);
+		setIndexClicked(title);
 	};
 
 	const goToNextPage = () => {
@@ -198,12 +198,14 @@ const ExtendableVideo = ({
 			ref={(el) => (extendableBox = el)}
 			className={styles.extendableBox}
 			onClick={handlePanelClick}
-			style={{
-				// width: myObj.minPanelWidth,
-				marginTop: marginTop,
-				marginBottom: marginBottom,
-				// height: myObj.panelHeight,
-			}}>
+			style={
+				{
+					// width: myObj.minPanelWidth,
+					// marginTop: marginTop,
+					// marginBottom: marginBottom,
+					// height: myObj.panelHeight,
+				}
+			}>
 			<img
 				className={styles.stillImageBack}
 				src={require(`../../assets/${overlayImageName}`)}></img>
@@ -244,4 +246,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default compose(
 	withRouter,
 	connect(mapStateToProps, mapDispatchToProps)
-)(ExtendableVideo);
+)(ExtendableVideoDown);

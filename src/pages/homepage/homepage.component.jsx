@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from 'react';
 import './homepage.styles.css';
 import { Power4, TimelineLite } from 'gsap';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
-import ExtendableVideo from '../../components/extendable-video/extendable-video.component';
 import { BrowserView } from 'react-device-detect';
+import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
+import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
 
 const serviceCategories = {
 	branding: {
@@ -173,25 +174,49 @@ const HomePage = () => {
 			</div>
 
 			<div className="home-panel-container" ref={(el) => (panelContainer = el)}>
-				{arr.map((item) => (
-					<ExtendableVideo
-						key={item.key}
-						panelType={item.panelType}
-						title={item.title}
-						logoName={item.logoName}
-						overlayImageName={item.overlayImageName}
-						videoName={item.videoName}
-						position={item.position}
-						linkURL={item.linkURL}
-						from_X={-60}
-						from_Y={40}
-						delay={calculateDelay(item.key)}
-						prevTimlineDelay={prevTimelineDelay}
-						minPanelWidth={panelMinWidth}
-						maxPanelWidth={panelMaxWidth}
-						expandDuration={2}
-					/>
-				))}
+				{arr.map((item) => {
+					if (item.position === 'up') {
+						return (
+							<ExtendableVideoUp
+								key={item.key}
+								panelType={item.panelType}
+								title={item.title}
+								logoName={item.logoName}
+								overlayImageName={item.overlayImageName}
+								videoName={item.videoName}
+								position={item.position}
+								from_X={-60}
+								from_Y={40}
+								delay={calculateDelay(item.key)}
+								prevTimlineDelay={prevTimelineDelay}
+								minPanelWidth={panelMinWidth}
+								maxPanelWidth={panelMaxWidth}
+								linkURL={item.linkURL}
+								expandDuration={2}
+							/>
+						);
+					} else {
+						return (
+							<ExtendableVideoDown
+								key={item.key}
+								panelType={item.panelType}
+								title={item.title}
+								logoName={item.logoName}
+								overlayImageName={item.overlayImageName}
+								videoName={item.videoName}
+								position={item.position}
+								from_X={-60}
+								from_Y={40}
+								delay={calculateDelay(item.key)}
+								prevTimlineDelay={prevTimelineDelay}
+								minPanelWidth={panelMinWidth}
+								maxPanelWidth={panelMaxWidth}
+								linkURL={item.linkURL}
+								expandDuration={2}
+							/>
+						);
+					}
+				})}
 			</div>
 		</div>
 	);
