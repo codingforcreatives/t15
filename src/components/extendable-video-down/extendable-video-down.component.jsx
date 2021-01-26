@@ -113,7 +113,6 @@ const ExtendableVideoDown = ({
 			} else {
 				tl.from(extendableBox, 1.5, {
 					x: -60,
-					scale: 10,
 					opacity: 0,
 					delay: myObj['delay'],
 					ease: Power4.easeOut,
