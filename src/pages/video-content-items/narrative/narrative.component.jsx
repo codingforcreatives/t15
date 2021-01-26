@@ -106,21 +106,27 @@ const NarrativePage = () => {
 					<div className={styles.featureVideoContainer}>
 						<PanelVideo videoName="portfolio-assets/narrative.mp4" />
 					</div>
+					{isLoaded ? (
+						<>
+							<PortfolioIntroductionSection
+								introduction={introduction}
+								item1={item1}
+								item2={item2}
+								item3={item3}
+								backText="content creation"
+								backRoute="/video-content"></PortfolioIntroductionSection>
 
-					<PortfolioIntroductionSection
-						introduction={introduction}
-						item1={item1}
-						item2={item2}
-						item3={item3}
-						backText="content creation"
-						backRoute="/video-content"></PortfolioIntroductionSection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item1}></PortfolioItemSection>
+							<PortfolioGallerySection
+								item={item1.gallery}></PortfolioGallerySection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item2}></PortfolioItemSection>
+						</>
+					) : (
+						<LoadingBar />
+					)}
 
-					<PortfolioDivider />
-					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item2}></PortfolioItemSection>
 					<PortfolioDivider />
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>
