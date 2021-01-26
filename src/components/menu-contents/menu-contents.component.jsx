@@ -4,6 +4,7 @@ import { S3_BASE_URL } from '../../components/globals';
 import MenuItem from '../menu-item/menu-item.component';
 import { TimelineLite, TweenMax } from 'gsap';
 import { useLocation } from 'react-router-dom';
+import TV_STATIC from '../../assets/tv-static.gif';
 
 const MenuContents = ({ setMenuState }) => {
 	const menuData = [
@@ -102,6 +103,7 @@ const MenuContents = ({ setMenuState }) => {
 
 	return (
 		<div className="menu-items-container">
+			<img className={styles.tvStatic} src={TV_STATIC} alt="loading..." />
 			<video
 				ref={(el) => (menuBackgroundVideo = el)}
 				autoPlay="autoPlay"

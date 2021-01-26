@@ -11,6 +11,7 @@ const PanelVideo = ({ videoName }) => {
 				<img className={styles.standBy} src={logo} alt="loading..." />
 
 				<video
+					poster="tv-static.gif"
 					autoPlay="autoPlay"
 					muted
 					loop="loop"
