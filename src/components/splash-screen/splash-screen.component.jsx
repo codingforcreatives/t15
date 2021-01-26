@@ -3,6 +3,7 @@ import './splash-screen.styles.scss';
 import { TimelineMax, TimelineLite, Power4, Power2 } from 'gsap';
 import { withRouter } from 'react-router-dom';
 import { SPLASH_VIDEO_URL } from '../../components/globals';
+import TV_STATIC from '../../assets/tv-static-2.gif';
 
 const SplashScreen = ({ backgroundVideo, history }) => {
 	//states
@@ -116,6 +117,7 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
 			<video
+				poster={TV_STATIC}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
