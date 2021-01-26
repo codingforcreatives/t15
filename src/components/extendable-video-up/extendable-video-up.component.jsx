@@ -8,6 +8,7 @@ import {
 	setIndexClicked,
 	setPanelClicked,
 } from '../../redux/extendable-video/extendable-video.actions';
+import { MobileView } from 'react-device-detect';
 
 const styles = require('./extendable-video-up.module.css');
 
@@ -133,6 +134,7 @@ const ExtendableVideoDown = ({
 						ease: Power2.easeIn,
 					},
 				});
+
 				videoBack.currentTime = 0;
 				videoBack.play();
 			} else {
@@ -184,18 +186,11 @@ const ExtendableVideoDown = ({
 		<div
 			ref={(el) => (extendableBox = el)}
 			className={styles.extendableBox}
-			onClick={handlePanelClick}
-			style={
-				{
-					// width: myObj.minPanelWidth,
-					// marginTop: marginTop,
-					// marginBottom: marginBottom,
-					// height: myObj.panelHeight,
-				}
-			}>
+			onClick={handlePanelClick}>
 			<img
 				className={styles.stillImageBack}
 				src={require(`../../assets/${overlayImageName}`)}></img>
+
 			{expanded ? (
 				<video
 					ref={(el) => (videoBack = el)}

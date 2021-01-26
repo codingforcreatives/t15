@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './portfolio-panels.styles.css';
-import { BrowserView } from 'react-device-detect';
+
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
