@@ -3,9 +3,6 @@ import { useKeenSlider } from 'keen-slider/react';
 
 import 'keen-slider/keen-slider.min.css';
 
-import SimpleImageSlider from 'react-simple-image-slider';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
 const styles = require('./portfolio-gallery-section.module.css');
 
 const PortfolioGallerySection = ({ item }) => {
