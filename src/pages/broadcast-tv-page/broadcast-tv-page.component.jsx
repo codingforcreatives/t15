@@ -112,7 +112,6 @@ const BroadcastTVPage = () => {
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
 	const isMobile = window.innerWidth < 480;
-	let flexDirection = 'row';
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -139,11 +138,6 @@ const BroadcastTVPage = () => {
 			.to(wordWe, 0.4, { opacity: 0.2, delay: 0.2 });
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
-		isMobile ? (flexDirection = 'column') : (flexDirection = 'row');
-
-		const myObj = {
-			flexDirection: flexDirection,
-		};
 
 		tlGlitch
 			.to(glitchContainers, 0.5, { visibility: 'visible' })
@@ -165,7 +159,6 @@ const BroadcastTVPage = () => {
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(panelContainer, 1, {
 				display: 'flex',
-				flexDirection: myObj.flexDirection,
 				delay: -0.08,
 			});
 	});
