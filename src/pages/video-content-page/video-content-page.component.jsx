@@ -175,9 +175,9 @@ const VideoContentPage = () => {
 	let flexDirection = 'row';
 
 	useEffect(() => {
-		// tl.to(homepageContainer, 0.2, {
-		// 	css: { visibility: 'visible' },
-		// }).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
+		tl.to(homepageContainer, 0.2, {
+			css: { visibility: 'visible' },
+		}).to(backgroundVideo, 0.2, { css: { opacity: '100%' } });
 
 		tl1
 			.from(wordHere, 0.8, {

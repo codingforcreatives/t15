@@ -92,8 +92,7 @@ const ExtendableVideoDown = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		setPanelClicked(true);
-		setIndexClicked(title);
+		setPanelClicked(title);
 	};
 
 	const goToNextPage = () => {
@@ -112,24 +111,13 @@ const ExtendableVideoDown = ({
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
-				// console.log('not is Mobile ANIMATIOns');
-				// if (panelType != 'home') {
-				// 	panelTitle.style.transform = 'none';
-				// 	panelTitle.style.textAlign = 'left';
-				// 	panelTitle.style.width = '80%';
-				// 	panelTitle.style.left = 20;
-				// 	panelTitle.style.bottom = '20px';
-				// 	coverImage.style.width = '100%';
-				// 	coverImage.style.height = 'auto';
-				// }
-				// tl.from(extendableBox, 1.5, {
-				// 	x: myObj['X'],
-				// 	y: myObj['Y'],
-				// 	scale: 10,
-				// 	opacity: 0,
-				// 	delay: myObj['delay'],
-				// 	ease: Power4.easeOut,
-				// });
+				tl.from(extendableBox, 1.5, {
+					x: -60,
+					scale: 10,
+					opacity: 0,
+					delay: myObj['delay'],
+					ease: Power4.easeOut,
+				});
 			}
 
 			isInitialMount.current = false;
@@ -163,8 +151,8 @@ const ExtendableVideoDown = ({
 	}, [expanded]);
 
 	useEffect(() => {
-		if (panelClicked == true) {
-			if (indexClicked != title) {
+		if (panelClicked != false) {
+			if (panelClicked != title) {
 				TweenMax.to(extendableBox, 0.4, {
 					y: yExit,
 					opacity: 0,
@@ -173,7 +161,7 @@ const ExtendableVideoDown = ({
 				});
 			} else {
 				let tl = new TimelineLite();
-				tl.to(extendableBox, 1, {
+				tl.to(extendableBox, 0.5, {
 					// width: myObj['minPanelWidth'],
 					width: '154px',
 					ease: Power4.easeOut,
