@@ -40,7 +40,8 @@ import BrandingPage from './pages/branding-items/branding/branding-page.componen
 //Websites & Apps
 import WebsiteAppPage from './pages/website-items/websites-app/website-app-page.component';
 
-//Websites
+// 404 Page
+import PageNotFound from './pages/page-not-found/page-not-found.component';
 
 // import Navbar from './components/navbar/navbar.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -102,6 +103,7 @@ function App() {
 						exact
 						path="/websites-and-apps"
 						component={WebsiteAppPage}></Route>
+					<Route path="*" component={PageNotFound} />
 				</Switch>
 			</div>
 		</div>
