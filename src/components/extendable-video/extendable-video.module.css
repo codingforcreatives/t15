@@ -9,12 +9,12 @@
 	margin-right: 6px;
 }
 
-.stillImage {
+.stillImageBack {
 	height: 100%;
-	z-index: 2;
+	width: auto;
 }
 
-.stillImage2 {
+.stillImage {
 	height: 100%;
 	z-index: 2;
 	position: absolute;

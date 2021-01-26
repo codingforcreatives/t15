@@ -113,11 +113,7 @@ const ExtendableVideo = ({
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
-<<<<<<< HEAD
 				// console.log('not is Mobile ANIMATIOns');
-=======
-				console.log('not is Mobile ANIMATIOns');
->>>>>>> parent of 9a18ad4... added flex direction to css file instead
 				if (panelType != 'home') {
 					panelTitle.style.transform = 'none';
 					panelTitle.style.textAlign = 'left';
@@ -212,6 +208,9 @@ const ExtendableVideo = ({
 				marginBottom: marginBottom,
 				height: myObj.panelHeight,
 			}}>
+			<img
+				className={styles.stillImageBack}
+				src={require(`../../assets/${overlayImageName}`)}></img>
 			{expanded ? (
 				<video
 					ref={(el) => (videoBack = el)}
@@ -226,7 +225,7 @@ const ExtendableVideo = ({
 
 			<img
 				ref={(el) => (coverImage = el)}
-				className={styles.stillImage2}
+				className={styles.stillImage}
 				src={require(`../../assets/${overlayImageName}`)}></img>
 
 			<h2 className={styles.panelTitle} ref={(el) => (panelTitle = el)}>
