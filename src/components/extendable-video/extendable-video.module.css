@@ -8,6 +8,7 @@
 	margin-left: 6px;
 	margin-right: 6px;
 	height: 60vh;
+	width: 154px;
 }
 
 .stillImageBack {
@@ -83,6 +84,7 @@
 @media only screen and (max-width: 500px) {
 	.extendableBox {
 		height: 160px;
+		width: 100%;
 	}
 	.panelTitle {
 		transform: none;

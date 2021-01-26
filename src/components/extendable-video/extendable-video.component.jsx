@@ -149,17 +149,16 @@ const ExtendableVideo = ({
 				videoBack.currentTime = 0;
 				videoBack.play();
 			} else {
-				expandTransition
-					.to(coverImage, 1, {
-						css: {
-							opacity: 1,
-							ease: Power2.easeIn,
-						},
-					})
-					.to(extendableBox, expandDuration, {
-						width: myObj['minPanelWidth'],
-						ease: Power3.easeOut,
-					});
+				TweenMax.to(coverImage, 1, {
+					css: {
+						opacity: 1,
+						ease: Power2.easeIn,
+					},
+				});
+				TweenMax.to(extendableBox, expandDuration, {
+					width: '154px',
+					ease: Power3.easeOut,
+				});
 			}
 		}
 	}, [expanded]);
@@ -201,7 +200,7 @@ const ExtendableVideo = ({
 			className={styles.extendableBox}
 			onClick={handlePanelClick}
 			style={{
-				width: myObj.minPanelWidth,
+				// width: myObj.minPanelWidth,
 				marginTop: marginTop,
 				marginBottom: marginBottom,
 				// height: myObj.panelHeight,
