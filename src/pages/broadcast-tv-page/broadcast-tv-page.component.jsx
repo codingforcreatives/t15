@@ -146,6 +146,7 @@ const BroadcastTVPage = () => {
 		};
 
 		tlGlitch
+			.to(glitchContainers, 0.5, { visibility: 'visible' })
 			.to('.words', 0.1, {
 				skewX: 70,
 				ease: Power4.easeInOut,

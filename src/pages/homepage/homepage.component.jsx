@@ -122,6 +122,7 @@ const HomePage = () => {
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
 
 		tlGlitch
+			.to(glitchContainers, 0.5, { visibility: 'visible' })
 			.to('.words', 0.1, {
 				skewX: 70,
 				ease: Power4.easeInOut,
