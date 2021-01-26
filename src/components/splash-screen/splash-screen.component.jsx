@@ -106,7 +106,7 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 			})
 			.to(splashVideo, 1, {
 				css: { opacity: 0 },
-				onComplete: goToHomePage,
+				// onComplete: goToHomePage,
 			});
 	}, []);
 
