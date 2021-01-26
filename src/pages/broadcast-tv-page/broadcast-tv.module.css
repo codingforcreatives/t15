@@ -80,7 +80,7 @@
 		flex-direction: column;
 	}
 	.portfolio-page-container {
-		height: auto;
+		min-height: 100vh;
 	}
 
 	.welcome-container h2 {
