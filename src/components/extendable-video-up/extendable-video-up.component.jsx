@@ -164,29 +164,28 @@ const ExtendableVideoDown = ({
 
 	useEffect(() => {
 		if (panelClicked == true) {
-			if (panelClicked == true) {
-				if (indexClicked != title) {
-					TweenMax.to(extendableBox, 0.4, {
-						y: yExit,
+			if (indexClicked != title) {
+				TweenMax.to(extendableBox, 0.4, {
+					y: yExit,
+					opacity: 0,
+					delay: 1.5,
+					ease: Power2.easeIn,
+				});
+			} else {
+				let tl = new TimelineLite();
+				tl.to(extendableBox, 1, {
+					// width: myObj['minPanelWidth'],
+					width: '154px',
+					ease: Power4.easeOut,
+				}).to(extendableBox, 2, {
+					css: {
+						scale: 200,
 						opacity: 0,
-						delay: 1.5,
+						delay: 4,
 						ease: Power2.easeIn,
-					});
-				} else {
-					let tl = new TimelineLite();
-					tl.to(extendableBox, 1, {
-						width: myObj['minPanelWidth'],
-						ease: Power4.easeOut,
-					}).to(extendableBox, 2, {
-						css: {
-							scale: 200,
-							opacity: 0,
-							delay: 4,
-							ease: Power2.easeIn,
-						},
-						onComplete: goToNextPage,
-					});
-				}
+					},
+					onComplete: goToNextPage,
+				});
 			}
 		}
 

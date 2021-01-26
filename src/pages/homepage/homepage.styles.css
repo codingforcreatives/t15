@@ -90,4 +90,11 @@
 	.welcome-container h2 {
 		margin: 14px 0px 0px 0px;
 	}
+
+	.home-panel-container {
+		height: auto;
+		padding-top: 80px;
+		padding-bottom: 60px;
+		flex-direction: column;
+	}
 }
