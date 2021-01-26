@@ -50,7 +50,6 @@ const ExtendableVideo = ({
 	} else {
 		marginTop = 10;
 		marginBottom = 10;
-		// panelHeight = '150px';
 	}
 
 	position === 'up' ? (yExit = -200) : (yExit = 200);
