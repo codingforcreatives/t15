@@ -144,18 +144,16 @@ const HomePage = () => {
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
-			<BrowserView>
-				<video
-					ref={(el) => (backgroundVideo = el)}
-					autoPlay="autoPlay"
-					muted
-					loop="loop"
-					className="home-video">
-					Your browser does not support the video tag. I suggest you upgrade
-					your browser
-					<source src={FILM_STATIC_BG_URL} type="video/mp4" />
-				</video>
-			</BrowserView>
+			<video
+				ref={(el) => (backgroundVideo = el)}
+				autoPlay="autoPlay"
+				muted
+				loop="loop"
+				className="home-video">
+				Your browser does not support the video tag. I suggest you upgrade your
+				browser
+				<source src={FILM_STATIC_BG_URL} type="video/mp4" />
+			</video>
 
 			<div
 				ref={(el) => (glitchContainers = el)}

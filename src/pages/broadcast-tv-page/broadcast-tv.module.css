@@ -92,4 +92,7 @@
 		padding-bottom: 60px;
 		flex-direction: column;
 	}
+	.portfolio-video {
+		display: none;
+	}
 }
