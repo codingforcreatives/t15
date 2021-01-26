@@ -95,7 +95,7 @@ const MenuContents = ({ setMenuState }) => {
 			.set(menuBackgroundVideo, {
 				attr: { src: S3_BASE_URL + currentVideo },
 			})
-			.to(menuBackgroundVideo, 2, {
+			.to(menuBackgroundVideo, 0.7, {
 				opacity: 1,
 			});
 		menuBackgroundVideo.src = S3_BASE_URL + currentVideo;
