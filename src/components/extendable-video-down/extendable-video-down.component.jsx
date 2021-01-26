@@ -92,8 +92,7 @@ const ExtendableVideoDown = ({
 	//panel clicked
 
 	const handlePanelClick = () => {
-		setPanelClicked(true);
-		setIndexClicked(title);
+		setPanelClicked(title);
 	};
 
 	const goToNextPage = () => {
@@ -163,30 +162,28 @@ const ExtendableVideoDown = ({
 	}, [expanded]);
 
 	useEffect(() => {
-		if (panelClicked == true) {
-			if (panelClicked == true) {
-				if (indexClicked != title) {
-					TweenMax.to(extendableBox, 0.4, {
-						y: yExit,
+		if (panelClicked != false) {
+			if (panelClicked === title) {
+				let tl = new TimelineLite();
+				tl.to(extendableBox, 1, {
+					width: '154px',
+					ease: Power4.easeOut,
+				}).to(extendableBox, 2, {
+					css: {
+						scale: 200,
 						opacity: 0,
-						delay: 1.5,
+						delay: 4,
 						ease: Power2.easeIn,
-					});
-				} else {
-					let tl = new TimelineLite();
-					tl.to(extendableBox, 1, {
-						width: myObj['minPanelWidth'],
-						ease: Power4.easeOut,
-					}).to(extendableBox, 2, {
-						css: {
-							scale: 200,
-							opacity: 0,
-							delay: 4,
-							ease: Power2.easeIn,
-						},
-						onComplete: goToNextPage,
-					});
-				}
+					},
+					onComplete: goToNextPage,
+				});
+			} else {
+				TweenMax.to(extendableBox, 0.4, {
+					y: yExit,
+					opacity: 0,
+					delay: 1.5,
+					ease: Power2.easeIn,
+				});
 			}
 		}
 
