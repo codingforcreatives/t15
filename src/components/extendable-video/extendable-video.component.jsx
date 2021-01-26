@@ -116,11 +116,13 @@ const ExtendableVideo = ({
 					ease: Power4.easeOut,
 				}).add(addMouseEvents);
 			} else {
+				// console.log('not is Mobile ANIMATIOns');
 				if (panelType != 'home') {
 					panelTitle.style.transform = 'none';
 					panelTitle.style.textAlign = 'left';
 					panelTitle.style.width = '80%';
 					panelTitle.style.left = 20;
+
 					panelTitle.style.bottom = '20px';
 					coverImage.style.width = '100%';
 					coverImage.style.height = 'auto';

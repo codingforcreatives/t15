@@ -199,12 +199,6 @@ const VideoContentPage = () => {
 
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
 
-		// isMobile ? (flexDirection = 'column') : (flexDirection = 'row');
-
-		// const myObj = {
-		// 	flexDirection: flexDirection,
-		// };
-
 		tlGlitch
 			.to('.words', 0.1, {
 				skewX: 70,
@@ -224,7 +218,6 @@ const VideoContentPage = () => {
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(panelContainer, 1, {
 				display: 'flex',
-				// flexDirection: myObj.flexDirection,
 				delay: -0.08,
 			});
 	});
