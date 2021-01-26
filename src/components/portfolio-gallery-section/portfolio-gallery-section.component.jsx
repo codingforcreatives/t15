@@ -1,6 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 
+import 'keen-slider/keen-slider.min.css';
+
+import SimpleImageSlider from 'react-simple-image-slider';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 const styles = require('./portfolio-gallery-section.module.css');
 
 const PortfolioGallerySection = ({ item }) => {
@@ -21,6 +26,8 @@ const PortfolioGallerySection = ({ item }) => {
 	console.log(typeof item);
 
 	var toArray = Object.keys(item).map((key) => item[key]);
+	console.log('READING ITEM');
+	console.log(item[0]);
 
 	return (
 		<div className={styles.navigationWrapper}>
@@ -89,6 +96,10 @@ const PortfolioGallerySection = ({ item }) => {
 				</>
 			)}
 		</div>
+
+		// <div>
+		// 	<SimpleImageSlider width={896} height={504} images={images} />
+		// </div>
 	);
 };
 
