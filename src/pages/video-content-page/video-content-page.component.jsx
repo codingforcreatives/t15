@@ -222,7 +222,7 @@ const VideoContentPage = () => {
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(panelContainer, 1, {
 				display: 'flex',
-				flexDirection: myObj['flexDir'],
+				// flexDirection: myObj['flexDir'],
 				delay: -0.08,
 			});
 	});

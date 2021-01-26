@@ -7,6 +7,7 @@
 	align-items: center;
 	margin-left: 6px;
 	margin-right: 6px;
+	height: 60vh;
 }
 
 .stillImageBack {
@@ -76,5 +77,28 @@
 	.panelTitle {
 		left: 10px;
 		top: 10px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.extendableBox {
+		height: 160px;
+	}
+	.panelTitle {
+		transform: none;
+		text-align: left;
+		width: 80%;
+		left: 20px;
+	}
+
+	.coverImage {
+		width: 100%;
+		height: auto;
+	}
+
+	.stillImageBack,
+	.stillImage {
+		width: 100%;
+		height: auto;
 	}
 }

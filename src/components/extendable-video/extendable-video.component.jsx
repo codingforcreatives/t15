@@ -32,7 +32,7 @@ const ExtendableVideo = ({
 }) => {
 	const [expanded, setExpanded] = useState(false);
 
-	const isMobile = window.innerWidth < 480;
+	const isMobile = window.innerWidth < 500;
 	let panelWidth = null;
 
 	const isInitialMount = useRef(true);
@@ -50,7 +50,7 @@ const ExtendableVideo = ({
 	} else {
 		marginTop = 10;
 		marginBottom = 10;
-		panelHeight = '150px';
+		// panelHeight = '150px';
 	}
 
 	position === 'up' ? (yExit = -200) : (yExit = 200);
@@ -114,25 +114,23 @@ const ExtendableVideo = ({
 				}).add(addMouseEvents);
 			} else {
 				// console.log('not is Mobile ANIMATIOns');
-				if (panelType != 'home') {
-					panelTitle.style.transform = 'none';
-					panelTitle.style.textAlign = 'left';
-					panelTitle.style.width = '80%';
-					panelTitle.style.left = 20;
-
-					panelTitle.style.bottom = '20px';
-					coverImage.style.width = '100%';
-					coverImage.style.height = 'auto';
-				}
-
-				tl.from(extendableBox, 1.5, {
-					x: myObj['X'],
-					y: myObj['Y'],
-					scale: 10,
-					opacity: 0,
-					delay: myObj['delay'],
-					ease: Power4.easeOut,
-				});
+				// if (panelType != 'home') {
+				// 	panelTitle.style.transform = 'none';
+				// 	panelTitle.style.textAlign = 'left';
+				// 	panelTitle.style.width = '80%';
+				// 	panelTitle.style.left = 20;
+				// 	panelTitle.style.bottom = '20px';
+				// 	coverImage.style.width = '100%';
+				// 	coverImage.style.height = 'auto';
+				// }
+				// tl.from(extendableBox, 1.5, {
+				// 	x: myObj['X'],
+				// 	y: myObj['Y'],
+				// 	scale: 10,
+				// 	opacity: 0,
+				// 	delay: myObj['delay'],
+				// 	ease: Power4.easeOut,
+				// });
 			}
 
 			isInitialMount.current = false;
@@ -206,7 +204,7 @@ const ExtendableVideo = ({
 				width: myObj.minPanelWidth,
 				marginTop: marginTop,
 				marginBottom: marginBottom,
-				height: myObj.panelHeight,
+				// height: myObj.panelHeight,
 			}}>
 			<img
 				className={styles.stillImageBack}
