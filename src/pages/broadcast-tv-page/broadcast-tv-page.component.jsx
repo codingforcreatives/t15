@@ -7,6 +7,8 @@ import { FILM_STATIC_BG_URL } from '../../components/globals';
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
 import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
 
+const styles = require('./broadcast-tv.module.css');
+
 const serviceCategories = {
 	destinationla: {
 		key: '1',
@@ -166,7 +168,7 @@ const BroadcastTVPage = () => {
 	return (
 		<div
 			ref={(el) => (homepageContainer = el)}
-			className="portfolio-page-container">
+			className={styles.portfolioPageContainer}>
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"
@@ -196,7 +198,7 @@ const BroadcastTVPage = () => {
 			</div>
 
 			<div
-				className="portfolio-panel-container"
+				className={styles.portfolioPanelContainer}
 				ref={(el) => (panelContainer = el)}>
 				{arr.map((item) => {
 					if (item.position === 'up') {

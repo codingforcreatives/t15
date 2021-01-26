@@ -1,4 +1,4 @@
-.portfolio-page-container {
+.portfolioPageContainer {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -9,7 +9,7 @@
 	visibility: hidden;
 }
 
-.portfolio-panel-container {
+.portfolioPanelContainer {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
@@ -79,14 +79,14 @@
 	.welcome-container {
 		flex-direction: column;
 	}
-	.portfolio-page-container {
+	.portfolioPageContainer {
 		min-height: 100vh;
 	}
 
 	.welcome-container h2 {
 		margin: 14px 0px 0px 0px;
 	}
-	.portfolio-panel-container {
+	.portfolioPanelContainer {
 		height: auto;
 		padding-top: 80px;
 		padding-bottom: 60px;
