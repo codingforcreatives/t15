@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
 import PanelVideo from '../../../components/panel-video/panel-video.component';
 import PortfolioDivider from '../../../components/portfolio-divider/portfolio-divider.component';
-import PortfolioGallerySection from '../../../components/portfolio-gallery-section/portfolio-gallery-section.component';
 import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';

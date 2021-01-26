@@ -6,6 +6,7 @@ import PortfolioDivider from '../../../components/portfolio-divider/portfolio-di
 import PortfolioGallerySection from '../../../components/portfolio-gallery-section/portfolio-gallery-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
+import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 
 import { TimelineLite } from 'gsap';
@@ -107,17 +108,24 @@ const BrandingPage = () => {
 						<PanelVideo videoName="home-assets/branding_cover.mp4" />
 					</div>
 
-					<PortfolioIntroductionSection
-						introduction={introduction}
-						item1={item1}
-						item2={item2}
-						item3={item3}
-						backText="all services"
-						backRoute="/services"></PortfolioIntroductionSection>
-					<PortfolioDivider />
+					{isLoaded ? (
+						<>
+							<PortfolioIntroductionSection
+								introduction={introduction}
+								item1={item1}
+								item2={item2}
+								item3={item3}
+								backText="all services"
+								backRoute="/services"></PortfolioIntroductionSection>
+							<PortfolioDivider />
 
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
+							<PortfolioGallerySection
+								item={item1.gallery}></PortfolioGallerySection>
+						</>
+					) : (
+						<LoadingBar />
+					)}
+
 					<PortfolioDivider />
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>

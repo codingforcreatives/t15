@@ -7,7 +7,7 @@ import PortfolioGallerySection from '../../../components/portfolio-gallery-secti
 import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
-
+import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 
 import { TimelineLite } from 'gsap';

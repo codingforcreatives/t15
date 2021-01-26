@@ -7,7 +7,7 @@ import PortfolioGallerySection from '../../../components/portfolio-gallery-secti
 import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
-
+import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 
 import { TimelineLite } from 'gsap';
@@ -107,24 +107,31 @@ const EventsFestivalsPage = () => {
 						<PanelVideo videoName="portfolio-assets/events.mp4" />
 					</div>
 
-					<PortfolioIntroductionSection
-						introduction={introduction}
-						item1={item1}
-						item2={item2}
-						item3={item3}
-						backText="content creation"
-						backRoute="/video-content"></PortfolioIntroductionSection>
+					{isLoaded ? (
+						<>
+							<PortfolioIntroductionSection
+								introduction={introduction}
+								item1={item1}
+								item2={item2}
+								item3={item3}
+								backText="content creation"
+								backRoute="/video-content"></PortfolioIntroductionSection>
 
-					<PortfolioDivider />
-					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item1.gallery}></PortfolioGallerySection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item2}></PortfolioItemSection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item3}></PortfolioItemSection>
-					<PortfolioGallerySection
-						item={item3.gallery}></PortfolioGallerySection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item1}></PortfolioItemSection>
+							<PortfolioGallerySection
+								item={item1.gallery}></PortfolioGallerySection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item2}></PortfolioItemSection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item3}></PortfolioItemSection>
+							<PortfolioGallerySection
+								item={item3.gallery}></PortfolioGallerySection>
+						</>
+					) : (
+						<LoadingBar />
+					)}
+
 					<PortfolioDivider />
 					<ButtonRegular buttonText="get in touch" route="/contact" />
 				</div>

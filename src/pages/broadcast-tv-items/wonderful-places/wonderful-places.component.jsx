@@ -7,6 +7,7 @@ import PortfolioGallerySection from '../../../components/portfolio-gallery-secti
 import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
+import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 
 import { TimelineLite } from 'gsap';
@@ -100,18 +101,25 @@ const WonderfulPlacesPage = () => {
 						<PanelVideo videoName="broadcast-tv-assets/wonderful_places.mp4" />
 					</div>
 
-					<PortfolioIntroductionSection
-						introduction={introduction}
-						item1={item1}
-						item2={item2}
-						item3={item3}
-						backText="broadcast tv"
-						backRoute="/broadcast-tv"></PortfolioIntroductionSection>
+					{isLoaded ? (
+						<>
+							<PortfolioIntroductionSection
+								introduction={introduction}
+								item1={item1}
+								item2={item2}
+								item3={item3}
+								backText="broadcast tv"
+								backRoute="/broadcast-tv"></PortfolioIntroductionSection>
 
-					<PortfolioDivider />
-					<PortfolioItemSection item={item1}></PortfolioItemSection>
-					<PortfolioDivider />
-					<PortfolioItemSection item={item2}></PortfolioItemSection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item1}></PortfolioItemSection>
+							<PortfolioDivider />
+							<PortfolioItemSection item={item2}></PortfolioItemSection>
+						</>
+					) : (
+						<LoadingBar />
+					)}
+
 					<PortfolioDivider />
 
 					<ButtonRegular buttonText="get in touch" route="/contact" />
