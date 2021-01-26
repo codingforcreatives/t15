@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import './contact-page.style.css';
-// import SplashScreen from '../../components/splash-screen/splash-screen.component';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -184,6 +183,7 @@ const ContactPage = () => {
 		tl4.from(wordDo, 0.45, { opacity: 0, delay: 3.2 });
 
 		tlGlitch
+			.to(glitchContainers, 0.5, { visibility: 'visible' })
 			.to('.words', 0.1, {
 				skewX: 70,
 				ease: Power4.easeInOut,
@@ -201,7 +201,7 @@ const ContactPage = () => {
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(contactContainer, 1, { display: 'flex', delay: -0.08 })
-			.from(contactImage, 0.8, { opacity: 0, scale: 0.5 })
+			.from(contactImage, 0.5, { opacity: 0, scale: 0.5 })
 			.from(contactContent, 1, { opacity: 0 });
 	});
 
