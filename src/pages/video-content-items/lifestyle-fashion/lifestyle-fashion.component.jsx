@@ -7,8 +7,7 @@ import PortfolioGallerySection from '../../../components/portfolio-gallery-secti
 import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
+
 import { API_URL } from '../../../components/globals';
 import { TimelineLite } from 'gsap';
 const styles = require('../video-content.module.css');
@@ -98,16 +97,6 @@ const LifestyleFashionPage = () => {
 		console.log('MADE API CALL');
 		console.log(introduction);
 	}, []);
-
-	const [currentSlide, setCurrentSlide] = useState(0);
-	const [sliderRef, slider] = useKeenSlider({
-		initial: 0,
-		slidesPerView: 2,
-		spacing: 24,
-		slideChanged(s) {
-			setCurrentSlide(s.details().relativeSlide);
-		},
-	});
 
 	return (
 		<>
