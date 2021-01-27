@@ -16,7 +16,8 @@ const PanelVideo = ({ videoName }) => {
 					muted
 					loop="loop"
 					className={styles.panelFeatureVideo}
-					mask="url(#clipPath)">
+					webkit-playsinline="true"
+					playsinline="true">
 					<source src={S3_BASE_URL + videoName} type="video/mp4" />
 				</video>
 			</div>

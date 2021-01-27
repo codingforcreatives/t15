@@ -110,7 +110,9 @@ const MenuContents = ({ setMenuState }) => {
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
-				className="menu-background-video">
+				className="menu-background-video"
+				webkit-playsinline="true"
+				playsinline="true">
 				<source src={S3_BASE_URL + currentVideo} type="video/mp4" />
 			</video>
 			<div className="dark-overlay" />
