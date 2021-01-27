@@ -5,6 +5,7 @@ import MenuItem from '../menu-item/menu-item.component';
 import { TimelineLite, TweenMax } from 'gsap';
 import { useLocation } from 'react-router-dom';
 import TV_STATIC from '../../assets/tv-static-3.gif';
+import { isMobile, isSafari, isIOS } from 'react-device-detect';
 
 const MenuContents = ({ setMenuState }) => {
 	const menuData = [
@@ -104,17 +105,32 @@ const MenuContents = ({ setMenuState }) => {
 	return (
 		<div className="menu-items-container">
 			<img className="tvStatic" src={TV_STATIC} alt="loading..." />
-			<video
-				poster={TV_STATIC}
-				ref={(el) => (menuBackgroundVideo = el)}
-				autoPlay="autoPlay"
-				muted
-				loop="loop"
-				className="menu-background-video"
-				webkit-playsinline="true"
-				playsinline="true">
-				<source src={S3_BASE_URL + currentVideo} type="video/mp4" />
-			</video>
+			{isMobile && isIOS ? (
+				<video
+					poster={TV_STATIC}
+					ref={(el) => (menuBackgroundVideo = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="menu-background-video"
+					webkit-playsinline="true"
+					playsinline="true">
+					<source src={S3_BASE_URL + 'about.mp4'} type="video/mp4" />
+				</video>
+			) : (
+				<video
+					poster={TV_STATIC}
+					ref={(el) => (menuBackgroundVideo = el)}
+					autoPlay="autoPlay"
+					muted
+					loop="loop"
+					className="menu-background-video"
+					webkit-playsinline="true"
+					playsinline="true">
+					<source src={S3_BASE_URL + currentVideo} type="video/mp4" />
+				</video>
+			)}
+
 			<div className="dark-overlay" />
 			<div className="menu-text-container" ref={(el) => (singleElement = el)}>
 				{menuData.map((item) => (
