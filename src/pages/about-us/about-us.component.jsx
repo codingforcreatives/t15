@@ -101,6 +101,15 @@ const AboutUsPage = () => {
 		});
 	const [images] = useState(generatedImages);
 
+	let handleSkip = () => {
+		tl.seek(3.2);
+		tl1.seek(3.2);
+		tl2.seek(3.2);
+		tl3.seek(3.2);
+		tl4.seek(3.2);
+		tlGlitch.seek(4);
+	};
+
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
 			css: { visibility: 'visible' },
@@ -270,6 +279,8 @@ const AboutUsPage = () => {
 				<PortfolioDivider />
 				<ButtonRegular buttonText="get in touch" route="/contact" />
 			</div>
+
+			<div className="skipButton" onClick={handleSkip}></div>
 		</div>
 	);
 };

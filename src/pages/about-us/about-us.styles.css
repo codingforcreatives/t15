@@ -17,6 +17,16 @@
 	width: 100%;
 }
 
+.skipButton {
+	background-color: orange;
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+	z-index: 10;
+	height: 100px;
+	width: 100px;
+}
+
 .slider a.previousButton svg,
 .slider a.nextButton svg {
 	color: white !important;
