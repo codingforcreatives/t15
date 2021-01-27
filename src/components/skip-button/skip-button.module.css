@@ -1,0 +1,29 @@
+.skipButton {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.skipButton:hover {
+	opacity: 0.4;
+	transition: opacity 1s;
+}
+
+.skipButton p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-weight: 400;
+
+	text-decoration: none;
+}
+
+.skipIcon {
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+}

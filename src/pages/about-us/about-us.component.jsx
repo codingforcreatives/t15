@@ -5,10 +5,11 @@ import PanelVideo from '../../components/panel-video/panel-video.component';
 import StaffExtendablePanel from '../../components/staff-extendable-panel/staff-extendable-panel.component';
 import PortfolioDivider from '../../components/portfolio-divider/portfolio-divider.component';
 import ButtonRegular from '../../components/button-regular/button-regular.component';
+import SkipButton from '../../components/skip-button/skip-button.component';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 
-import { Power4, TimelineLite } from 'gsap';
+import { Power4, TimelineLite, TweenLite } from 'gsap';
 import TestimonialContent from '../../components/testimonial-contents/testimonial-content.component';
 
 import { testimonialItems, profiles } from '../../components/home-globals';
@@ -42,6 +43,7 @@ const AboutUsPage = () => {
 	let glitchContainers = useRef(null);
 	let featureVideoContainer = useRef(null);
 	let panelContainer = useRef(null);
+	let skipButton = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -51,6 +53,7 @@ const AboutUsPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	let buttonVisibility = new TimelineLite();
 
 	var totalWindowWidth = window.innerWidth * 0.8;
 	var numPanels = arr.length;
@@ -108,6 +111,12 @@ const AboutUsPage = () => {
 		tl3.seek(3.2);
 		tl4.seek(3.2);
 		tlGlitch.seek(4);
+
+		buttonVisibility
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
 	};
 
 	useEffect(() => {
@@ -158,6 +167,10 @@ const AboutUsPage = () => {
 				display: 'flex',
 				delay: -0.08,
 				opacity: 1,
+			})
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
 			});
 	});
 
@@ -280,7 +293,13 @@ const AboutUsPage = () => {
 				<ButtonRegular buttonText="get in touch" route="/contact" />
 			</div>
 
-			<div className="skipButton" onClick={handleSkip}></div>
+			{/* <div
+				className="skipButton"
+				ref={(el) => (skipButton = el)}
+				onClick={handleSkip}></div> */}
+			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
+				<SkipButton onClickMethod={handleSkip} />
+			</div>
 		</div>
 	);
 };
