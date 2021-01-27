@@ -57,7 +57,24 @@ Object.keys(serviceCategories).forEach(function (key) {
 });
 
 const BroadcastTVPage = () => {
-	const [welcomComplete, setWelcomeComplete] = useState(false);
+	const [content, setContent] = useState(
+		<div
+			ref={(el) => (glitchContainers = el)}
+			className="welcome-container glitch top">
+			<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
+				We
+			</h2>
+			<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
+				make
+			</h2>
+			<h2 ref={(el) => (wordWe = el)} className="words" id="we">
+				tv
+			</h2>
+			<h2 ref={(el) => (wordDo = el)} className="words" id="do">
+				shows
+			</h2>
+		</div>
+	);
 
 	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
@@ -200,23 +217,7 @@ const BroadcastTVPage = () => {
 				browser
 				<source src={FILM_STATIC_BG_URL} type="video/mp4" />
 			</video>
-
-			<div
-				ref={(el) => (glitchContainers = el)}
-				className="welcome-container glitch top">
-				<h2 ref={(el) => (wordHere = el)} className="words" id="heres">
-					We
-				</h2>
-				<h2 ref={(el) => (wordWhat = el)} className="words" id="what">
-					make
-				</h2>
-				<h2 ref={(el) => (wordWe = el)} className="words" id="we">
-					tv
-				</h2>
-				<h2 ref={(el) => (wordDo = el)} className="words" id="do">
-					shows
-				</h2>
-			</div>
+			{content}
 
 			<div
 				className={styles.portfolioPanelContainer}
