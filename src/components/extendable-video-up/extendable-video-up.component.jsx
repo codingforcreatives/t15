@@ -12,7 +12,9 @@ import { MobileView } from 'react-device-detect';
 
 const styles = require('./extendable-video-up.module.css');
 
-const ExtendableVideoDown = ({
+const ExtendableVideoUp = ({
+	testProp,
+	prevTimelineDelay,
 	panelType,
 	title,
 	overlayImageName,
@@ -29,6 +31,7 @@ const ExtendableVideoDown = ({
 	panelClicked,
 	indexClicked,
 	setPanelClicked,
+
 	key,
 }) => {
 	const [expanded, setExpanded] = useState(false);
@@ -61,6 +64,8 @@ const ExtendableVideoDown = ({
 	let extendableBox = useRef(null);
 	let tl = new TimelineLite();
 	let expandTransition = new TimelineLite();
+	console.log('PREV TIMELINE DELAY');
+	console.log(prevTimelineDelay);
 	let total = delay + 4;
 
 	const myObj = {
@@ -229,4 +234,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default compose(
 	withRouter,
 	connect(mapStateToProps, mapDispatchToProps)
-)(ExtendableVideoDown);
+)(ExtendableVideoUp);

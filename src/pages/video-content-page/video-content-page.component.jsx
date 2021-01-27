@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './portfolio-panels.styles.css';
-
+import SkipButton from '../../components/skip-button/skip-button.component';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -134,21 +134,6 @@ const VideoContentPage = () => {
 	let increment_X = rightHand_X / totalPanelsOnEachSide;
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
-	const calculateX = (key) => {
-		//left hand side
-
-		return increment_X * key + leftHand_X;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
-	};
-
 	const calculateDelay = (key) => {
 		return delay * key;
 	};
@@ -162,6 +147,7 @@ const VideoContentPage = () => {
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
 	let panelContainer = useRef(null);
+	let skipButton = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -171,8 +157,24 @@ const VideoContentPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	let buttonVisibility = new TimelineLite();
 	const isMobile = window.innerWidth < 480;
 	let flexDirection = 'row';
+
+	let handleSkip = () => {
+		tl.seek(3.2);
+		tl1.seek(3.2);
+		tl2.seek(3.2);
+		tl3.seek(3.2);
+		tl4.seek(3.2);
+		tlGlitch.seek(4);
+
+		buttonVisibility
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
+	};
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -226,6 +228,10 @@ const VideoContentPage = () => {
 				display: 'flex',
 				// flexDirection: myObj['flexDir'],
 				delay: -0.08,
+			})
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
 			});
 	});
 
@@ -309,6 +315,9 @@ const VideoContentPage = () => {
 						);
 					}
 				})}
+			</div>
+			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
+				<SkipButton onClickMethod={handleSkip} />
 			</div>
 		</div>
 	);

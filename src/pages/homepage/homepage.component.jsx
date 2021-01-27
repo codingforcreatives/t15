@@ -5,6 +5,7 @@ import { FILM_STATIC_BG_URL } from '../../components/globals';
 import { BrowserView } from 'react-device-detect';
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
 import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
+import SkipButton from '../../components/skip-button/skip-button.component';
 
 const serviceCategories = {
 	branding: {
@@ -84,6 +85,7 @@ const HomePage = () => {
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
 	let panelContainer = useRef(null);
+	let skipButton = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -93,6 +95,22 @@ const HomePage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	let buttonVisibility = new TimelineLite();
+
+	let handleSkip = () => {
+		tl.seek(3.2);
+		tl1.seek(3.2);
+		tl2.seek(3.2);
+		tl3.seek(3.2);
+		tl4.seek(3.2);
+		tlGlitch.seek(4);
+
+		buttonVisibility
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
+	};
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -139,7 +157,11 @@ const HomePage = () => {
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
 
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 });
+			.to(panelContainer, 1, { display: 'flex', delay: -0.08 })
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
 	});
 
 	return (
@@ -218,6 +240,9 @@ const HomePage = () => {
 						);
 					}
 				})}
+			</div>
+			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
+				<SkipButton onClickMethod={handleSkip} />
 			</div>
 		</div>
 	);

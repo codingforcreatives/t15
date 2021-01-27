@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './contact-page.style.css';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
+import SkipButton from '../../components/skip-button/skip-button.component';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
@@ -146,6 +147,7 @@ const ContactPage = () => {
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
 	let contactContainer = useRef(null);
+	let skipButton = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -155,6 +157,22 @@ const ContactPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	let buttonVisibility = new TimelineLite();
+
+	let handleSkip = () => {
+		tl.seek(3.2);
+		tl1.seek(3.2);
+		tl2.seek(3.2);
+		tl3.seek(3.2);
+		tl4.seek(3.2);
+		tlGlitch.seek(4);
+
+		buttonVisibility
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
+	};
 
 	useEffect(() => {
 		tl.to(contactPageContainer, 0.2, {
@@ -202,7 +220,11 @@ const ContactPage = () => {
 			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
 			.to(contactContainer, 1, { display: 'flex', delay: -0.08 })
 			.from(contactImage, 0.5, { opacity: 0, scale: 0.5 })
-			.from(contactContent, 1, { opacity: 0 });
+			.from(contactContent, 0.5, { opacity: 0 })
+			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				display: 'none',
+			});
 	});
 
 	let openForm = () => {
@@ -269,6 +291,9 @@ const ContactPage = () => {
 						Fill in contact form
 					</button>
 				</div>
+			</div>
+			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
+				<SkipButton onClickMethod={handleSkip} />
 			</div>
 		</div>
 	);

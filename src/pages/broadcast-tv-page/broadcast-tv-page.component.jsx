@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './broadcast-tv.module.css';
 // import SplashScreen from '../../components/splash-screen/splash-screen.component';
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
@@ -6,6 +6,7 @@ import { BrowserView } from 'react-device-detect';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
 import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
+import SkipButton from '../../components/skip-button/skip-button.component';
 
 const styles = require('./broadcast-tv.module.css');
 
@@ -56,6 +57,8 @@ Object.keys(serviceCategories).forEach(function (key) {
 });
 
 const BroadcastTVPage = () => {
+	const [welcomComplete, setWelcomeComplete] = useState(false);
+
 	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
@@ -76,21 +79,6 @@ const BroadcastTVPage = () => {
 	let increment_X = rightHand_X / totalPanelsOnEachSide;
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
-	const calculateX = (key) => {
-		//left hand side
-
-		return increment_X * key + leftHand_X;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
-	};
-
 	const calculateDelay = (key) => {
 		return delay * key;
 	};
@@ -104,6 +92,7 @@ const BroadcastTVPage = () => {
 	let wordDo = useRef(null);
 	let glitchContainers = useRef(null);
 	let panelContainer = useRef(null);
+	let BTVskipButton = useRef(null);
 
 	let prevTimelineDelay = 4;
 
@@ -113,7 +102,28 @@ const BroadcastTVPage = () => {
 	const tl3 = new TimelineLite();
 	const tl4 = new TimelineLite();
 	var tlGlitch = new TimelineLite();
+	let buttonVisibility = new TimelineLite();
 	const isMobile = window.innerWidth < 480;
+
+	let handleSkip = () => {
+		tl.seek(3.2);
+		tl1.seek(3.2);
+		tl2.seek(3.2);
+		tl3.seek(3.2);
+		tl4.seek(3.2);
+		tlGlitch.seek(4);
+		// setWelcomeComplete(true);
+
+		buttonVisibility
+			.to(BTVskipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(BTVskipButton, 0.2, {
+				display: 'none',
+			});
+	};
+
+	let setSetWelcomeComplete = () => {
+		// setWelcomeComplete(true);
+	};
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -162,8 +172,17 @@ const BroadcastTVPage = () => {
 			.to(panelContainer, 1, {
 				display: 'flex',
 				delay: -0.08,
+			})
+			.to(BTVskipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(BTVskipButton, 0.2, {
+				css: {
+					display: 'none',
+				},
+				onComplete: setSetWelcomeComplete,
 			});
 	});
+
+	// useEffect(() => {}, [playDelay]);
 
 	return (
 		<div
@@ -216,7 +235,6 @@ const BroadcastTVPage = () => {
 								from_X={-60}
 								from_Y={40}
 								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
 								minPanelWidth={panelMinWidth}
 								maxPanelWidth={panelMaxWidth}
 								linkURL={item.linkURL}
@@ -236,7 +254,6 @@ const BroadcastTVPage = () => {
 								from_X={-60}
 								from_Y={40}
 								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
 								minPanelWidth={panelMinWidth}
 								maxPanelWidth={panelMaxWidth}
 								linkURL={item.linkURL}
@@ -245,6 +262,9 @@ const BroadcastTVPage = () => {
 						);
 					}
 				})}
+			</div>
+			<div className="skipButtonContainer" ref={(el) => (BTVskipButton = el)}>
+				<SkipButton onClickMethod={handleSkip} />
 			</div>
 		</div>
 	);

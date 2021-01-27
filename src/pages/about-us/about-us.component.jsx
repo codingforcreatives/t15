@@ -73,22 +73,8 @@ const AboutUsPage = () => {
 	let increment_X = rightHand_X / totalPanelsOnEachSide;
 	let max_Y = rightHand_Y + (totalPanelsOnEachSide - 1) * increment_Y;
 
-	const calculateX = (key) => {
-		//left hand side
-		return increment_X * key + leftHand_X;
-	};
-
 	const calculateDelay = (key) => {
 		return delay * key;
-	};
-
-	const calculateY = (key) => {
-		// left hand side
-		if (key <= totalPanelsOnEachSide) {
-			return increment_Y * key * -1 + leftHand_Y;
-		} else {
-			return max_Y - increment_Y * (key - (totalPanelsOnEachSide + 1));
-		}
 	};
 
 	let generatedImages = Array(20)
@@ -242,8 +228,6 @@ const AboutUsPage = () => {
 						name={item.name}
 						bio={item.bio}
 						position={item.position}
-						from_X={calculateX(item.key)}
-						from_Y={calculateY(item.key)}
 						delay={calculateDelay(item.key)}
 						prevTimlineDelay={prevTimelineDelay}
 						minPanelWidth={panelMinWidth}
@@ -293,10 +277,6 @@ const AboutUsPage = () => {
 				<ButtonRegular buttonText="get in touch" route="/contact" />
 			</div>
 
-			{/* <div
-				className="skipButton"
-				ref={(el) => (skipButton = el)}
-				onClick={handleSkip}></div> */}
 			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
 				<SkipButton onClickMethod={handleSkip} />
 			</div>
