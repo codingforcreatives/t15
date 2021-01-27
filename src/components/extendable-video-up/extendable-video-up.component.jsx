@@ -66,7 +66,7 @@ const ExtendableVideoUp = ({
 	let expandTransition = new TimelineLite();
 	console.log('PREV TIMELINE DELAY');
 	console.log(prevTimelineDelay);
-	let total = delay + 4;
+	let total = delay;
 
 	const myObj = {
 		X: from_X,

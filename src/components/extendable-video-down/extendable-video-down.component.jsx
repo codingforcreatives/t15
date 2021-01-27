@@ -61,7 +61,7 @@ const ExtendableVideoDown = ({
 	let extendableBox = useRef(null);
 	let tl = new TimelineLite();
 	let expandTransition = new TimelineLite();
-	let total = delay + 4;
+	let total = delay;
 
 	const myObj = {
 		X: from_X,

@@ -76,6 +76,8 @@ const BroadcastTVPage = () => {
 		</div>
 	);
 
+	const [welcomeComplete, setWelcomeComplete] = useState(false);
+
 	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
@@ -138,8 +140,57 @@ const BroadcastTVPage = () => {
 			});
 	};
 
-	let setSetWelcomeComplete = () => {
-		// setWelcomeComplete(true);
+	let showPanels = () => {
+		console.log('STATE BEING SET');
+		setWelcomeComplete(true);
+
+		// setContent(
+		// 	<div
+		// 		className={styles.BTVportfolioPanelContainer}
+		// 		ref={(el) => (panelContainer = el)}>
+		// 		{arr.map((item) => {
+		// 			if (item.position === 'up') {
+		// 				return (
+		// 					<ExtendableVideoUp
+		// 						key={item.key}
+		// 						panelType={item.panelType}
+		// 						title={item.title}
+		// 						logoName={item.logoName}
+		// 						overlayImageName={item.overlayImageName}
+		// 						videoName={item.videoName}
+		// 						position={item.position}
+		// 						from_X={-60}
+		// 						from_Y={40}
+		// 						delay={calculateDelay(item.key)}
+		// 						minPanelWidth={panelMinWidth}
+		// 						maxPanelWidth={panelMaxWidth}
+		// 						linkURL={item.linkURL}
+		// 						expandDuration={2}
+		// 					/>
+		// 				);
+		// 			} else {
+		// 				return (
+		// 					<ExtendableVideoDown
+		// 						key={item.key}
+		// 						panelType={item.panelType}
+		// 						title={item.title}
+		// 						logoName={item.logoName}
+		// 						overlayImageName={item.overlayImageName}
+		// 						videoName={item.videoName}
+		// 						position={item.position}
+		// 						from_X={-60}
+		// 						from_Y={40}
+		// 						delay={calculateDelay(item.key)}
+		// 						minPanelWidth={panelMinWidth}
+		// 						maxPanelWidth={panelMaxWidth}
+		// 						linkURL={item.linkURL}
+		// 						expandDuration={2}
+		// 					/>
+		// 				);
+		// 			}
+		// 		})}
+		// 	</div>
+		// );
 	};
 
 	useEffect(() => {
@@ -184,22 +235,31 @@ const BroadcastTVPage = () => {
 
 			.to('#txt', 0, { scale: 1.1 }, 'split')
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
-
-			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, {
-				display: 'flex',
-				delay: -0.08,
+			.to(glitchContainers, 0.01, {
+				css: {
+					display: 'none',
+					delay: -0.04,
+				},
+				onComplete: showPanels,
 			})
-			.to(BTVskipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(BTVskipButton, 0.2, {
+				css: {
+					opacity: 0,
+					ease: Power4.easeInOut,
+				},
+			})
 			.to(BTVskipButton, 0.2, {
 				css: {
 					display: 'none',
 				},
-				onComplete: setSetWelcomeComplete,
 			});
-	});
+	}, []);
 
-	// useEffect(() => {}, [playDelay]);
+	useEffect(() => {
+		if (welcomeComplete) {
+			TweenMax.to(panelContainer, 0.01, { display: 'flex' });
+		}
+	}, [welcomeComplete]);
 
 	return (
 		<div
@@ -218,52 +278,56 @@ const BroadcastTVPage = () => {
 				<source src={FILM_STATIC_BG_URL} type="video/mp4" />
 			</video>
 			{content}
+			{welcomeComplete ? (
+				<div
+					className={styles.BTVportfolioPanelContainer}
+					ref={(el) => (panelContainer = el)}>
+					{arr.map((item) => {
+						if (item.position === 'up') {
+							return (
+								<ExtendableVideoUp
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						} else {
+							return (
+								<ExtendableVideoDown
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						}
+					})}
+				</div>
+			) : (
+				<div />
+			)}
 
-			<div
-				className={styles.portfolioPanelContainer}
-				ref={(el) => (panelContainer = el)}>
-				{arr.map((item) => {
-					if (item.position === 'up') {
-						return (
-							<ExtendableVideoUp
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					} else {
-						return (
-							<ExtendableVideoDown
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					}
-				})}
-			</div>
 			<div className="skipButtonContainer" ref={(el) => (BTVskipButton = el)}>
 				<SkipButton onClickMethod={handleSkip} />
 			</div>
