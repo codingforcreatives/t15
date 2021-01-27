@@ -174,6 +174,8 @@ const BroadcastTVPage = () => {
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
+				webkit-playsinline="true"
+				playsinline="true"
 				className="portfolio-video">
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser

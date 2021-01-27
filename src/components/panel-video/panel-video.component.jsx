@@ -12,9 +12,9 @@ const PanelVideo = ({ videoName }) => {
 
 				<video
 					poster={logo}
-					autoPlay="autoPlay"
+					autoPlay
 					muted
-					loop="loop"
+					loop
 					className={styles.panelFeatureVideo}
 					webkit-playsinline="true"
 					playsinline="true">

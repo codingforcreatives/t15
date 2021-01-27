@@ -122,6 +122,8 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 				muted
 				loop="loop"
 				className="splashVideo"
+				webkit-playsinline="true"
+				playsinline="true"
 				ref={(el) => (splashVideo = el)}>
 				Your browser does not support the video tag. I suggest you upgrade your
 				browser

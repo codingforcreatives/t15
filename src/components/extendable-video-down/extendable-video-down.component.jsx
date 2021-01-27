@@ -193,6 +193,8 @@ const ExtendableVideoDown = ({
 					ref={(el) => (videoBack = el)}
 					muted
 					loop="loop"
+					webkit-playsinline="true"
+					playsinline="true"
 					className={styles.extendableVideoBackground}>
 					<source src={S3_BASE_URL + videoName} type="video/mp4" />
 				</video>
