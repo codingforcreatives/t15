@@ -17,13 +17,15 @@
 	width: 100%;
 }
 
+/* This is global for all the skip buttons */
 .skipButtonContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 	position: fixed;
 	bottom: 40px;
-	right: 40px;
 	z-index: 10;
 	height: 50px;
-	width: 150px;
 }
 
 .slider a.previousButton svg,
