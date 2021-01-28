@@ -3,7 +3,7 @@ import './portfolio-panels.styles.css';
 import SkipButton from '../../components/skip-button/skip-button.component';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 
-import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
+import { TweenLite, Power4, TimelineLite } from 'gsap';
 
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
 import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
@@ -227,18 +227,27 @@ const VideoContentPage = () => {
 
 			.to('#txt', 0, { scale: 1.1 }, 'split')
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
-
-			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, {
-				display: 'flex',
-				// flexDirection: myObj['flexDir'],
-				delay: -0.08,
+			.to(glitchContainers, 0.01, {
+				css: {
+					display: 'none',
+					delay: -0.04,
+				},
+				onComplete: showPanels,
 			})
-			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(skipButton, 0.2, {
+				opacity: 0,
+				ease: Power4.easeInOut,
+			})
 			.to(skipButton, 0.2, {
 				display: 'none',
 			});
 	});
+
+	useEffect(() => {
+		if (welcomeComplete) {
+			TweenLite.to(panelContainer, 0.01, { display: 'flex' });
+		}
+	}, [welcomeComplete]);
 
 	return (
 		<div
@@ -274,53 +283,56 @@ const VideoContentPage = () => {
 				</h2>
 			</div>
 
-			<div
-				className="portfolio-panel-container"
-				ref={(el) => (panelContainer = el)}>
-				{arr.map((item) => {
-					if (item.position === 'up') {
-						return (
-							<ExtendableVideoUp
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					} else {
-						return (
-							<ExtendableVideoDown
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					}
-				})}
-			</div>
+			{welcomeComplete ? (
+				<div
+					className="home-panel-container"
+					ref={(el) => (panelContainer = el)}>
+					{arr.map((item) => {
+						if (item.position === 'up') {
+							return (
+								<ExtendableVideoUp
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						} else {
+							return (
+								<ExtendableVideoDown
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						}
+					})}
+				</div>
+			) : (
+				<div />
+			)}
+
 			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
 				<SkipButton onClickMethod={handleSkip} />
 			</div>
