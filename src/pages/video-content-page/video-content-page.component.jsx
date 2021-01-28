@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './portfolio-panels.styles.css';
 import SkipButton from '../../components/skip-button/skip-button.component';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
@@ -114,6 +114,7 @@ Object.keys(serviceCategories).forEach(function (key) {
 });
 
 const VideoContentPage = () => {
+	const [welcomeComplete, setWelcomeComplete] = useState(false);
 	//comment this out later
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
@@ -174,6 +175,10 @@ const VideoContentPage = () => {
 			.to(skipButton, 0.2, {
 				display: 'none',
 			});
+	};
+
+	const showPanels = () => {
+		setWelcomeComplete(true);
 	};
 
 	useEffect(() => {

@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './homepage.styles.css';
-import { Power4, TimelineLite } from 'gsap';
+import { Power4, TimelineLite, TweenLite } from 'gsap';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
 import { BrowserView } from 'react-device-detect';
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
@@ -65,6 +65,8 @@ Object.keys(serviceCategories).forEach(function (key) {
 console.log(arr[0]);
 
 const HomePage = () => {
+	const [welcomeComplete, setWelcomeComplete] = useState(false);
+
 	const { innerWidth: width, innerHeight: height } = window;
 	var totalWindowWidth = window.innerWidth * 0.8;
 	var numPanels = arr.length;
@@ -111,6 +113,9 @@ const HomePage = () => {
 				display: 'none',
 			});
 	};
+	const showPanels = () => {
+		setWelcomeComplete(true);
+	};
 
 	useEffect(() => {
 		tl.to(homepageContainer, 0.2, {
@@ -155,14 +160,27 @@ const HomePage = () => {
 
 			.to('#txt', 0, { scale: 1.1 }, 'split')
 			.to('#txt', 0, { scale: 1 }, '+=0.02')
-
-			.to(glitchContainers, 0.01, { display: 'none', delay: -0.04 })
-			.to(panelContainer, 1, { display: 'flex', delay: -0.08 })
-			.to(skipButton, 1, { opacity: 0, ease: Power4.easeInOut })
+			.to(glitchContainers, 0.01, {
+				css: {
+					display: 'none',
+					delay: -0.04,
+				},
+				onComplete: showPanels,
+			})
+			.to(skipButton, 0.2, {
+				opacity: 0,
+				ease: Power4.easeInOut,
+			})
 			.to(skipButton, 0.2, {
 				display: 'none',
 			});
 	});
+
+	useEffect(() => {
+		if (welcomeComplete) {
+			TweenLite.to(panelContainer, 0.01, { display: 'flex' });
+		}
+	}, [welcomeComplete]);
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
@@ -196,51 +214,55 @@ const HomePage = () => {
 				</h2>
 			</div>
 
-			<div className="home-panel-container" ref={(el) => (panelContainer = el)}>
-				{arr.map((item) => {
-					if (item.position === 'up') {
-						return (
-							<ExtendableVideoUp
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					} else {
-						return (
-							<ExtendableVideoDown
-								key={item.key}
-								panelType={item.panelType}
-								title={item.title}
-								logoName={item.logoName}
-								overlayImageName={item.overlayImageName}
-								videoName={item.videoName}
-								position={item.position}
-								from_X={-60}
-								from_Y={40}
-								delay={calculateDelay(item.key)}
-								prevTimlineDelay={prevTimelineDelay}
-								minPanelWidth={panelMinWidth}
-								maxPanelWidth={panelMaxWidth}
-								linkURL={item.linkURL}
-								expandDuration={2}
-							/>
-						);
-					}
-				})}
-			</div>
+			{welcomeComplete ? (
+				<div
+					className="home-panel-container"
+					ref={(el) => (panelContainer = el)}>
+					{arr.map((item) => {
+						if (item.position === 'up') {
+							return (
+								<ExtendableVideoUp
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						} else {
+							return (
+								<ExtendableVideoDown
+									key={item.key}
+									panelType={item.panelType}
+									title={item.title}
+									logoName={item.logoName}
+									overlayImageName={item.overlayImageName}
+									videoName={item.videoName}
+									position={item.position}
+									from_X={-60}
+									from_Y={40}
+									delay={calculateDelay(item.key)}
+									minPanelWidth={panelMinWidth}
+									maxPanelWidth={panelMaxWidth}
+									linkURL={item.linkURL}
+									expandDuration={2}
+								/>
+							);
+						}
+					})}
+				</div>
+			) : (
+				<div />
+			)}
 			<div className="skipButtonContainer" ref={(el) => (skipButton = el)}>
 				<SkipButton onClickMethod={handleSkip} />
 			</div>

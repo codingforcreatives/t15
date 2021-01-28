@@ -22,7 +22,6 @@ const ExtendableVideoDown = ({
 	from_X,
 	from_Y,
 	delay,
-	prevTimelineDelay,
 	expandDuration,
 	linkURL,
 	history,
