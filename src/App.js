@@ -46,12 +46,15 @@ import PageNotFound from './pages/page-not-found/page-not-found.component';
 // import Navbar from './components/navbar/navbar.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import ScrollToTop from './components/scroll-to-top/scroll-to-top.component';
+
 function App() {
 	return (
 		<div className="App">
 			{/* <HomePage /> */}
 			<div className="router-container">
 				<Navbar />
+				<ScrollToTop />
 				<Switch>
 					<Route exact path="/services" component={HomePage}></Route>
 					<Route exact path="/about" component={AboutUsPage}></Route>
