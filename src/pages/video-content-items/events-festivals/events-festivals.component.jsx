@@ -9,7 +9,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
-
+import { Helmet } from 'react-helmet';
 import { TimelineLite } from 'gsap';
 const styles = require('../video-content.module.css');
 
@@ -101,6 +101,32 @@ const EventsFestivalsPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Event and Festival Videography</title>
+				<meta
+					name="description"
+					content="We love capturing true in-the-moment shots in all types of events- from festivals all the way to corporate business conferences; we have your video and photography covered!"></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Event and Festival Videography"
+				/>
+				<meta
+					property="og:url"
+					content="https://t15media.com/events-festivals"
+				/>
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We love capturing true in-the-moment shots in all types of events- from festivals all the way to corporate business conferences; we have your video and photography covered!"
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>

@@ -8,6 +8,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
+import { Helmet } from 'react-helmet';
 
 import { TimelineLite } from 'gsap';
 const styles = require('../video-content.module.css');
@@ -94,6 +95,26 @@ const DestinationLAPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Destination LA </title>
+				<meta
+					name="description"
+					content="Destination LA is a self-contained format unscripted show that features the hottest businesses around Los Angeles."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta property="og:title" content="T15 Media | Destination LA" />
+				<meta property="og:url" content="https://t15media.com/destination-la" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="Destination LA is a self-contained format unscripted show that features the hottest businesses around Los Angeles."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>

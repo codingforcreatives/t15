@@ -104,7 +104,7 @@ const BrandingPage = () => {
 	return (
 		<>
 			<Helmet>
-				<title>T15 Media | Branding Strategy </title>
+				<title>T15 Media | Branding Strategists </title>
 				<meta
 					name="description"
 					content="With our online strategy workshops, we dig deep to strategise how we can turn  current struggles into an opportunity to take your business online."></meta>

@@ -10,6 +10,7 @@ import ButtonRegular from '../../../components/button-regular/button-regular.com
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 import { TimelineLite } from 'gsap';
+import { Helmet } from 'react-helmet';
 const styles = require('../video-content.module.css');
 
 // POST IDs:
@@ -100,6 +101,26 @@ const ProductPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Product Videography</title>
+				<meta
+					name="description"
+					content="We want to break the stigma that producing product oriented content can’t be fun and exciting. We are true believers that regardless of product, brand or industry, each have a unique story to tell enabling us to approach each piece of content we produce differently than the one before."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta property="og:title" content="T15 Media | Product Videography" />
+				<meta property="og:url" content="https://t15media.com/product" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We want to break the stigma that producing product oriented content can’t be fun and exciting. We are true believers that regardless of product, brand or industry, each have a unique story to tell enabling us to approach each piece of content we produce differently than the one before."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>

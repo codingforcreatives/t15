@@ -9,7 +9,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
-
+import { Helmet } from 'react-helmet';
 import { TimelineLite } from 'gsap';
 const styles = require('../video-content.module.css');
 
@@ -101,6 +101,29 @@ const AppsSoftwarePage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Videos for Apps and Software</title>
+				<meta
+					name="description"
+					content="We work with app developers to create suitable content that adds flair to their user interface. We also create infomercials and promotional content to market the app itself."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Videos for Apps and Software"
+				/>
+				<meta property="og:url" content="https://t15media.com/apps-software" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We work with app developers to create suitable content that adds flair to their user interface. We also create infomercials and promotional content to market the app itself."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>

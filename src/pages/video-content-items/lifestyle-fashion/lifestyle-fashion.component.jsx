@@ -10,6 +10,7 @@ import ButtonRegular from '../../../components/button-regular/button-regular.com
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
 import { TimelineLite } from 'gsap';
+import { Helmet } from 'react-helmet';
 const styles = require('../video-content.module.css');
 
 // POST IDs:
@@ -100,6 +101,32 @@ const LifestyleFashionPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Lifestyle and Fashion Videography</title>
+				<meta
+					name="description"
+					content="We love applying our flair for engaging video and photography to your fashion needs. Whether you need us to curate a promotion for a new product or service, a behind the scenes video, or tell a narrative for your brand- we have you covered."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Lifestyle and Fashion Videography"
+				/>
+				<meta
+					property="og:url"
+					content="https://t15media.com/lifestyle-fashion"
+				/>
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We love applying our flair for engaging video and photography to your fashion needs. Whether you need us to curate a promotion for a new product or service, a behind the scenes video, or tell a narrative for your brand- we have you covered."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>
