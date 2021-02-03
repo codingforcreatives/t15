@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import './portfolio-panels.styles.css';
 import SkipButton from '../../components/skip-button/skip-button.component';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
-
+import { Helmet } from 'react-helmet';
 import { TweenLite, Power4, TimelineLite } from 'gsap';
 
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
@@ -253,6 +253,29 @@ const VideoContentPage = () => {
 		<div
 			ref={(el) => (homepageContainer = el)}
 			className="portfolio-page-container">
+			<Helmet>
+				<title>T15 Media | Content Creation </title>
+				<meta
+					name="description"
+					content="We are specialists in creating videos to market your business. From full in-house production, strategy and creative treatment, or just shooting or editing contact us to see how we can help deliver your video."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Videos for your Socials"
+				/>
+				<meta property="og:url" content="https://t15media.com/video-content" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We are specialists in creating videos to market your business. From full in-house production, strategy and creative treatment, or just shooting or editing contact us to see how we can help deliver your video."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"

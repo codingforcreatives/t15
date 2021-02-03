@@ -8,6 +8,7 @@ import PortfolioIntroductionSection from '../../../components/portfolio-introduc
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
 import { API_URL } from '../../../components/globals';
+import { Helmet } from 'react-helmet';
 
 import { TimelineLite } from 'gsap';
 const styles = require('./branding.module.css');
@@ -102,6 +103,26 @@ const BrandingPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>T15 Media | Branding Strategy </title>
+				<meta
+					name="description"
+					content="With our online strategy workshops, we dig deep to strategise how we can turn  current struggles into an opportunity to take your business online."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta property="og:title" content="T15 Media | Branding Strategists" />
+				<meta property="og:url" content="https://t15media.com/branding" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="With our online strategy workshops, we dig deep to strategise how we can turn  current struggles into an opportunity to take your business online."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div className={styles.outerContainer}>
 				<div className={styles.innerContainer}>
 					<div className={styles.featureVideoContainer}>

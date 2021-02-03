@@ -17,6 +17,7 @@
 		"react-device-detect": "^1.15.0",
 		"react-dom": "^16.13.1",
 		"react-grid-gallery": "^0.5.5",
+		"react-helmet": "^6.1.0",
 		"react-icons": "^4.1.0",
 		"react-image-grid": "^0.3.1",
 		"react-items-carousel": "^2.8.0",

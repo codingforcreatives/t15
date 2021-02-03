@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import './contact-page.style.css';
 import { ReactTypeformEmbed } from 'react-typeform-embed';
 import SkipButton from '../../components/skip-button/skip-button.component';
+import { Helmet } from 'react-helmet';
 
 import { TweenMax, Power3, Power4, TimelineLite } from 'gsap';
 
@@ -236,6 +237,26 @@ const ContactPage = () => {
 		<div
 			ref={(el) => (contactPageContainer = el)}
 			className="contact-page-outer-container">
+			<Helmet>
+				<title>T15 Media | Contact Us</title>
+				<meta
+					name="description"
+					content="If you’d like to find out more about how we can work with you on a project, contact us today and let’s chat."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta property="og:title" content="T15 Media | Contact Us" />
+				<meta property="og:url" content="https://t15media.com/contact" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="If you’d like to find out more about how we can work with you on a project, contact us today and let’s chat."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">

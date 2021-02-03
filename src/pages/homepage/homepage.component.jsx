@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import './homepage.styles.css';
 import { Power4, TimelineLite, TweenLite } from 'gsap';
 import { FILM_STATIC_BG_URL } from '../../components/globals';
-import { BrowserView } from 'react-device-detect';
+import { Helmet } from 'react-helmet';
 import ExtendableVideoDown from '../../components/extendable-video-down/extendable-video-down.component';
 import ExtendableVideoUp from '../../components/extendable-video-up/extendable-video-up.component';
 import SkipButton from '../../components/skip-button/skip-button.component';
@@ -184,6 +184,29 @@ const HomePage = () => {
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="homepage-container">
+			<Helmet>
+				<title>T15 Media | Our Services</title>
+				<meta
+					name="description"
+					content="We curate your marketing strategy through creating powerful visual assets, and then apply them to a custom digital platform.  Have your story be heard in this modern, digital age."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Your Go To Content Creators"
+				/>
+				<meta property="og:url" content="https://t15media.com" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="We curate your marketing strategy through creating powerful visual assets, and then apply them to a custom digital platform.  Have your story be heard in this modern, digital age."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<video
 				ref={(el) => (backgroundVideo = el)}
 				autoPlay="autoPlay"

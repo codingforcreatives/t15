@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './about-us.styles.css';
 import PanelVideo from '../../components/panel-video/panel-video.component';
-
+import { Helmet } from 'react-helmet';
 import StaffExtendablePanel from '../../components/staff-extendable-panel/staff-extendable-panel.component';
 import PortfolioDivider from '../../components/portfolio-divider/portfolio-divider.component';
 import ButtonRegular from '../../components/button-regular/button-regular.component';
@@ -162,6 +162,29 @@ const AboutUsPage = () => {
 
 	return (
 		<div ref={(el) => (homepageContainer = el)} className="about-container">
+			<Helmet>
+				<title>T15 Media | About Us</title>
+				<meta
+					name="description"
+					content="Originating through our roots as a New Zealand based outdoor social platform, we continue to hold an adventurous mindset as we delve into the realm of visual branding and online solutions; working with both small and large brands alike."></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta
+					property="og:title"
+					content="T15 Media | Your Go To Content Creators"
+				/>
+				<meta property="og:url" content="https://t15media.com/about" />
+				<meta
+					property="og:image"
+					content="https://t15-website-assets.s3-ap-southeast-2.amazonaws.com/office.jpg"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:description"
+					content="Originating through our roots as a New Zealand based outdoor social platform, we continue to hold an adventurous mindset as we delve into the realm of visual branding and online solutions; working with both small and large brands alike."
+				/>
+				<meta property="og:locale" content="en_US" />
+				<meta property="og:site_name" content="T15 Media" />
+			</Helmet>
 			<div
 				ref={(el) => (glitchContainers = el)}
 				className="welcome-container glitch top">
