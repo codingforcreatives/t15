@@ -8,6 +8,18 @@
 		float: right;
 		margin: 20px 20px 20px 20px;
 		z-index: 100;
+		display: flex;
+
+		.icons-container {
+			display: flex;
+			align-items: center;
+			margin-right: 24px;
+			margin-top: 5px;
+
+			.social-icons {
+				margin-right: 14px;
+			}
+		}
 	}
 	.still-image {
 		height: 40px;
@@ -20,5 +32,15 @@
 		display: none;
 		// align-items: center;
 		// justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.social-icons {
+		width: 16px !important;
+		margin-right: 8px;
+	}
+	.icons-container {
+		margin-right: 8px !important;
 	}
 }

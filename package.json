@@ -18,7 +18,7 @@
 		"react-dom": "^16.13.1",
 		"react-grid-gallery": "^0.5.5",
 		"react-helmet": "^6.1.0",
-		"react-icons": "^4.1.0",
+		"react-icons": "^4.2.0",
 		"react-image-grid": "^0.3.1",
 		"react-items-carousel": "^2.8.0",
 		"react-native-svg": "^12.1.0",
@@ -30,7 +30,8 @@
 		"react-typeform-embed": "^0.2.1",
 		"redux": "^4.0.5",
 		"redux-logger": "^3.0.6",
-		"scroll-trigger": "^1.0.0"
+		"scroll-trigger": "^1.0.0",
+		"social-media-icons-react": "^1.1.2"
 	},
 	"scripts": {
 		"start": "react-scripts start",
