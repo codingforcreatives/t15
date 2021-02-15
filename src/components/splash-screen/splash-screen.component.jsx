@@ -117,7 +117,7 @@ const SplashScreen = ({ backgroundVideo, history }) => {
 	return (
 		<div className="splash-screen" ref={(el) => (splashContainer = el)}>
 			<video
-				poster={TV_STATIC}
+				// poster={TV_STATIC}
 				autoPlay="autoPlay"
 				muted
 				loop="loop"
