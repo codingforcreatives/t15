@@ -101,7 +101,10 @@ function App() {
 						exact
 						path="/wonderful-places"
 						component={WonderfulPlacesPage}></Route>
-					<Route exact path="/branding" component={BrandingPage}></Route>
+					<Route
+						exact
+						path="/marketing-services"
+						component={BrandingPage}></Route>
 					<Route
 						exact
 						path="/websites-and-apps"

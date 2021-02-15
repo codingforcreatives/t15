@@ -11,12 +11,12 @@ const serviceCategories = {
 	branding: {
 		key: '1',
 		panelType: 'home',
-		title: 'branding',
+		title: 'Marketing',
 		logoName: '',
 		overlayImageName: 'home-assets/branding_cover.jpg',
 		videoName: 'home-assets/branding_cover.mp4',
 		position: 'up',
-		linkURL: 'branding',
+		linkURL: 'marketing-services',
 	},
 	broadcastTV: {
 		key: '2',

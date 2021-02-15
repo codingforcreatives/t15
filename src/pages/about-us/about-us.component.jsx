@@ -208,18 +208,15 @@ const AboutUsPage = () => {
 			</div>
 			<div className="about-introduction-container">
 				<h1 className="about-introduction-title">
-					We Connect Business Owners With Their Audience
+					Connecting you with your audience
 				</h1>
 				<p className="about-introduction-text">
-					T15 Media is a digital agency that specializes in helping brands
-					transition digitally online. Ultimately, we curate your marketing
-					strategy through creating powerful visual assets, and then apply them
-					to a custom digital platform. We help brands have their story heard in
-					the modern digital age.
-					<br /> Originating through our roots as Tripper Society, New Zealand
-					based outdoor social platform, we continue to hold an adventurous
-					mindset as we delve into the realm of visual branding and online
-					solutions; working with both small and large brands alike.
+					We started our journey as Tripper Society, a group of friends with the
+					same passion - travelling to unique places around New Zealand and
+					filming our adventures. We realised that video is a powerful
+					storytelling tool and we turned our passion into our mission - to help
+					businesses grow by telling their stories in the most creative way
+					possible.
 				</p>
 			</div>
 			<div className="office-image" ref={(el) => (parallaxOfficeImage = el)}>

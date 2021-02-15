@@ -42,8 +42,8 @@ const MenuContents = ({ setMenuState }) => {
 			delay: 2,
 		},
 		{
-			title: 'Branding',
-			path: '/branding',
+			title: 'Marketing Services',
+			path: '/marketing-services',
 			videoName: 'home-assets/branding_cover.mp4',
 			cName: 'nav-text',
 			key: 5,

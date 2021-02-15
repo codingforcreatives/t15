@@ -4,6 +4,7 @@ import axios from 'axios';
 import PanelVideo from '../../../components/panel-video/panel-video.component';
 import PortfolioDivider from '../../../components/portfolio-divider/portfolio-divider.component';
 import PortfolioGallerySection from '../../../components/portfolio-gallery-section/portfolio-gallery-section.component';
+import PortfolioItemSection from '../../../components/portfolio-item-section/portfolio-item-section.component';
 import PortfolioIntroductionSection from '../../../components/portfolio-introduction-section/portfolio-introduction-section.component';
 import ButtonRegular from '../../../components/button-regular/button-regular.component';
 import LoadingBar from '../../../components/loading-bar/loading-bar.component';
@@ -104,7 +105,7 @@ const BrandingPage = () => {
 	return (
 		<>
 			<Helmet>
-				<title>T15 Media | Branding Strategists </title>
+				<title>T15 Media | Marketing Strategists </title>
 				<meta
 					name="description"
 					content="With our online strategy workshops, we dig deep to strategise how we can turn  current struggles into an opportunity to take your business online."></meta>
@@ -139,9 +140,15 @@ const BrandingPage = () => {
 								backText="all services"
 								backRoute="/services"></PortfolioIntroductionSection>
 							<PortfolioDivider />
-
+							<PortfolioItemSection item={item1}></PortfolioItemSection>
 							<PortfolioGallerySection
 								item={item1.gallery}></PortfolioGallerySection>
+
+							<PortfolioDivider />
+							<PortfolioItemSection item={item2}></PortfolioItemSection>
+
+							<PortfolioDivider />
+							<PortfolioItemSection item={item3}></PortfolioItemSection>
 						</>
 					) : (
 						<LoadingBar />
