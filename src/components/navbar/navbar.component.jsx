@@ -56,7 +56,6 @@ function Navbar() {
 						size: '24px',
 					}}>
 					<div className="icons-container" ref={(el) => (socialIcons = el)}>
-						<></>
 						<a href="https://www.instagram.com/t15_media/" target="_blank">
 							<FaInstagram />
 						</a>

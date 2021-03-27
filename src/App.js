@@ -46,6 +46,9 @@ import PageNotFound from './pages/page-not-found/page-not-found.component';
 // import Navbar from './components/navbar/navbar.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+// Lading Pages
+import SuperSpeed from './pages/landing-pages/super-speed.component';
+
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.component';
 
 function App() {
@@ -109,6 +112,7 @@ function App() {
 						exact
 						path="/websites-and-apps"
 						component={WebsiteAppPage}></Route>
+					<Route exact path="/super-speed" component={SuperSpeed}></Route>
 					<Route path="*" component={PageNotFound} />
 				</Switch>
 			</div>
