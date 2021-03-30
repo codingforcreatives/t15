@@ -25,7 +25,7 @@ const SuperSpeed = () => {
 	// });
 	return (
 		<div className="landing-page-container">
-			<iframe src="https://shwellness.kartra.com/page/gutresults"></iframe>
+			<iframe src="https://mailchi.mp/t15media/hero?fbclid=IwAR3uBBf-wkawAfzPkz_1LXpBASKIAGWKU5TnrVGeayILx3c2rconTpzAdHA"></iframe>
 		</div>
 	);
 };
