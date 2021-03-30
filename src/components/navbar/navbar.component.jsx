@@ -64,7 +64,7 @@ function Navbar() {
 							target="_blank">
 							<FaYoutube />
 						</a>
-						<a href="https://www.facebook.com/T15Productions/" target="_blank">
+						<a href="https://www.facebook.com/T15Media" target="_blank">
 							<FaFacebook />
 						</a>
 					</div>
