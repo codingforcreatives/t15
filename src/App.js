@@ -48,6 +48,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Lading Pages
 import SuperSpeed from './pages/landing-pages/super-speed.component';
+import BrightHero from './pages/landing-pages/bright-hero.component';
 
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.component';
 
@@ -113,6 +114,7 @@ function App() {
 						path="/websites-and-apps"
 						component={WebsiteAppPage}></Route>
 					<Route exact path="/super-speed" component={SuperSpeed}></Route>
+					<Route exact path="/bright-hero" component={BrightHero}></Route>
 					<Route path="*" component={PageNotFound} />
 				</Switch>
 			</div>
